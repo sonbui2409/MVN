@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+  
+<suite name="Suite_demo" verbose="1" >
+  <test name="Demo_Chrome" >
+    <!-- input parameter to input value of browser if_else -->
+    <!-- <parameter name="browser"  value="Chrome"/> -->
+    <classes>
+    	<!-- input name of class that will be executed -->
+       <class name="Exercisemvn.Testcase_login" />
+    </classes>
+  </test>
+</suite>
