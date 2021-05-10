@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public abstract class manage_driver {
+public class manage_driver {
 	static WebDriver driver;
 	@BeforeTest
 	//@Parameters({ "browser" })
