@@ -8,12 +8,12 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class manage_driver {
+public abstract class manage_driver {
 	static WebDriver driver;
-
 	@BeforeTest
 	//@Parameters({ "browser" })
 
