@@ -15,17 +15,16 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class manage_driver {
 	static WebDriver driver;
 	@BeforeTest
-	//@Parameters({ "browser" })
-
-	public void driver_open() {
-		//browser = browser.toLowerCase(); 
-		//if (browser.equalsIgnoreCase("chrome")) {
+	@Parameters({ "browser" })
+	public void driver_open(String browser) {
+		browser = browser.toLowerCase(); 
+		if (browser.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
-		//} else if (browser.equalsIgnoreCase("firefox")) {
-			//WebDriverManager.firefoxdriver().setup();
-			//driver = new FirefoxDriver();
-		//}
+		} else if (browser.equalsIgnoreCase("firefox")) {
+			WebDriverManager.firefoxdriver().setup();
+			driver = new FirefoxDriver();
+		}
 
 		driver.manage().window().maximize();
 	}

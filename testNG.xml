@@ -3,10 +3,20 @@
 <suite name="Suite_demo" verbose="1" >
   <test name="Demo_Chrome" >
     <!-- input parameter to input value of browser if_else -->
-    <!-- <parameter name="browser"  value="Chrome"/> -->
+    <parameter name="browser"  value="Chrome"/>
     <classes>
     	<!-- input name of class that will be executed -->
        <class name="Exercisemvn.Testcase_login" />
+       <class name="Exercisemvn.Testcase_Inventory" />
+    </classes>
+  </test>
+   <test name="Demo_Firefox" >
+    <!-- input parameter to input value of browser if_else -->
+    <parameter name="browser"  value="Firefox"/>
+    <classes>
+    	<!-- input name of class that will be executed -->
+       <class name="Exercisemvn.Testcase_login" />
+       <class name="Exercisemvn.Testcase_Inventory" />
     </classes>
   </test>
 </suite>

@@ -8,47 +8,29 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">3,861</td><td></td><td></td></tr>
+<tr><th colspan="8">Suite_demo</th></tr>
+<tr><td><a href="#t0">Demo_Chrome</a></td><td class="num">8</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">114,503</td><td></td><td></td></tr>
+<tr class="stripe"><td><a href="#t1">Demo_Firefox</a></td><td class="num">8</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">127,863</td><td></td><td></td></tr>
+<tr><th>Total</th><th class="num">16</th><th class="num">0</th><th class="num">0</th><th class="num">0</th><th class="num">242,366</th><th colspan="2"></th></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">Exercisemvn.Testcase_login</td><td><a href="#m0">login_Standard</a></td><td rowspan="1">1620629876614</td><td rowspan="1">1477</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite_demo</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Demo_Chrome &#8212; passed</th></tr><tr class="passedeven"><td rowspan="5">Exercisemvn.Testcase_Inventory</td><td><a href="#m0">About</a></td><td rowspan="1">1620672187532</td><td rowspan="1">16005</td></tr><tr class="passedeven"><td><a href="#m1">Check_cart_number</a></td><td rowspan="1">1620672219080</td><td rowspan="1">21294</td></tr><tr class="passedeven"><td><a href="#m2">all_item</a></td><td rowspan="1">1620672203538</td><td rowspan="1">15541</td></tr><tr class="passedeven"><td><a href="#m3">buy_an_item</a></td><td rowspan="1">1620672165727</td><td rowspan="1">21804</td></tr><tr class="passedeven"><td><a href="#m4">logout</a></td><td rowspan="1">1620672240375</td><td rowspan="1">9288</td></tr><tr class="passedodd"><td rowspan="3">Exercisemvn.Testcase_login</td><td><a href="#m5">login_Standard</a></td><td rowspan="1">1620672137226</td><td rowspan="1">9878</td></tr><tr class="passedodd"><td><a href="#m6">login_failure</a></td><td rowspan="1">1620672147107</td><td rowspan="1">6207</td></tr><tr class="passedodd"><td><a href="#m7">login_problem</a></td><td rowspan="1">1620672153315</td><td rowspan="1">12412</td></tr></tbody>
+<tbody id="t1"><tr><th colspan="4">Demo_Firefox &#8212; passed</th></tr><tr class="passedeven"><td rowspan="5">Exercisemvn.Testcase_Inventory</td><td><a href="#m8">About</a></td><td rowspan="1">1620672312685</td><td rowspan="1">16606</td></tr><tr class="passedeven"><td><a href="#m9">Check_cart_number</a></td><td rowspan="1">1620672345279</td><td rowspan="1">22317</td></tr><tr class="passedeven"><td><a href="#m10">all_item</a></td><td rowspan="1">1620672329292</td><td rowspan="1">15987</td></tr><tr class="passedeven"><td><a href="#m11">buy_an_item</a></td><td rowspan="1">1620672290037</td><td rowspan="1">22647</td></tr><tr class="passedeven"><td><a href="#m12">logout</a></td><td rowspan="1">1620672367597</td><td rowspan="1">9771</td></tr><tr class="passedodd"><td rowspan="3">Exercisemvn.Testcase_login</td><td><a href="#m13">login_Standard</a></td><td rowspan="1">1620672260377</td><td rowspan="1">10252</td></tr><tr class="passedodd"><td><a href="#m14">login_failure</a></td><td rowspan="1">1620672270630</td><td rowspan="1">6290</td></tr><tr class="passedodd"><td><a href="#m15">login_problem</a></td><td rowspan="1">1620672276921</td><td rowspan="1">13115</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">Exercisemvn.Testcase_login#login_Standard</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [Products] but found [PRODUCTS]
-	at org.testng.Assert.fail(Assert.java:99)
-	at org.testng.Assert.failNotEquals(Assert.java:1037)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
-	at org.testng.Assert.assertEquals(Assert.java:122)
-	at org.testng.Assert.assertEquals(Assert.java:629)
-	at org.testng.Assert.assertEquals(Assert.java:639)
-	at Exercisemvn.Testcase_login.login_Standard(Testcase_login.java:27)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:132)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:599)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:174)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:822)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:147)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(ArrayList.java:1259)
-	at org.testng.TestRunner.privateRun(TestRunner.java:764)
-	at org.testng.TestRunner.run(TestRunner.java:585)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1218)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
-	at org.testng.TestNG.runSuites(TestNG.java:1069)
-	at org.testng.TestNG.run(TestNG.java:1037)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Demo_Chrome</h2><h3 id="m0">Exercisemvn.Testcase_Inventory#About</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">Exercisemvn.Testcase_Inventory#Check_cart_number</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">Exercisemvn.Testcase_Inventory#all_item</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">Exercisemvn.Testcase_Inventory#buy_an_item</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">Exercisemvn.Testcase_Inventory#logout</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">Exercisemvn.Testcase_login#login_Standard</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m6">Exercisemvn.Testcase_login#login_failure</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m7">Exercisemvn.Testcase_login#login_problem</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Demo_Firefox</h2><h3 id="m8">Exercisemvn.Testcase_Inventory#About</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m9">Exercisemvn.Testcase_Inventory#Check_cart_number</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m10">Exercisemvn.Testcase_Inventory#all_item</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m11">Exercisemvn.Testcase_Inventory#buy_an_item</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m12">Exercisemvn.Testcase_Inventory#logout</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m13">Exercisemvn.Testcase_login#login_Standard</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m14">Exercisemvn.Testcase_login#login_failure</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m15">Exercisemvn.Testcase_login#login_problem</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>
