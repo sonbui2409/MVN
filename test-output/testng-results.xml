@@ -1,35 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="4" total="20" passed="16">
+<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite_demo" duration-ms="242787" started-at="2021-05-11T01:42:15 ICT" finished-at="2021-05-11T01:46:18 ICT">
+  <suite name="Suite_demo" duration-ms="87186" started-at="2021-05-13T00:09:07 ICT" finished-at="2021-05-13T00:10:34 ICT">
     <groups>
     </groups>
-    <test name="Demo_Chrome" duration-ms="114503" started-at="2021-05-11T01:42:15 ICT" finished-at="2021-05-11T01:44:09 ICT">
-      <class name="Exercisemvn.Testcase_Inventory">
-        <test-method status="PASS" signature="buy_an_item()[pri:1, instance:Exercisemvn.Testcase_Inventory@5a1c0542]" name="buy_an_item" duration-ms="21804" started-at="2021-05-11T01:42:45 ICT" finished-at="2021-05-11T01:43:07 ICT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- buy_an_item -->
-        <test-method status="PASS" signature="About()[pri:2, instance:Exercisemvn.Testcase_Inventory@5a1c0542]" name="About" duration-ms="16005" started-at="2021-05-11T01:43:07 ICT" finished-at="2021-05-11T01:43:23 ICT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- About -->
-        <test-method status="PASS" signature="all_item()[pri:2, instance:Exercisemvn.Testcase_Inventory@5a1c0542]" name="all_item" duration-ms="15541" started-at="2021-05-11T01:43:23 ICT" finished-at="2021-05-11T01:43:39 ICT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- all_item -->
-        <test-method status="PASS" signature="Check_cart_number()[pri:3, instance:Exercisemvn.Testcase_Inventory@5a1c0542]" name="Check_cart_number" duration-ms="21294" started-at="2021-05-11T01:43:39 ICT" finished-at="2021-05-11T01:44:00 ICT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Check_cart_number -->
-        <test-method status="PASS" signature="logout()[pri:4, instance:Exercisemvn.Testcase_Inventory@5a1c0542]" name="logout" duration-ms="9288" started-at="2021-05-11T01:44:00 ICT" finished-at="2021-05-11T01:44:09 ICT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logout -->
-      </class> <!-- Exercisemvn.Testcase_Inventory -->
-      <class name="Exercisemvn.Testcase_login">
-        <test-method status="PASS" signature="driver_open(java.lang.String)[pri:0, instance:Exercisemvn.Testcase_login@1f7030a6]" name="driver_open" is-config="true" duration-ms="1968" started-at="2021-05-11T01:42:15 ICT" finished-at="2021-05-11T01:42:17 ICT">
+    <test name="Demo_Chrome" duration-ms="87186" started-at="2021-05-13T00:09:07 ICT" finished-at="2021-05-13T00:10:34 ICT">
+      <class name="ExercisemvnTestcase.Testcase_Inventory">
+        <test-method status="PASS" signature="driver_open(java.lang.String)[pri:0, instance:ExercisemvnTestcase.Testcase_Inventory@1d29cf23]" name="driver_open" is-config="true" duration-ms="2004" started-at="2021-05-13T00:09:07 ICT" finished-at="2021-05-13T00:09:09 ICT">
           <params>
             <param index="0">
               <value>
@@ -40,76 +18,31 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- driver_open -->
-        <test-method status="PASS" signature="login_Standard()[pri:1, instance:Exercisemvn.Testcase_login@1f7030a6]" name="login_Standard" duration-ms="9878" started-at="2021-05-11T01:42:17 ICT" finished-at="2021-05-11T01:42:27 ICT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login_Standard -->
-        <test-method status="PASS" signature="login_failure()[pri:2, instance:Exercisemvn.Testcase_login@1f7030a6]" name="login_failure" duration-ms="6207" started-at="2021-05-11T01:42:27 ICT" finished-at="2021-05-11T01:42:33 ICT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login_failure -->
-        <test-method status="PASS" signature="login_problem()[pri:2, instance:Exercisemvn.Testcase_login@1f7030a6]" name="login_problem" duration-ms="12412" started-at="2021-05-11T01:42:33 ICT" finished-at="2021-05-11T01:42:45 ICT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login_problem -->
-        <test-method status="PASS" signature="driver_quit()[pri:0, instance:Exercisemvn.Testcase_login@1f7030a6]" name="driver_quit" is-config="true" duration-ms="77" started-at="2021-05-11T01:44:09 ICT" finished-at="2021-05-11T01:44:09 ICT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- driver_quit -->
-      </class> <!-- Exercisemvn.Testcase_login -->
-    </test> <!-- Demo_Chrome -->
-    <test name="Demo_Firefox" duration-ms="127863" started-at="2021-05-11T01:44:10 ICT" finished-at="2021-05-11T01:46:18 ICT">
-      <class name="Exercisemvn.Testcase_Inventory">
-        <test-method status="PASS" signature="buy_an_item()[pri:1, instance:Exercisemvn.Testcase_Inventory@30a3107a]" name="buy_an_item" duration-ms="22647" started-at="2021-05-11T01:44:50 ICT" finished-at="2021-05-11T01:45:12 ICT">
+        <test-method status="PASS" signature="buy_an_item()[pri:1, instance:ExercisemvnTestcase.Testcase_Inventory@1d29cf23]" name="buy_an_item" duration-ms="22420" started-at="2021-05-13T00:09:09 ICT" finished-at="2021-05-13T00:09:32 ICT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- buy_an_item -->
-        <test-method status="PASS" signature="About()[pri:2, instance:Exercisemvn.Testcase_Inventory@30a3107a]" name="About" duration-ms="16606" started-at="2021-05-11T01:45:12 ICT" finished-at="2021-05-11T01:45:29 ICT">
+        <test-method status="PASS" signature="About()[pri:2, instance:ExercisemvnTestcase.Testcase_Inventory@1d29cf23]" name="About" duration-ms="16287" started-at="2021-05-13T00:09:32 ICT" finished-at="2021-05-13T00:09:48 ICT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- About -->
-        <test-method status="PASS" signature="all_item()[pri:2, instance:Exercisemvn.Testcase_Inventory@30a3107a]" name="all_item" duration-ms="15987" started-at="2021-05-11T01:45:29 ICT" finished-at="2021-05-11T01:45:45 ICT">
+        <test-method status="PASS" signature="all_item()[pri:2, instance:ExercisemvnTestcase.Testcase_Inventory@1d29cf23]" name="all_item" duration-ms="15533" started-at="2021-05-13T00:09:48 ICT" finished-at="2021-05-13T00:10:04 ICT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- all_item -->
-        <test-method status="PASS" signature="Check_cart_number()[pri:3, instance:Exercisemvn.Testcase_Inventory@30a3107a]" name="Check_cart_number" duration-ms="22317" started-at="2021-05-11T01:45:45 ICT" finished-at="2021-05-11T01:46:07 ICT">
+        <test-method status="PASS" signature="Check_cart_number()[pri:3, instance:ExercisemvnTestcase.Testcase_Inventory@1d29cf23]" name="Check_cart_number" duration-ms="21460" started-at="2021-05-13T00:10:04 ICT" finished-at="2021-05-13T00:10:25 ICT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Check_cart_number -->
-        <test-method status="PASS" signature="logout()[pri:4, instance:Exercisemvn.Testcase_Inventory@30a3107a]" name="logout" duration-ms="9771" started-at="2021-05-11T01:46:07 ICT" finished-at="2021-05-11T01:46:17 ICT">
+        <test-method status="PASS" signature="logout()[pri:4, instance:ExercisemvnTestcase.Testcase_Inventory@1d29cf23]" name="logout" duration-ms="9297" started-at="2021-05-13T00:10:25 ICT" finished-at="2021-05-13T00:10:34 ICT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logout -->
-      </class> <!-- Exercisemvn.Testcase_Inventory -->
-      <class name="Exercisemvn.Testcase_login">
-        <test-method status="PASS" signature="driver_open(java.lang.String)[pri:0, instance:Exercisemvn.Testcase_login@2bbf4b8b]" name="driver_open" is-config="true" duration-ms="10214" started-at="2021-05-11T01:44:10 ICT" finished-at="2021-05-11T01:44:20 ICT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Firefox]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- driver_open -->
-        <test-method status="PASS" signature="login_Standard()[pri:1, instance:Exercisemvn.Testcase_login@2bbf4b8b]" name="login_Standard" duration-ms="10252" started-at="2021-05-11T01:44:20 ICT" finished-at="2021-05-11T01:44:30 ICT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login_Standard -->
-        <test-method status="PASS" signature="login_failure()[pri:2, instance:Exercisemvn.Testcase_login@2bbf4b8b]" name="login_failure" duration-ms="6290" started-at="2021-05-11T01:44:30 ICT" finished-at="2021-05-11T01:44:36 ICT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login_failure -->
-        <test-method status="PASS" signature="login_problem()[pri:2, instance:Exercisemvn.Testcase_login@2bbf4b8b]" name="login_problem" duration-ms="13115" started-at="2021-05-11T01:44:36 ICT" finished-at="2021-05-11T01:44:50 ICT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login_problem -->
-        <test-method status="PASS" signature="driver_quit()[pri:0, instance:Exercisemvn.Testcase_login@2bbf4b8b]" name="driver_quit" is-config="true" duration-ms="656" started-at="2021-05-11T01:46:17 ICT" finished-at="2021-05-11T01:46:18 ICT">
+        <test-method status="PASS" signature="driver_quit()[pri:0, instance:ExercisemvnTestcase.Testcase_Inventory@1d29cf23]" name="driver_quit" is-config="true" duration-ms="159" started-at="2021-05-13T00:10:34 ICT" finished-at="2021-05-13T00:10:34 ICT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- driver_quit -->
-      </class> <!-- Exercisemvn.Testcase_login -->
-    </test> <!-- Demo_Firefox -->
+      </class> <!-- ExercisemvnTestcase.Testcase_Inventory -->
+    </test> <!-- Demo_Chrome -->
   </suite> <!-- Suite_demo -->
 </testng-results>

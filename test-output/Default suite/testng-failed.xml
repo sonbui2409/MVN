@@ -3,14 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Exercisemvn.Testcase_login">
+      <class name="ExercisemvnTestcase.Testcase_login">
         <methods>
+          <include name="initmethod"/>
+          <include name="driver_open"/>
           <include name="driver_quit"/>
           <include name="login_Standard"/>
-          <include name="login_problem"/>
-          <include name="driver_open"/>
         </methods>
-      </class> <!-- Exercisemvn.Testcase_login -->
+      </class> <!-- ExercisemvnTestcase.Testcase_login -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

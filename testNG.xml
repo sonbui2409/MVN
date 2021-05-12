@@ -6,17 +6,17 @@
     <parameter name="browser"  value="Chrome"/>
     <classes>
     	<!-- input name of class that will be executed -->
-       <class name="Exercisemvn.Testcase_login" />
-       <class name="Exercisemvn.Testcase_Inventory" />
+       <!-- <class name="ExercisemvnTestcase.Testcase_login" /> -->
+       <class name="ExercisemvnTestcase.Testcase_Inventory" />
     </classes>
   </test>
-   <test name="Demo_Firefox" >
-    <!-- input parameter to input value of browser if_else -->
+   <!-- <test name="Demo_Firefox" >
+    input parameter to input value of browser if_else
     <parameter name="browser"  value="Firefox"/>
     <classes>
-    	<!-- input name of class that will be executed -->
-       <class name="Exercisemvn.Testcase_login" />
-       <class name="Exercisemvn.Testcase_Inventory" />
+    	input name of class that will be executed
+       <class name="ExercisemvnTestcase.Testcase_login" />
+       <class name="ExercisemvnTestcase.Testcase_Inventory" />
     </classes>
-  </test>
+  </test> -->
 </suite>
