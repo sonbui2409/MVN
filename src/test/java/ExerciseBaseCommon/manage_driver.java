@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
@@ -29,11 +30,15 @@ public class manage_driver {
 	protected String buyitem = "//button[contains (@name,'%s')]";
 	protected BaseActions mymethod = new BaseActions();
 	protected SoftAssert softAssert = new SoftAssert();
+	protected WebDriverWait wait;
+	//protected WebDriverWait wait = new WebDriverWait(driver, 5);
 	
 	//@BeforeMethod
 	//public void initmethod() {
 		//mymethod = new BaseActions();
 	//}
+	
+	
 	public void sleep_3() {
 		try {
 			Thread.sleep(3000);
@@ -70,7 +75,7 @@ public class manage_driver {
 	
 	@BeforeTest
 	@Parameters({ "browser" })
-	public void driver_open(String browser) { //String browser
+	public void driver_open(String browser) {
 		browser = browser.toLowerCase(); 
 		if (browser.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
@@ -81,6 +86,7 @@ public class manage_driver {
 		}
 
 		driver.manage().window().maximize();
+		wait = new WebDriverWait(driver, 5);
 
 	}
 
@@ -88,6 +94,7 @@ public class manage_driver {
 	public void driver_quit() {
 		driver.close();
 		softAssert.assertAll();
+	
 
 	}
 }

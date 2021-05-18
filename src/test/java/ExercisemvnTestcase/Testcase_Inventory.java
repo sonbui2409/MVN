@@ -2,6 +2,7 @@ package ExercisemvnTestcase;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -97,12 +98,14 @@ public class Testcase_Inventory extends manage_driver {
 	}
 	@Test (priority = 2)
 	public void all_item() {
+		log_in();
 		mymethod.GotoURL(driver, urlogin);
-		sleep_3();
+		//sleep_3();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(badgelink)));
 		mymethod.ClickXpath(driver, badgelink);
-		sleep_3();
 		open_menu();
-		sleep_3();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@id = 'inventory_sidebar_link']")));
+		//sleep_3();
 		mymethod.GetTextEqual(driver, "//a[@id = 'inventory_sidebar_link']", "All Items");
 		mymethod.ClickXpath(driver, "//a[@id = 'inventory_sidebar_link']");
 		sleep_3();
