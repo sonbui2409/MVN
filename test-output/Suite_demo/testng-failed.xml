@@ -6,9 +6,9 @@
     <classes>
       <class name="ExercisemvnTestcase.Testcase_Inventory">
         <methods>
-          <include name="buy_an_item"/>
           <include name="driver_open"/>
           <include name="driver_quit"/>
+          <include name="About"/>
         </methods>
       </class> <!-- ExercisemvnTestcase.Testcase_Inventory -->
     </classes>

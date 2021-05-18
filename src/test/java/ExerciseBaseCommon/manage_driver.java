@@ -30,7 +30,7 @@ public class manage_driver {
 	protected String buyitem = "//button[contains (@name,'%s')]";
 	protected BaseActions mymethod = new BaseActions();
 	protected SoftAssert softAssert = new SoftAssert();
-	protected WebDriverWait wait;
+	protected static WebDriverWait wait;
 	//protected WebDriverWait wait = new WebDriverWait(driver, 5);
 	
 	//@BeforeMethod

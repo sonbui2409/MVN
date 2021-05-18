@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite_demo" duration-ms="87186" started-at="2021-05-13T00:09:07 ICT" finished-at="2021-05-13T00:10:34 ICT">
+  <suite name="Suite_demo" duration-ms="5760" started-at="2021-05-18T18:38:39 ICT" finished-at="2021-05-18T18:38:44 ICT">
     <groups>
     </groups>
-    <test name="Demo_Chrome" duration-ms="87186" started-at="2021-05-13T00:09:07 ICT" finished-at="2021-05-13T00:10:34 ICT">
-      <class name="ExercisemvnTestcase.Testcase_Inventory">
-        <test-method status="PASS" signature="driver_open(java.lang.String)[pri:0, instance:ExercisemvnTestcase.Testcase_Inventory@1d29cf23]" name="driver_open" is-config="true" duration-ms="2004" started-at="2021-05-13T00:09:07 ICT" finished-at="2021-05-13T00:09:09 ICT">
+    <test name="Demo_Chrome" duration-ms="5760" started-at="2021-05-18T18:38:39 ICT" finished-at="2021-05-18T18:38:44 ICT">
+      <class name="ExercisemvnTestcase.Demo_Wait">
+        <test-method status="PASS" signature="driver_open(java.lang.String)[pri:0, instance:ExercisemvnTestcase.Demo_Wait@1d29cf23]" name="driver_open" is-config="true" duration-ms="2337" started-at="2021-05-18T18:38:39 ICT" finished-at="2021-05-18T18:38:41 ICT">
           <params>
             <param index="0">
               <value>
@@ -18,31 +18,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- driver_open -->
-        <test-method status="PASS" signature="buy_an_item()[pri:1, instance:ExercisemvnTestcase.Testcase_Inventory@1d29cf23]" name="buy_an_item" duration-ms="22420" started-at="2021-05-13T00:09:09 ICT" finished-at="2021-05-13T00:09:32 ICT">
+        <test-method status="PASS" signature="excersie()[pri:0, instance:ExercisemvnTestcase.Demo_Wait@1d29cf23]" name="excersie" duration-ms="3299" started-at="2021-05-18T18:38:41 ICT" finished-at="2021-05-18T18:38:44 ICT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- buy_an_item -->
-        <test-method status="PASS" signature="About()[pri:2, instance:ExercisemvnTestcase.Testcase_Inventory@1d29cf23]" name="About" duration-ms="16287" started-at="2021-05-13T00:09:32 ICT" finished-at="2021-05-13T00:09:48 ICT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- About -->
-        <test-method status="PASS" signature="all_item()[pri:2, instance:ExercisemvnTestcase.Testcase_Inventory@1d29cf23]" name="all_item" duration-ms="15533" started-at="2021-05-13T00:09:48 ICT" finished-at="2021-05-13T00:10:04 ICT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- all_item -->
-        <test-method status="PASS" signature="Check_cart_number()[pri:3, instance:ExercisemvnTestcase.Testcase_Inventory@1d29cf23]" name="Check_cart_number" duration-ms="21460" started-at="2021-05-13T00:10:04 ICT" finished-at="2021-05-13T00:10:25 ICT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Check_cart_number -->
-        <test-method status="PASS" signature="logout()[pri:4, instance:ExercisemvnTestcase.Testcase_Inventory@1d29cf23]" name="logout" duration-ms="9297" started-at="2021-05-13T00:10:25 ICT" finished-at="2021-05-13T00:10:34 ICT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logout -->
-        <test-method status="PASS" signature="driver_quit()[pri:0, instance:ExercisemvnTestcase.Testcase_Inventory@1d29cf23]" name="driver_quit" is-config="true" duration-ms="159" started-at="2021-05-13T00:10:34 ICT" finished-at="2021-05-13T00:10:34 ICT">
+        </test-method> <!-- excersie -->
+        <test-method status="PASS" signature="driver_quit()[pri:0, instance:ExercisemvnTestcase.Demo_Wait@1d29cf23]" name="driver_quit" is-config="true" duration-ms="98" started-at="2021-05-18T18:38:44 ICT" finished-at="2021-05-18T18:38:44 ICT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- driver_quit -->
-      </class> <!-- ExercisemvnTestcase.Testcase_Inventory -->
+      </class> <!-- ExercisemvnTestcase.Demo_Wait -->
     </test> <!-- Demo_Chrome -->
   </suite> <!-- Suite_demo -->
 </testng-results>

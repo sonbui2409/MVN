@@ -39,6 +39,35 @@ public class Testcase_Inventory extends manage_driver {
 		mymethod.GetTextEqual(driver, "//h2[@class='complete-header']", "THANK YOU FOR YOUR ORDER");
 		sleep_3();
 	}
+	@Test (priority = 2)
+	public void About() {
+		mymethod.GotoURL(driver, urlogin);
+		sleep_3();
+		open_menu();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@id = 'about_sidebar_link']")));
+		//sleep_3();
+		mymethod.GetTextEqual(driver, "//a[@id = 'about_sidebar_link']", "about");
+		mymethod.ClickXpath(driver, "//a[@id = 'about_sidebar_link']");
+		driver.getCurrentUrl().equalsIgnoreCase("https://saucelabs.com/");
+		sleep_3();
+		
+	}
+	@Test (priority = 2)
+	public void all_item() {
+		mymethod.GotoURL(driver, urlogin);
+		//sleep_3();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(badgelink)));
+		mymethod.ClickXpath(driver, badgelink);
+		open_menu();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@id = 'inventory_sidebar_link']")));
+		//sleep_3();
+		mymethod.GetTextEqual(driver, "//a[@id = 'inventory_sidebar_link']", "All Items");
+		mymethod.ClickXpath(driver, "//a[@id = 'inventory_sidebar_link']");
+		sleep_3();
+		mymethod.GetTextEqual(driver, pagetitle, "products");
+		sleep_3();
+	}
+	
 	@Test (priority = 3)
 	public void Check_cart_number() {
 		mymethod.GotoURL(driver, urlogin);
@@ -63,53 +92,17 @@ public class Testcase_Inventory extends manage_driver {
 		sleep_3();
 		mymethod.GetTextEqual(driver, badgeno, "2");
 	}
-	@Test (priority = 2)
-	public void About() {
-		mymethod.GotoURL(driver, urlogin);
-		sleep_3();
-		open_menu();
-		sleep_3();
-		mymethod.GetTextEqual(driver, "//a[@id = 'about_sidebar_link']", "about");
-		mymethod.ClickXpath(driver, "//a[@id = 'about_sidebar_link']");
-		driver.getCurrentUrl().equalsIgnoreCase("https://saucelabs.com/");
-		sleep_3();
-		
-	}
+	
 	@Test (priority = 4)
 	public void logout() {
-		/*driver.get(urlogin);
-		sleep_3();
-		open_menu();
-		sleep_3();
-		WebElement logout = driver.findElement(By.id("logout_sidebar_link"));
-		logout.getText().equalsIgnoreCase("logout");
-		logout.click();
-		sleep_3();
-		WebElement loginbut = driver.findElement(By.xpath(login));
-		Assert.assertTrue(loginbut.isDisplayed());*/
 		mymethod.GotoURL(driver, urlogin);
 		sleep_3();
 		open_menu();
-		sleep_3();
+		//sleep_3();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@id = 'logout_sidebar_link']")));
 		mymethod.GetTextEqual(driver, "//a[@id = 'logout_sidebar_link']", "logout");
 		mymethod.ClickId(driver, "logout_sidebar_link");
 		sleep_3();
 		mymethod.sAssertDisplay(softAssert, driver, login);
-	}
-	@Test (priority = 2)
-	public void all_item() {
-		log_in();
-		mymethod.GotoURL(driver, urlogin);
-		//sleep_3();
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(badgelink)));
-		mymethod.ClickXpath(driver, badgelink);
-		open_menu();
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@id = 'inventory_sidebar_link']")));
-		//sleep_3();
-		mymethod.GetTextEqual(driver, "//a[@id = 'inventory_sidebar_link']", "All Items");
-		mymethod.ClickXpath(driver, "//a[@id = 'inventory_sidebar_link']");
-		sleep_3();
-		mymethod.GetTextEqual(driver, pagetitle, "products");
-		sleep_3();
 	}
 }
