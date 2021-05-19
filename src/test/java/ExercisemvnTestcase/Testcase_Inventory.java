@@ -6,9 +6,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import ExerciseBaseCommon.manage_driver;
+import ExerciseBaseCommon.BaseTest;
 
-public class Testcase_Inventory extends manage_driver {
+public class Testcase_Inventory extends BaseTest {
 	
 	@Test (priority = 1)
 	public void buy_an_item() {

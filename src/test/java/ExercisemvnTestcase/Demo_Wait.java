@@ -7,9 +7,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import ExerciseBaseCommon.BaseActions;
-import ExerciseBaseCommon.manage_driver;
+import ExerciseBaseCommon.BaseTest;
 
-public class Demo_Wait extends manage_driver  {
+public class Demo_Wait extends BaseTest  {
 	
 	@Test
 	public void excersie () {

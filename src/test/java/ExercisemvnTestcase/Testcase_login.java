@@ -5,35 +5,47 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import ExerciseBaseCommon.manage_driver;
+import ExerciseBaseCommon.BaseTest;
 
 
-public class Testcase_login extends manage_driver { //use extends command to get value from a variable of another class
+public class Testcase_login extends BaseTest { //use extends command to get value from a variable of another class
 	
 	
 	
 	@Test (priority = 1)
 	public void login_Standard() {
+		//create a report for test case
+		log = report.createTest("Log in Standard"); //create a log in each test case it should be input in each test case with test case name in ()
+		
 		mymethod.GotoURL(driver, url);
+		log.info("Go to URL " + url);
 		mymethod.InputdataXpath(driver, user,"standard_user");
+		log.info("Input user name " + "standard_user");
 		mymethod.InputdataXpath(driver,passbut , passwd);
+		log.info("Input password " + passwd);
 		mymethod.ClickXpath(driver, login);
+		log.info("Click to Login button");
 		sleep_3();
 		mymethod.sAssertEqual(softAssert, driver, pagetitle, "PRODUCTS");
+		log.info("Compare with the page title name");
 		logout();
 	}
 	@Test (priority = 2)
 	public void login_failure() {
+		log = report.createTest("Log in Failure");
 		mymethod.InputdataXpath(driver, user,"locked_out_user");
+		log.info("Input user name " + "locked_out_user");
 		mymethod.InputdataXpath(driver,passbut , passwd);
+		log.info("Input password " + passwd);
 		mymethod.ClickXpath(driver, login);
+		log.info("Click to Login button");
 		sleep_3();
-		String expect = "Epic sadface: Sorry, this user has been locked out.";
+		String expect = "Epic sadface: Sorry, this user has been locked out..";
 		mymethod.sAssertEqual(softAssert, driver, error, expect);
 		sleep_3();
 		
 	}
-	@Test (priority = 2)
+	//@Test (priority = 2)
 	public void login_problem() {
 		mymethod.GotoURL(driver, url);
 		mymethod.InputdataXpath(driver, user,"problem_user");

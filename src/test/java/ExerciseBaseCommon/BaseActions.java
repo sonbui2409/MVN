@@ -1,19 +1,24 @@
 package ExerciseBaseCommon;
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
+
 
 public class BaseActions {
 
 	public void GotoURL(WebDriver driver, String url) {
 		driver.get(url);
-		System.out.println("Go to URL " + url);
+		//System.out.println("Go to URL " + url);
+		System.out.println("Go to URL" + url );	
+			
 	}
 	
 	public void InputdataXpath (WebDriver driver,String xpath, String data) {
 		driver.findElement(By.xpath(xpath)).sendKeys(data);
-		System.out.println("Input " + data + " to " + xpath);
+		System.out.println("Input " + data + "to field " + xpath);
 	}
 	
 	public void InputdataId (WebDriver driver,String id, String data) {
@@ -49,12 +54,12 @@ public class BaseActions {
 		System.out.println("Get text of " + xpath);
 	}
 	public void sAssertDisplay (SoftAssert softAssert,WebDriver driver,String xpath) {
-		softAssert.assertTrue(driver.findElement(By.xpath(xpath)).isDisplayed());
+		Assert.assertTrue(driver.findElement(By.xpath(xpath)).isDisplayed());
 		System.out.println("Verify " + xpath + " is displayed");
 	
 	}
 	public void sAssertEqual (SoftAssert softAssert,WebDriver driver,String xpath, String expect) {
-		softAssert.assertEquals(driver.findElement(By.xpath(xpath)).getText(), expect);
+		Assert.assertEquals(driver.findElement(By.xpath(xpath)).getText(), expect);
 		System.out.println("Verify " + xpath + " equal to " + expect);
 	
 	}
