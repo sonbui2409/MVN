@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite_demo" duration-ms="29697" started-at="2021-05-23T11:01:41 ICT" finished-at="2021-05-23T11:02:10 ICT">
+  <suite name="Suite_demo" duration-ms="5619" started-at="2021-05-23T21:43:58 ICT" finished-at="2021-05-23T21:44:04 ICT">
     <groups>
     </groups>
-    <test name="Demo_Chrome" duration-ms="29697" started-at="2021-05-23T11:01:41 ICT" finished-at="2021-05-23T11:02:10 ICT">
-      <class name="ExercisemvnTestcase.Testcase_Inventory">
-        <test-method status="PASS" signature="driver_open(java.lang.String)[pri:0, instance:ExercisemvnTestcase.Testcase_Inventory@e320068]" name="driver_open" is-config="true" duration-ms="2127" started-at="2021-05-23T11:01:41 ICT" finished-at="2021-05-23T11:01:43 ICT">
+    <test name="Demo_Chrome" duration-ms="5619" started-at="2021-05-23T21:43:58 ICT" finished-at="2021-05-23T21:44:04 ICT">
+      <class name="ExercisemvnTestcase.Testcase_Items">
+        <test-method status="PASS" signature="driver_open(java.lang.String)[pri:0, instance:ExercisemvnTestcase.Testcase_Items@4b1c1ea0]" name="driver_open" is-config="true" duration-ms="2732" started-at="2021-05-23T21:43:58 ICT" finished-at="2021-05-23T21:44:01 ICT">
           <params>
             <param index="0">
               <value>
@@ -18,86 +18,26 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- driver_open -->
-        <test-method status="PASS" signature="buy_an_item()[pri:1, instance:ExercisemvnTestcase.Testcase_Inventory@e320068]" name="buy_an_item" duration-ms="1889" started-at="2021-05-23T11:01:43 ICT" finished-at="2021-05-23T11:01:45 ICT">
+        <test-method status="PASS" signature="products_page()[pri:1, instance:ExercisemvnTestcase.Testcase_Items@4b1c1ea0]" name="products_page" duration-ms="2334" started-at="2021-05-23T21:44:01 ICT" finished-at="2021-05-23T21:44:03 ICT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- buy_an_item -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:ExercisemvnTestcase.Testcase_Inventory@e320068]" name="getResult" is-config="true" duration-ms="2" started-at="2021-05-23T11:01:45 ICT" finished-at="2021-05-23T11:01:45 ICT">
+        </test-method> <!-- products_page -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:ExercisemvnTestcase.Testcase_Items@4b1c1ea0]" name="getResult" is-config="true" duration-ms="2" started-at="2021-05-23T21:44:03 ICT" finished-at="2021-05-23T21:44:03 ICT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=buy_an_item status=SUCCESS method=Testcase_Inventory.buy_an_item()[pri:1, instance:ExercisemvnTestcase.Testcase_Inventory@e320068] output={null}]]]>
+                <![CDATA[[TestResult name=products_page status=SUCCESS method=Testcase_Items.products_page()[pri:1, instance:ExercisemvnTestcase.Testcase_Items@4b1c1ea0] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="About()[pri:2, instance:ExercisemvnTestcase.Testcase_Inventory@e320068]" name="About" duration-ms="4623" started-at="2021-05-23T11:01:45 ICT" finished-at="2021-05-23T11:01:49 ICT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- About -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:ExercisemvnTestcase.Testcase_Inventory@e320068]" name="getResult" is-config="true" duration-ms="0" started-at="2021-05-23T11:01:49 ICT" finished-at="2021-05-23T11:01:49 ICT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=About status=SUCCESS method=Testcase_Inventory.About()[pri:2, instance:ExercisemvnTestcase.Testcase_Inventory@e320068] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="all_item()[pri:2, instance:ExercisemvnTestcase.Testcase_Inventory@e320068]" name="all_item" duration-ms="4353" started-at="2021-05-23T11:01:49 ICT" finished-at="2021-05-23T11:01:54 ICT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- all_item -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:ExercisemvnTestcase.Testcase_Inventory@e320068]" name="getResult" is-config="true" duration-ms="1" started-at="2021-05-23T11:01:54 ICT" finished-at="2021-05-23T11:01:54 ICT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=all_item status=SUCCESS method=Testcase_Inventory.all_item()[pri:2, instance:ExercisemvnTestcase.Testcase_Inventory@e320068] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="Check_cart_number()[pri:3, instance:ExercisemvnTestcase.Testcase_Inventory@e320068]" name="Check_cart_number" duration-ms="15430" started-at="2021-05-23T11:01:54 ICT" finished-at="2021-05-23T11:02:09 ICT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Check_cart_number -->
-        <test-method status="PASS" signature="logout()[pri:4, instance:ExercisemvnTestcase.Testcase_Inventory@e320068]" name="logout" duration-ms="907" started-at="2021-05-23T11:02:09 ICT" finished-at="2021-05-23T11:02:10 ICT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logout -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:ExercisemvnTestcase.Testcase_Inventory@e320068]" name="getResult" is-config="true" duration-ms="0" started-at="2021-05-23T11:02:09 ICT" finished-at="2021-05-23T11:02:09 ICT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=Check_cart_number status=SUCCESS method=Testcase_Inventory.Check_cart_number()[pri:3, instance:ExercisemvnTestcase.Testcase_Inventory@e320068] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:ExercisemvnTestcase.Testcase_Inventory@e320068]" name="getResult" is-config="true" duration-ms="1" started-at="2021-05-23T11:02:10 ICT" finished-at="2021-05-23T11:02:10 ICT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=logout status=SUCCESS method=Testcase_Inventory.logout()[pri:4, instance:ExercisemvnTestcase.Testcase_Inventory@e320068] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="driver_quit()[pri:0, instance:ExercisemvnTestcase.Testcase_Inventory@e320068]" name="driver_quit" is-config="true" duration-ms="340" started-at="2021-05-23T11:02:10 ICT" finished-at="2021-05-23T11:02:10 ICT">
+        <test-method status="PASS" signature="driver_quit()[pri:0, instance:ExercisemvnTestcase.Testcase_Items@4b1c1ea0]" name="driver_quit" is-config="true" duration-ms="521" started-at="2021-05-23T21:44:03 ICT" finished-at="2021-05-23T21:44:04 ICT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- driver_quit -->
-      </class> <!-- ExercisemvnTestcase.Testcase_Inventory -->
+      </class> <!-- ExercisemvnTestcase.Testcase_Items -->
     </test> <!-- Demo_Chrome -->
   </suite> <!-- Suite_demo -->
 </testng-results>
