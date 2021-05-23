@@ -44,10 +44,9 @@ public class Testcase_login extends BaseTest { //use extends command to get valu
 		mymethod.InputdataXpath(log,driver,passbut , passwd);
 		sleep_3();
 		mymethod.ClickXpath(log,driver, login);
-		sleep_3();
-		mymethod.ClickXpath(log,driver, item1);
+		mymethod.ClickFormat(log, driver, itemlink, "item_1_img_link");
 		sleep_3();	
-		mymethod.sAssertEqual(log,softAssert, driver, itemTitle, "Sauce Labs Fleece Jacket");
+		mymethod.sAssertEqual(log,softAssert, driver, itemdetail_Title, "Sauce Labs Fleece Jacket");
 		logout();
 	}
 	//@Test (priority = 2)

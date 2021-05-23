@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import ExerciseBaseCommon.BaseTest;
 
-public class Testcase_Inventory extends BaseTest {
+public class Testcase_Navigation extends BaseTest {
 	
 	@Test (priority = 1)
 	public void buy_an_item() {
@@ -16,25 +16,20 @@ public class Testcase_Inventory extends BaseTest {
 		log_in();
 		mymethod.GetTextFormatEqual(log, driver, buyitem, "backpack", "add to cart");
 		mymethod.ClickFormat(log,driver, buyitem, "backpack");
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(badgelink)));
+		mymethod.waitclickable(wait, driver, badgelink);
 		mymethod.ClickXpath(log,driver, badgelink);
 		mymethod.GetTextEqual(log,driver, pagetitle, "your cart");
 		mymethod.GetTextEqual(log,driver, buyname1, "Sauce Labs Backpack");		
-		String price = driver.findElement(By.xpath(buyprice1)).getText();
-		price = price.replace("\n", ""); //replace new line
-		softAssert.assertEquals(price, "$29.99");
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(checkout)));
+		mymethod.sAssertEqual_replace(log, softAssert, driver, buyprice1, "$29.99");		
+		mymethod.waitclickable(wait, driver, checkout);
 		mymethod.ClickXpath(log,driver, checkout);
 		mymethod.InputdataId(log,driver, "first-name", "Shin");
 		mymethod.InputdataId(log,driver, "last-name", "BLack");
 		mymethod.InputdataId(log,driver, "postal-code", "700000");
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(butcont)));
+		mymethod.waitclickable(wait, driver, butcont);
 		mymethod.ClickXpath(log, driver, butcont);
-		String total = driver.findElement(By.xpath(totalprice)).getText();
-		total = total.replace("\r",""); //replace separate line
-		total = total.replace("\n", ""); //replace new line
-		softAssert.assertEquals(total, "Total: $32.39");
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(finish)));
+		mymethod.sAssertEqual_replace(log, softAssert, driver, totalprice, "Total: $32.39");
+		mymethod.waitclickable(wait, driver, finish);
 		mymethod.ClickXpath(log, driver, finish);
 		mymethod.GetTextEqual(log,driver, completeHead, "THANK YOU FOR YOUR ORDER");
 	}
@@ -43,7 +38,7 @@ public class Testcase_Inventory extends BaseTest {
 		log = report.createTest("Go to About Menu");
 		mymethod.GotoURL(log,driver, urlogin);
 		open_menu();
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(about)));
+		mymethod.waitclickable(wait, driver, about);
 		mymethod.GetTextEqual(log,driver,about, "about");
 		mymethod.ClickXpath(log,driver, about);
 		driver.getCurrentUrl().equalsIgnoreCase("https://saucelabs.com/");
@@ -53,10 +48,10 @@ public class Testcase_Inventory extends BaseTest {
 	public void all_item() {
 		log = report.createTest("Go to About Menu");
 		mymethod.GotoURL(log,driver, urlogin);
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(badgelink)));
+		mymethod.waitclickable(wait, driver, badgelink);
 		mymethod.ClickXpath(log,driver, badgelink);
 		open_menu();
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(allitem)));
+		mymethod.waitclickable(wait, driver, allitem);
 		mymethod.GetTextEqual(log,driver, allitem, "All Items");
 		mymethod.ClickXpath(log,driver, allitem);
 		mymethod.GetTextEqual(log,driver, pagetitle, "products");
@@ -92,7 +87,7 @@ public class Testcase_Inventory extends BaseTest {
 		log = report.createTest("Logout Menu");
 		mymethod.GotoURL(log,driver, urlogin);
 		open_menu();
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(logout)));
+		mymethod.waitclickable(wait, driver, logout);
 		mymethod.GetTextEqual(log,driver, logout, "logout");
 		mymethod.ClickXpath(log, driver, logout);
 		mymethod.sAssertDisplay(log,softAssert, driver, login);

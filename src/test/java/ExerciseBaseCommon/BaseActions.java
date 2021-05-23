@@ -3,6 +3,8 @@ package ExerciseBaseCommon;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
@@ -62,6 +64,16 @@ public class BaseActions {
 	public void sAssertEqual (ExtentTest log,SoftAssert softAssert,WebDriver driver,String xpath, String expect) {
 		Assert.assertEquals(driver.findElement(By.xpath(xpath)).getText(), expect);
 		log.info("Verify " + xpath + " equal to " + expect);
-	
+	}
+	public void sAssertEqual_replace(ExtentTest log,SoftAssert softAssert,WebDriver driver,String xpath, String expect) {
+		Assert.assertEquals(driver.findElement(By.xpath(xpath)).getText().replace("\r" + "\n", ""), expect);
+		//"\r" a space, "\n" a new line
+		log.info("Verify " + xpath + " equal to " + expect);
+	}
+	public void waitclickable(WebDriverWait wait,WebDriver driver, String xpath) {
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+	}
+	public void waitformatclickable(WebDriverWait wait,WebDriver driver, String xpath, String item) {
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(String.format(xpath, item))));
 	}
 }
