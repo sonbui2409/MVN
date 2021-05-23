@@ -15,47 +15,39 @@ public class Testcase_login extends BaseTest { //use extends command to get valu
 	@Test (priority = 1)
 	public void login_Standard() {
 		//create a report for test case
-		log = report.createTest("Log in Standard"); //create a log in each test case it should be input in each test case with test case name in ()
+		log = report.createTest("Login Standard"); //create a log in each test case it should be input in each test case with test case name in ()
 		
-		mymethod.GotoURL(driver, url);
-		log.info("Go to URL " + url);
-		mymethod.InputdataXpath(driver, user,"standard_user");
-		log.info("Input user name " + "standard_user");
-		mymethod.InputdataXpath(driver,passbut , passwd);
-		log.info("Input password " + passwd);
-		mymethod.ClickXpath(driver, login);
-		log.info("Click to Login button");
+		mymethod.GotoURL(log,driver, url);
+		mymethod.InputdataXpath(log,driver, user,"standard_user");
+		mymethod.InputdataXpath(log,driver,passbut , passwd);
+		mymethod.ClickXpath(log,driver, login);
 		sleep_3();
-		mymethod.sAssertEqual(softAssert, driver, pagetitle, "PRODUCTS");
-		log.info("Compare with the page title name");
+		mymethod.sAssertEqual(log,softAssert, driver, pagetitle, "PRODUCTS");
 		logout();
 	}
 	@Test (priority = 2)
 	public void login_failure() {
-		log = report.createTest("Log in Failure");
-		mymethod.InputdataXpath(driver, user,"locked_out_user");
-		log.info("Input user name " + "locked_out_user");
-		mymethod.InputdataXpath(driver,passbut , passwd);
-		log.info("Input password " + passwd);
-		mymethod.ClickXpath(driver, login);
-		log.info("Click to Login button");
+		log = report.createTest("Login Failure");
+		mymethod.InputdataXpath(log,driver, user,"locked_out_user");
+		mymethod.InputdataXpath(log,driver,passbut , passwd);
+		mymethod.ClickXpath(log,driver, login);
 		sleep_3();
-		String expect = "Epic sadface: Sorry, this user has been locked out..";
-		mymethod.sAssertEqual(softAssert, driver, error, expect);
+		mymethod.sAssertEqual(log,softAssert, driver, error, failure);
 		sleep_3();
 		
 	}
-	//@Test (priority = 2)
+	@Test (priority = 2)
 	public void login_problem() {
-		mymethod.GotoURL(driver, url);
-		mymethod.InputdataXpath(driver, user,"problem_user");
-		mymethod.InputdataXpath(driver,passbut , passwd);
+		log = report.createTest("Login Problem");
+		mymethod.GotoURL(log,driver, url);
+		mymethod.InputdataXpath(log,driver, user,"problem_user");
+		mymethod.InputdataXpath(log,driver,passbut , passwd);
 		sleep_3();
-		mymethod.ClickXpath(driver, login);
+		mymethod.ClickXpath(log,driver, login);
 		sleep_3();
-		mymethod.ClickXpath(driver, item1);
+		mymethod.ClickXpath(log,driver, item1);
 		sleep_3();	
-		mymethod.sAssertEqual(softAssert, driver, "//div[contains (@class,'name large_size')]", "Sauce Labs Fleece Jacket");
+		mymethod.sAssertEqual(log,softAssert, driver, itemTitle, "Sauce Labs Fleece Jacket");
 		logout();
 	}
 	//@Test (priority = 2)

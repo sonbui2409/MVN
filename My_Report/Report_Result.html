@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary"></span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">May 19, 2021 07:58:07 PM</span></a>
+<a href="#"><span class="badge badge-primary">May 23, 2021 11:01:42 AM</span></a>
 </li>
 </ul>
 </div>
@@ -67,7 +67,6 @@
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
 <a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
-<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
 </ul>
@@ -80,9 +79,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">Log in Standard</p>
+            <p class="name">Process to Buy an Item</p>
             <p class="text-sm">
-              <span>7:58:07 PM</span> / <span>00:00:09:997</span>
+              <span>11:01:43 AM</span> / <span>00:00:01:888</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -90,10 +89,10 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">Log in Standard</h5>
-<span class='badge badge-success'>05.19.2021 7:58:07 PM</span>
-<span class='badge badge-danger'>05.19.2021 7:58:17 PM</span>
-<span class='badge badge-default'>00:00:09:997</span>
+<h5 class="test-status text-pass">Process to Buy an Item</h5>
+<span class='badge badge-success'>05.23.2021 11:01:43 AM</span>
+<span class='badge badge-danger'>05.23.2021 11:01:45 AM</span>
+<span class='badge badge-default'>00:00:01:888</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -105,44 +104,121 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:58:08 PM</td>
+        <td>11:01:44 AM</td>
         <td>
           Go to URL https://www.saucedemo.com/
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:58:08 PM</td>
+        <td>11:01:44 AM</td>
         <td>
-          Input user name standard_user
+          Input standard_userto field //input[@name = 'user-name']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:58:08 PM</td>
+        <td>11:01:44 AM</td>
         <td>
-          Input password secret_sauce
+          Input secret_sauceto field //input[@id = 'password']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:58:08 PM</td>
+        <td>11:01:44 AM</td>
         <td>
-          Click to Login button
+          Click to //input[@type='submit']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:58:11 PM</td>
+        <td>11:01:44 AM</td>
         <td>
-          Compare with the page title name
+          Get text of //button[contains (@name,'%s')] And Compare to add to cart
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:01:44 AM</td>
+        <td>
+          Click to //button[contains (@name,'%s')]
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:01:44 AM</td>
+        <td>
+          Click to //a[@class='shopping_cart_link']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:01:44 AM</td>
+        <td>
+          Get text of //span[@class = 'title'] And Compare to your cart
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:01:44 AM</td>
+        <td>
+          Get text of //div[@class='inventory_item_name'] And Compare to Sauce Labs Backpack
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:01:44 AM</td>
+        <td>
+          Click to //button[@id='checkout']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:01:44 AM</td>
+        <td>
+          Input Shin to first-name
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:01:44 AM</td>
+        <td>
+          Input BLack to last-name
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:01:44 AM</td>
+        <td>
+          Input 700000 to postal-code
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:01:45 AM</td>
+        <td>
+          Click to //input[@id='continue']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:01:45 AM</td>
+        <td>
+          Click to //button[@id='finish']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:01:45 AM</td>
+        <td>
+          Get text of //h2[@class='complete-header'] And Compare to THANK YOU FOR YOUR ORDER
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>7:58:17 PM</td>
+        <td>11:01:45 AM</td>
         <td>
-          <span class='badge white-text green'>login_Standard Test Case PASSED</span>
+          <span class='badge white-text green'>buy_an_item Test Case PASSED</span>
         </td>
       </tr>
   </tbody>
@@ -150,78 +226,355 @@
 </div>
           </div>
         </li>
-        <li class="test-item"  status="fail" test-id="2"
+        <li class="test-item"  status="pass" test-id="2"
           author=""
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">Log in Failure</p>
+            <p class="name">Go to About Menu</p>
             <p class="text-sm">
-              <span>7:58:17 PM</span> / <span>00:00:03:667</span>
-              <span class="badge fail-bg log float-right">Fail</span>
+              <span>11:01:45 AM</span> / <span>00:00:04:624</span>
+              <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-fail">Log in Failure</h5>
-<span class='badge badge-success'>05.19.2021 7:58:17 PM</span>
-<span class='badge badge-danger'>05.19.2021 7:58:21 PM</span>
-<span class='badge badge-default'>00:00:03:667</span>
+<h5 class="test-status text-pass">Go to About Menu</h5>
+<span class='badge badge-success'>05.23.2021 11:01:45 AM</span>
+<span class='badge badge-danger'>05.23.2021 11:01:49 AM</span>
+<span class='badge badge-default'>00:00:04:624</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
 </div>
 </div>
-</div>    <div class="row mb-3"><div class="col-md-3">
-<img data-featherlight='E:\Selenium\MVN/My_Report/login_failure 20210519075821.png' src="E:\Selenium\MVN/My_Report/login_failure 20210519075821.png">
-    
-    </div></div>
-<div class="detail-body mt-4">
+</div><div class="detail-body mt-4">
 <table class="table table-sm">
   <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:58:17 PM</td>
+        <td>11:01:45 AM</td>
         <td>
-          Input user name locked_out_user
+          Go to URL https://www.saucedemo.com/inventory.html
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:58:17 PM</td>
+        <td>11:01:45 AM</td>
         <td>
-          Input password secret_sauce
+          Click to //div[@class='bm-burger-button']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:58:17 PM</td>
+        <td>11:01:46 AM</td>
         <td>
-          Click to Login button
+          Get text of //a[@id = 'about_sidebar_link'] And Compare to about
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log fail-bg">Fail</span></td>
-        <td>7:58:20 PM</td>
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:01:49 AM</td>
         <td>
-          <span class='badge white-text red'>login_failure - Test Case Failed</span>
+          Click to //a[@id = 'about_sidebar_link']
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log fail-bg">Fail</span></td>
-        <td>7:58:20 PM</td>
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:01:49 AM</td>
         <td>
-          <span class='badge white-text red'>java.lang.AssertionError: expected [Epic sadface: Sorry, this user has been locked out..] but found [Epic sadface: Sorry, this user has been locked out.] - Test Case Failed</span>
+          <span class='badge white-text green'>About Test Case PASSED</span>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="3"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Go to About Menu</p>
+            <p class="text-sm">
+              <span>11:01:49 AM</span> / <span>00:00:04:354</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Go to About Menu</h5>
+<span class='badge badge-success'>05.23.2021 11:01:49 AM</span>
+<span class='badge badge-danger'>05.23.2021 11:01:54 AM</span>
+<span class='badge badge-default'>00:00:04:354</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=3</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:01:50 AM</td>
+        <td>
+          Go to URL https://www.saucedemo.com/inventory.html
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log fail-bg">Fail</span></td>
-        <td>7:58:21 PM</td>
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:01:50 AM</td>
         <td>
-          Test Case Failed Snapshot is below com.aventstack.extentreports.ExtentTest@5a62b2a4
+          Click to //a[@class='shopping_cart_link']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:01:50 AM</td>
+        <td>
+          Click to //div[@class='bm-burger-button']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:01:51 AM</td>
+        <td>
+          Get text of //a[@id = 'inventory_sidebar_link'] And Compare to All Items
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:01:51 AM</td>
+        <td>
+          Click to //a[@id = 'inventory_sidebar_link']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:01:51 AM</td>
+        <td>
+          Get text of //span[@class = 'title'] And Compare to products
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:01:54 AM</td>
+        <td>
+          <span class='badge white-text green'>all_item Test Case PASSED</span>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="4"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Checking Cart Number</p>
+            <p class="text-sm">
+              <span>11:01:54 AM</span> / <span>00:00:15:431</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Checking Cart Number</h5>
+<span class='badge badge-success'>05.23.2021 11:01:54 AM</span>
+<span class='badge badge-danger'>05.23.2021 11:02:09 AM</span>
+<span class='badge badge-default'>00:00:15:431</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=4</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:01:54 AM</td>
+        <td>
+          Go to URL https://www.saucedemo.com/inventory.html
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:01:54 AM</td>
+        <td>
+          Click to //button[contains (@name,'%s')]
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:01:57 AM</td>
+        <td>
+          Get text of //span[@class='shopping_cart_badge'] And Compare to 1
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:01:57 AM</td>
+        <td>
+          Click to //button[contains (@name,'%s')]
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:02:00 AM</td>
+        <td>
+          Get text of //span[@class='shopping_cart_badge'] And Compare to 2
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:02:00 AM</td>
+        <td>
+          Click to //button[contains (@name,'%s')]
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:02:03 AM</td>
+        <td>
+          Get text of //span[@class='shopping_cart_badge'] And Compare to 3
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:02:03 AM</td>
+        <td>
+          Click to //button[contains (@name,'%s')]
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:02:06 AM</td>
+        <td>
+          Get text of //span[@class='shopping_cart_badge'] And Compare to 4
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:02:06 AM</td>
+        <td>
+          Click to //button[contains (@name,'%s')]
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:02:09 AM</td>
+        <td>
+          Get text of //span[@class='shopping_cart_badge'] And Compare to 3
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:02:09 AM</td>
+        <td>
+          Click to //button[contains (@name,'%s')]
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:02:09 AM</td>
+        <td>
+          Get text of //span[@class='shopping_cart_badge'] And Compare to 2
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:02:09 AM</td>
+        <td>
+          <span class='badge white-text green'>Check_cart_number Test Case PASSED</span>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="5"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Logout Menu</p>
+            <p class="text-sm">
+              <span>11:02:09 AM</span> / <span>00:00:00:907</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Logout Menu</h5>
+<span class='badge badge-success'>05.23.2021 11:02:09 AM</span>
+<span class='badge badge-danger'>05.23.2021 11:02:10 AM</span>
+<span class='badge badge-default'>00:00:00:907</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=5</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:02:09 AM</td>
+        <td>
+          Go to URL https://www.saucedemo.com/inventory.html
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:02:09 AM</td>
+        <td>
+          Click to //div[@class='bm-burger-button']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:02:10 AM</td>
+        <td>
+          Get text of //a[@id='logout_sidebar_link'] And Compare to logout
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:02:10 AM</td>
+        <td>
+          Click to //a[@id='logout_sidebar_link']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:02:10 AM</td>
+        <td>
+          Verify //input[@type='submit'] is displayed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:02:10 AM</td>
+        <td>
+          <span class='badge white-text green'>logout Test Case PASSED</span>
         </td>
       </tr>
   </tbody>
@@ -243,25 +596,25 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>May 19, 2021 07:58:07 PM</h3>
+<h3>May 23, 2021 11:01:42 AM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>May 19, 2021 07:58:21 PM</h3>
+<h3>May 23, 2021 11:02:10 AM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Tests Passed</p>
-<h3>1</h3>
+<h3>5</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Tests Failed</p>
-<h3>1</h3>
+<h3>0</h3>
 </div></div>
 </div>
 </div>
@@ -277,12 +630,12 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='50%'>
-<b>1</b> tests passed
+<div><small data-tooltip='100%'>
+<b>5</b> tests passed
 </small>
 </div>
 <div>
-<small data-tooltip='50%'><b>1</b> tests failed,
+<small data-tooltip='0%'><b>0</b> tests failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
@@ -300,10 +653,10 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='8%'><b>1</b> events passed</small></div>
+<div><small data-tooltip='10%'><b>5</b> events passed</small></div>
 <div>
-<small data-tooltip='25%'><b>3</b> events failed,
-<b data-tooltip='%'>8</b> others
+<small data-tooltip='0%'><b>0</b> events failed,
+<b data-tooltip='%'>44</b> others
 </small>
 </div>
 </div>
@@ -319,7 +672,7 @@
 </div></div>
 <script>
 var timeline = {
-"Log in Standard":9.997,"Log in Failure":3.667
+"Process to Buy an Item":1.888,"Go to About Menu":4.624,"Go to About Menu":4.354,"Checking Cart Number":15.431,"Logout Menu":0.907
 };
 </script>
 <div class="row">
@@ -350,8 +703,8 @@ var timeline = {
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 1,
-failParent: 1,
+passParent: 5,
+failParent: 0,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
@@ -367,11 +720,11 @@ warningGrandChild: 0,
 skipGrandChild: 0,
 infoGrandChild: 0,
 eventsCount: 5,
-passEvents: 1,
-failEvents: 3,
+passEvents: 5,
+failEvents: 0,
 warningEvents: 0,
 skipEvents: 0,
-infoEvents: 8
+infoEvents: 44
 };
 </script>        </div>
       </div>

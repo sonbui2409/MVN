@@ -13,8 +13,8 @@ public class Demo_Wait extends BaseTest  {
 	
 	@Test
 	public void excersie () {
-		mymethod.GotoURL(driver, "https://www.seleniumeasy.com/test/dynamic-data-loading-demo.html");
-		mymethod.ClickXpath(driver, "//button[@id='save']");
+		mymethod.GotoURL(log,driver, "https://www.seleniumeasy.com/test/dynamic-data-loading-demo.html");
+		mymethod.ClickXpath(log,driver, "//button[@id='save']");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'First Name')]")));
 		WebElement Picture = driver.findElement(By.xpath("//div[@id='loading']"));
 		System.out.println(Picture.getText());

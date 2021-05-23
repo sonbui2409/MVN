@@ -13,6 +13,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -40,12 +41,29 @@ public class BaseTest {
 	protected String user = "//input[@name = 'user-name']";
 	protected String passbut = "//input[@id = 'password']";
 	protected String error = "//h3[@data-test='error']";
+	protected String failure = "Epic sadface: Sorry, this user has been locked out.";
+	
 	protected String pagetitle = "//span[@class = 'title']";
 	protected String item1 = "//img[@alt = 'Sauce Labs Backpack']";
+	protected String itemTitle = "//div[contains (@class,'name large_size')]";
 	protected String urlogin = "https://www.saucedemo.com/inventory.html";
 	protected String badgelink = "//a[@class='shopping_cart_link']";
 	protected String badgeno = "//span[@class='shopping_cart_badge']";
 	protected String buyitem = "//button[contains (@name,'%s')]";
+	protected String buyname1 = "//div[@class='inventory_item_name']";
+	protected String buyprice1 = "//div[@class='inventory_item_price']";
+	protected String checkout = "//button[@id='checkout']";
+	protected String butcont = "//input[@id='continue']";
+	protected String totalprice = "//div[@class='summary_total_label']";
+	protected String finish = "//button[@id='finish']";
+	protected String completeHead = "//h2[@class='complete-header']";
+	
+	
+	protected String menu = "//div[@class='bm-burger-button']";
+	protected String logout = "//a[@id='logout_sidebar_link']";
+	protected String about = "//a[@id = 'about_sidebar_link']";
+	protected String allitem = "//a[@id = 'inventory_sidebar_link']";
+	
 	
 	
 	protected BaseActions mymethod = new BaseActions();
@@ -53,7 +71,7 @@ public class BaseTest {
 	protected static WebDriverWait wait;
 	protected static ExtentReports report; //resgister for report, create a new report, save, screenshot
 	ExtentSparkReporter spark; //create a report file
-	public static ExtentTest log; //log steps, test case
+	protected static ExtentTest log; //log steps, test case
 	
 	
 	
@@ -82,20 +100,18 @@ public class BaseTest {
 		}
 	}
 	public void logout() {
-		driver.findElement(By.className("bm-burger-button")).click();
-		sleep_3();
-		mymethod.ClickId(driver, "logout_sidebar_link");
-		sleep_3();
+		mymethod.ClickXpath(log, driver, menu);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(logout)));
+		mymethod.ClickXpath(log, driver, logout);
 	}
 	public void log_in() {
-		mymethod.GotoURL(driver, url);
-		mymethod.InputdataXpath(driver, user,"standard_user");
-		mymethod.InputdataXpath(driver,passbut , passwd);
-		mymethod.ClickXpath(driver, login);
-		sleep_3();
+		mymethod.GotoURL(log,driver, url);
+		mymethod.InputdataXpath(log,driver, user,"standard_user");
+		mymethod.InputdataXpath(log,driver,passbut , passwd);
+		mymethod.ClickXpath(log,driver, login);
 	}
 	public void open_menu() {
-		driver.findElement(By.className("bm-burger-button")).click();
+		mymethod.ClickXpath(log, driver, menu);
 	}
 	
 	
