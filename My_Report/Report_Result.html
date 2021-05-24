@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary"></span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">May 23, 2021 09:44:01 PM</span></a>
+<a href="#"><span class="badge badge-primary">May 24, 2021 11:45:59 AM</span></a>
 </li>
 </ul>
 </div>
@@ -79,9 +79,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">Verify Item Name and Price</p>
+            <p class="name">Error message when log-in</p>
             <p class="text-sm">
-              <span>9:44:01 PM</span> / <span>00:00:02:331</span>
+              <span>11:45:59 AM</span> / <span>00:00:01:142</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -89,10 +89,10 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">Verify Item Name and Price</h5>
-<span class='badge badge-success'>05.23.2021 9:44:01 PM</span>
-<span class='badge badge-danger'>05.23.2021 9:44:03 PM</span>
-<span class='badge badge-default'>00:00:02:331</span>
+<h5 class="test-status text-pass">Error message when log-in</h5>
+<span class='badge badge-success'>05.24.2021 11:45:59 AM</span>
+<span class='badge badge-danger'>05.24.2021 11:46:00 AM</span>
+<span class='badge badge-default'>00:00:01:142</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -104,79 +104,128 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:44:02 PM</td>
+        <td>11:45:59 AM</td>
         <td>
-          Go to URL https://www.saucedemo.com/
+          Go to URL https://www.saucedemo.com/inventory.html
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:44:02 PM</td>
+        <td>11:45:59 AM</td>
         <td>
-          Input standard_userto field //input[@name = 'user-name']
+          Get text of //h3[@data-test='error'] And Compare to Epic sadface: You can only access '/inventory.html' when you are logged in.
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:44:02 PM</td>
+        <td>11:46:00 AM</td>
         <td>
-          Input secret_sauceto field //input[@id = 'password']
+          Click to //button[@class='error-button']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:44:03 PM</td>
+        <td>11:46:00 AM</td>
+        <td>
+          Input abcto field //input[@name = 'user-name']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:46:00 AM</td>
         <td>
           Click to //input[@type='submit']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:44:03 PM</td>
+        <td>11:46:00 AM</td>
         <td>
-          Get text of //a[@id ='%s']/div And Compare to Sauce Labs Bike Light
+          Get text of //h3[@data-test='error'] And Compare to Epic sadface: Password is required
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:44:03 PM</td>
+        <td>11:46:00 AM</td>
         <td>
-          Get text of //a[@id ='%s']/following-sibling::div And Compare to A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.
+          Clear Data of //input[@name = 'user-name'] Field
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:44:03 PM</td>
+        <td>11:46:00 AM</td>
         <td>
-          Click to //a[@id ='%s']
+          Input aaato field //input[@id = 'password']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:44:03 PM</td>
+        <td>11:46:00 AM</td>
         <td>
-          Get text of //div[contains (@class,'name large_size')] And Compare to Sauce Labs Bike Light
+          Click to //input[@type='submit']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:44:03 PM</td>
+        <td>11:46:00 AM</td>
         <td>
-          Get text of //div[contains (@class,'desc large_size')] And Compare to A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.
+          Get text of //h3[@data-test='error'] And Compare to Epic sadface: Username is required
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:44:03 PM</td>
+        <td>11:46:00 AM</td>
         <td>
-          Verify //div[@class ='inventory_details_price'] equal to $9.99
+          Clear Data of //input[@id = 'password'] Field
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:46:00 AM</td>
+        <td>
+          Input abcto field //input[@name = 'user-name']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:46:00 AM</td>
+        <td>
+          Input aaato field //input[@id = 'password']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:46:00 AM</td>
+        <td>
+          Click to //input[@type='submit']
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:46:00 AM</td>
+        <td>
+          Get text of //h3[@data-test='error'] And Compare to Epic sadface: Username and password do not match any user in this service
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:46:00 AM</td>
+        <td>
+          Clear Data of //input[@name = 'user-name'] Field
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:46:00 AM</td>
+        <td>
+          Clear Data of //input[@id = 'password'] Field
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>9:44:03 PM</td>
+        <td>11:46:00 AM</td>
         <td>
-          <span class='badge white-text green'>products_page Test Case PASSED</span>
+          <span class='badge white-text green'>login_error_page Test Case PASSED</span>
         </td>
       </tr>
   </tbody>
@@ -198,13 +247,13 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>May 23, 2021 09:44:01 PM</h3>
+<h3>May 24, 2021 11:45:59 AM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>May 23, 2021 09:44:03 PM</h3>
+<h3>May 24, 2021 11:46:00 AM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -255,10 +304,10 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='9%'><b>1</b> events passed</small></div>
+<div><small data-tooltip='5%'><b>1</b> events passed</small></div>
 <div>
 <small data-tooltip='0%'><b>0</b> events failed,
-<b data-tooltip='%'>10</b> others
+<b data-tooltip='%'>17</b> others
 </small>
 </div>
 </div>
@@ -274,7 +323,7 @@
 </div></div>
 <script>
 var timeline = {
-"Verify Item Name and Price":2.331
+"Error message when log-in":1.142
 };
 </script>
 <div class="row">
@@ -326,7 +375,7 @@ passEvents: 1,
 failEvents: 0,
 warningEvents: 0,
 skipEvents: 0,
-infoEvents: 10
+infoEvents: 17
 };
 </script>        </div>
       </div>

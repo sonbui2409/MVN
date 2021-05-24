@@ -90,6 +90,6 @@ public class Testcase_Navigation extends BaseTest {
 		mymethod.waitclickable(wait, driver, logout);
 		mymethod.GetTextEqual(log,driver, logout, "logout");
 		mymethod.ClickXpath(log, driver, logout);
-		mymethod.sAssertDisplay(log,softAssert, driver, login);
+		mymethod.sAssertDisplay_true(log,softAssert, driver, login);
 	}
 }

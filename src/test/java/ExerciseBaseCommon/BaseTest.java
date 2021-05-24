@@ -34,7 +34,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
 	protected static WebDriver driver;
-	
+	//login
 	protected String passwd = "secret_sauce";
 	protected String url = "https://www.saucedemo.com/";
 	protected String urlogin = "https://www.saucedemo.com/inventory.html";
@@ -42,13 +42,19 @@ public class BaseTest {
 	protected String user = "//input[@name = 'user-name']";
 	protected String passbut = "//input[@id = 'password']";
 	protected String error = "//h3[@data-test='error']";
-	protected String failure = "Epic sadface: Sorry, this user has been locked out.";
-	
+	protected String errorbut = "//button[@class='error-button']";
+	protected String failure1 = "Epic sadface: Sorry, this user has been locked out.";
+	protected String failure2 = "Epic sadface: You can only access '/inventory.html' when you are logged in.";
+	protected String failure3 = "Epic sadface: Username is required";
+	protected String failure4 = "Epic sadface: Password is required";
+	protected String failure5 = "Epic sadface: Username and password do not match any user in this service";
+	//Inventory child page
 	protected String pagetitle = "//span[@class = 'title']";
 	protected String itemdetail_Title = "//div[contains (@class,'name large_size')]";
 	protected String itemdetail_desc = "//div[contains (@class,'desc large_size')]";
 	protected String itemdetail_price = "//div[@class ='inventory_details_price']";
-	
+	protected String backto = "//button[@id = 'back-to-products']";
+	//Inventory Page
 	protected String itemlink = "//a[@id ='%s']";
 	protected String itemname = "//a[@id ='%s']/div";
 	protected String itemdesc = "//a[@id ='%s']/following-sibling::div";
@@ -65,7 +71,7 @@ public class BaseTest {
 	protected String item4desc = "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.";
 	protected String item5name = "Sauce Labs Fleece Jacket";
 	protected String item5desc = "It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.";
-	
+	//Buy Page
 	protected String badgelink = "//a[@class='shopping_cart_link']";
 	protected String badgeno = "//span[@class='shopping_cart_badge']";
 	protected String buyitem = "//button[contains (@name,'%s')]";
@@ -77,7 +83,7 @@ public class BaseTest {
 	protected String finish = "//button[@id='finish']";
 	protected String completeHead = "//h2[@class='complete-header']";
 	
-	
+	//Menu Navigation
 	protected String menu = "//div[@class='bm-burger-button']";
 	protected String logout = "//a[@id='logout_sidebar_link']";
 	protected String about = "//a[@id = 'about_sidebar_link']";
