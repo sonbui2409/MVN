@@ -6,7 +6,7 @@
     <classes>
       <class name="ExercisemvnTestcase.Testcase_login">
         <methods>
-          <include name="login_problem"/>
+          <include name="login_error_page"/>
           <include name="driver_open"/>
           <include name="getResult"/>
           <include name="driver_quit"/>

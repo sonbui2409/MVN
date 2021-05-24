@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite_demo" duration-ms="5619" started-at="2021-05-23T21:43:58 ICT" finished-at="2021-05-23T21:44:04 ICT">
+  <suite name="Suite_demo" duration-ms="3620" started-at="2021-05-24T11:45:57 ICT" finished-at="2021-05-24T11:46:00 ICT">
     <groups>
     </groups>
-    <test name="Demo_Chrome" duration-ms="5619" started-at="2021-05-23T21:43:58 ICT" finished-at="2021-05-23T21:44:04 ICT">
-      <class name="ExercisemvnTestcase.Testcase_Items">
-        <test-method status="PASS" signature="driver_open(java.lang.String)[pri:0, instance:ExercisemvnTestcase.Testcase_Items@4b1c1ea0]" name="driver_open" is-config="true" duration-ms="2732" started-at="2021-05-23T21:43:58 ICT" finished-at="2021-05-23T21:44:01 ICT">
+    <test name="Demo_Chrome" duration-ms="3620" started-at="2021-05-24T11:45:57 ICT" finished-at="2021-05-24T11:46:00 ICT">
+      <class name="ExercisemvnTestcase.Testcase_login">
+        <test-method status="PASS" signature="driver_open(java.lang.String)[pri:0, instance:ExercisemvnTestcase.Testcase_login@e320068]" name="driver_open" is-config="true" duration-ms="2135" started-at="2021-05-24T11:45:57 ICT" finished-at="2021-05-24T11:45:59 ICT">
           <params>
             <param index="0">
               <value>
@@ -18,26 +18,26 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- driver_open -->
-        <test-method status="PASS" signature="products_page()[pri:1, instance:ExercisemvnTestcase.Testcase_Items@4b1c1ea0]" name="products_page" duration-ms="2334" started-at="2021-05-23T21:44:01 ICT" finished-at="2021-05-23T21:44:03 ICT">
+        <test-method status="PASS" signature="login_error_page()[pri:2, instance:ExercisemvnTestcase.Testcase_login@e320068]" name="login_error_page" duration-ms="1143" started-at="2021-05-24T11:45:59 ICT" finished-at="2021-05-24T11:46:00 ICT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- products_page -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:ExercisemvnTestcase.Testcase_Items@4b1c1ea0]" name="getResult" is-config="true" duration-ms="2" started-at="2021-05-23T21:44:03 ICT" finished-at="2021-05-23T21:44:03 ICT">
+        </test-method> <!-- login_error_page -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:ExercisemvnTestcase.Testcase_login@e320068]" name="getResult" is-config="true" duration-ms="2" started-at="2021-05-24T11:46:00 ICT" finished-at="2021-05-24T11:46:00 ICT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=products_page status=SUCCESS method=Testcase_Items.products_page()[pri:1, instance:ExercisemvnTestcase.Testcase_Items@4b1c1ea0] output={null}]]]>
+                <![CDATA[[TestResult name=login_error_page status=SUCCESS method=Testcase_login.login_error_page()[pri:2, instance:ExercisemvnTestcase.Testcase_login@e320068] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="driver_quit()[pri:0, instance:ExercisemvnTestcase.Testcase_Items@4b1c1ea0]" name="driver_quit" is-config="true" duration-ms="521" started-at="2021-05-23T21:44:03 ICT" finished-at="2021-05-23T21:44:04 ICT">
+        <test-method status="PASS" signature="driver_quit()[pri:0, instance:ExercisemvnTestcase.Testcase_login@e320068]" name="driver_quit" is-config="true" duration-ms="321" started-at="2021-05-24T11:46:00 ICT" finished-at="2021-05-24T11:46:00 ICT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- driver_quit -->
-      </class> <!-- ExercisemvnTestcase.Testcase_Items -->
+      </class> <!-- ExercisemvnTestcase.Testcase_login -->
     </test> <!-- Demo_Chrome -->
   </suite> <!-- Suite_demo -->
 </testng-results>
