@@ -11,7 +11,7 @@ import ExerciseBaseCommon.BaseActions;
 public class InventoryObject extends BaseActions {
 	//Inventory page
 	protected String urlogin = "https://www.saucedemo.com/inventory.html";
-	public String pagetitle = "//span[@class = 'title']";
+	protected String pagetitle = "//span[@class = 'title']";
 	protected String itemlink = "//a[@id ='%s']";
 	protected String itemname = "//a[@id ='%s']/div";
 	protected String itemdesc = "//a[@id ='%s']/following-sibling::div";
@@ -41,26 +41,60 @@ public class InventoryObject extends BaseActions {
 	protected String itemdetail_price = "//div[@class ='inventory_details_price']";
 	protected String backto = "//button[@id = 'back-to-products']";
 	
+	//Open
+	public InventoryObject OpenInvenPage (ExtentTest log, WebDriver driver) {
+		GotoURL(log, driver, urlogin);
+		return this;
+	}
+	public InventoryObject OpenMenu(ExtentTest log, WebDriver driver) {
+		ClickXpath(log, driver, menu);
+		return this;
+	}
 	
+	//Compare
 	public InventoryObject CompareTitle (ExtentTest log,SoftAssert softAssert,WebDriver driver, String expect) {
 		sAssertEqual(log, softAssert, driver, pagetitle, expect);
 		return this;
-	} 
-	public InventoryObject TracksAssert (SoftAssert softAssert) {
-		softAssertAll(softAssert);
+	}
+	public InventoryObject CompareTitle_equal (ExtentTest log,WebDriver driver, String expect) {
+		GetTextEqual(log, driver, pagetitle, expect);
 		return this;
 	}
+	
+	public InventoryObject Compare_ItemDetail_tit (ExtentTest log,SoftAssert softAssert,WebDriver driver, String expect) {
+		sAssertEqual(log, softAssert, driver, itemdetail_Title, expect);
+		return this;
+	}
+	public InventoryObject Compare_Buy (ExtentTest log,SoftAssert softAssert,WebDriver driver, String expect) {
+		sAssertEqual(log, softAssert, driver, itemdetail_Title, expect);
+		return this;
+	}
+	
+	//Log_out
 	public InventoryObject Logout(ExtentTest log, WebDriverWait wait,WebDriver driver) {
 		ClickXpath(log, driver, menu);
 		waitclickable(wait, driver, logout);
 		ClickXpath(log, driver, logout);
 		return this;
 	}
+	//About
+	public InventoryObject About (ExtentTest log, WebDriverWait wait,WebDriver driver) {
+		ClickXpath(log, driver, menu);
+		waitclickable(wait, driver, about);
+		GetTextEqual(log, driver, about, "about");
+		ClickXpath(log, driver, about);
+		CompareCurrentURL(log, driver, "https://saucelabs.com/");
+		return this;
+	}
+	
+	//Click
 	public InventoryObject ClickToItem (ExtentTest log, WebDriver driver, String item) {
 		ClickFormat(log, driver, itemlink, item);
 		return this;
 	}
-	public InventoryObject WaitElement_visible (WebDriverWait wait,WebDriver driver) {
+	
+	//Wait
+	public InventoryObject Wait_Itemdetail_Title (WebDriverWait wait, WebDriver driver) {
 		waitvisible(wait, driver, itemdetail_Title);
 		return this;
 	}

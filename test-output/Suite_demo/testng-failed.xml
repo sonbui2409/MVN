@@ -4,14 +4,14 @@
   <test thread-count="5" name="Demo_Chrome(failed)">
     <parameter name="browser" value="Chrome"/>
     <classes>
-      <class name="ExercisemvnTestcase.Testcase_login">
+      <class name="ExercisemvnTestcase.Testcase_Navigation">
         <methods>
-          <include name="login_error_page"/>
           <include name="driver_open"/>
           <include name="getResult"/>
           <include name="driver_quit"/>
+          <include name="buy_an_item"/>
         </methods>
-      </class> <!-- ExercisemvnTestcase.Testcase_login -->
+      </class> <!-- ExercisemvnTestcase.Testcase_Navigation -->
     </classes>
   </test> <!-- Demo_Chrome(failed) -->
 </suite> <!-- Failed suite [Suite_demo] -->

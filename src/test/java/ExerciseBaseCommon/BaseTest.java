@@ -113,6 +113,15 @@ public class BaseTest {
 	//}
 	
 	
+	public void sleep_1() {
+		try {
+			Thread.sleep(1000);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
 	public void sleep_3() {
 		try {
 			Thread.sleep(3000);
@@ -192,7 +201,7 @@ public class BaseTest {
 			String screenshotPath = TakeScreenshot(result.getName());
 			//To add it in the extent report 
 			//log.fail("Test Case Failed Snapshot is below " + log.addScreenCaptureFromPath(screenshotPath));
-			log.fail(MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
+			log.info(MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
 
 
 		}

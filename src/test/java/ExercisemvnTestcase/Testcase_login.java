@@ -21,26 +21,26 @@ public class Testcase_login extends BaseTest { //use extends command to get valu
 		LoginObject lb = new LoginObject();
 		InventoryObject ib = new InventoryObject();
 		
-		lb.OpenLoginPage(log, driver, url)
+		lb.OpenLoginPage(log, driver)
 		.InputUserName(log, driver, "standard_user")
 		.InputPasswd(log, driver)
-		.ClickLogin(log, driver);
+		.ClickLogin_but(log, driver);
 		sleep_3();
 		ib.CompareTitle(log, softAssert, driver, "PRODUCTS")
-		.Logout(log, wait, driver)
-		.TracksAssert(softAssert);
+		.Logout(log, wait, driver);
+		lb.TracksAssert(softAssert);
 		
 	}
 	@Test (priority = 2)
 	public void login_failure() {
 		log = report.createTest("Login Failure");
 		LoginObject lb = new LoginObject();
-		lb.OpenLoginPage(log, driver, url)
+		lb.OpenLoginPage(log, driver)
 		.InputUserName(log, driver, "locked_out_user")
 		.InputPasswd(log, driver)
-		.ClickLogin(log, driver);
+		.ClickLogin_but(log, driver);
 		sleep_3();
-		lb.Comparefail_1(log, softAssert, driver)
+		lb.Compare_fail_1(log, softAssert, driver)
 		.TracksAssert(softAssert);
 		
 		/*mymethod.GotoURL(log,driver, url);
@@ -58,16 +58,16 @@ public class Testcase_login extends BaseTest { //use extends command to get valu
 		log = report.createTest("Login Problem");
 		LoginObject lb = new LoginObject();
 		InventoryObject ib = new InventoryObject();
-		lb.OpenLoginPage(log, driver, url)
+		lb.OpenLoginPage(log, driver)
 		.InputUserName(log, driver, "problem_user")
 		.InputPasswd(log, driver)
-		.ClickLogin(log, driver);
+		.ClickLogin_but(log, driver);
 		sleep_3();
 		ib.ClickToItem(log, driver, "item_1_img_link")
-		.WaitElement_visible(wait, driver)
-		.CompareTitle(log, softAssert, driver, "Sauce Labs Fleece Jacket")
-		.Logout(log, wait, driver)
-		.TracksAssert(softAssert);
+		.Wait_Itemdetail_Title(wait, driver)
+		.Compare_ItemDetail_tit(log, softAssert, driver, "Sauce Labs Fleece Jacket")
+		.Logout(log, wait, driver);
+		lb.TracksAssert(softAssert);
 		
 		
 		/*mymethod.GotoURL(log,driver, url);
@@ -93,12 +93,34 @@ public class Testcase_login extends BaseTest { //use extends command to get valu
 		//Assert.assertTrue(title.isDisplayed());
 		//Assert.assertTrue(title.isDisplayed());
 	}
-	//@Test (priority = 2)
+	@Test (priority = 2)
 	public void login_error_page() {
 		log = report.createTest("Error message when log-in");
+		LoginObject lb = new LoginObject();
+		InventoryObject ib = new InventoryObject();
 		
+		ib.OpenInvenPage(log, driver);
+		lb.Wait_Error(wait, driver)
+		.Compare_fail_2(log, driver)
+		.Wait_Error_but(wait, driver)
+		.ClickError_but(log, driver)
+		.Wait_User_but(wait, driver)
+		.InputUserName(log, driver, "abc")
+		.ClickLogin_but(log, driver)
+		.Compare_fail_4(log, driver)
+		.ClearUserName(log, driver)
+		.InputPasswd_error(log, driver, "aaa")
+		.ClickLogin_but(log, driver)
+		.Compare_fail_3(log, driver)
+		.ClearPasswd(log, driver)
+		.InputUserName(log, driver, "abc")
+		.InputPasswd_error(log, driver, "aaa")
+		.ClickLogin_but(log, driver)
+		.Compare_fail_5(log, driver)
+		.ClearUserName(log, driver)
+		.ClearPasswd(log, driver);
 		
-		mymethod.GotoURL(log, driver, urlogin);
+		/*mymethod.GotoURL(log, driver, urlogin);
 		mymethod.waitclickable(wait, driver, error);
 		mymethod.GetTextEqual(log, driver, error, failure2);
 		mymethod.waitclickable(wait, driver, errorbut);
@@ -106,6 +128,7 @@ public class Testcase_login extends BaseTest { //use extends command to get valu
 		mymethod.waitvisible(wait, driver, user);
 		mymethod.InputdataXpath(log, driver, user, "abc");
 		mymethod.ClickXpath(log, driver, login);
+		
 		mymethod.GetTextEqual(log, driver, error, failure4);
 		mymethod.ClearDataxpath(log, driver, user);
 		mymethod.InputdataXpath(log, driver, passbut, "aaa");
@@ -117,6 +140,6 @@ public class Testcase_login extends BaseTest { //use extends command to get valu
 		mymethod.ClickXpath(log, driver, login);
 		mymethod.GetTextEqual(log, driver, error, failure5);
 		mymethod.ClearDataxpath(log, driver, user);
-		mymethod.ClearDataxpath(log, driver,passbut);
+		mymethod.ClearDataxpath(log, driver,passbut);*/
 	}
 }

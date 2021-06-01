@@ -7,13 +7,46 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import ExerciseBaseCommon.BaseTest;
+import ExerciseShareObject.BuyObject;
+import ExerciseShareObject.InventoryObject;
+import ExerciseShareObject.LoginObject;
 
 public class Testcase_Navigation extends BaseTest {
 	
 	@Test (priority = 1)
 	public void buy_an_item() {
 		log = report.createTest("Process to Buy an Item");
-		log_in();
+		LoginObject lb = new LoginObject();
+		InventoryObject ib = new InventoryObject();
+		BuyObject bb = new BuyObject();
+		lb.Login(log, driver);
+		sleep_1();
+		bb.AddToCart(log, driver, "backpack")
+		.Wait_Cart(wait, driver)
+		.Click_Cart(log, driver);
+		sleep_1();
+		ib.CompareTitle_equal(log, driver, "your cart");
+		bb.Compare_Inventory_1(log, driver, "Sauce Labs Backpack")
+		.Compare_Price_1(log, softAssert, driver, "$29.99")
+		.Wait_Checkout(wait, driver)
+		.Click_Checkout(log, driver);
+		sleep_1();
+		bb.Input_Firstname(log, driver, "Shin")
+		.Input_Lastname(log, driver, "BLack")
+		.Input_Postalcode(log, driver, "700000");
+		sleep_1();
+		bb.Wait_Continue(wait, driver)
+		.Click_Continue(log, driver)
+		.Compare_Total_Price(log, softAssert, driver, "Total: $32.39");
+		sleep_1();
+		bb.Wait_Finish(wait, driver)
+		.Click_Finish(log, driver)
+		.Compare_Head_title(log, driver);
+		sleep_1();
+		lb.TracksAssert(softAssert);
+		
+		
+		/*log_in();
 		mymethod.GetTextFormatEqual(log, driver, buyitem, "backpack", "add to cart");
 		mymethod.ClickFormat(log,driver, buyitem, "backpack");
 		mymethod.waitclickable(wait, driver, badgelink);
@@ -32,20 +65,26 @@ public class Testcase_Navigation extends BaseTest {
 		mymethod.waitclickable(wait, driver, finish);
 		mymethod.ClickXpath(log, driver, finish);
 		mymethod.GetTextEqual(log,driver, completeHead, "THANK YOU FOR YOUR ORDER");
-		mymethod.softAssertAll(softAssert);
+		mymethod.softAssertAll(softAssert);*/
 	}
 	@Test (priority = 2)
 	public void About() {
 		log = report.createTest("Go to About Menu");
-		mymethod.GotoURL(log,driver, urlogin);
+		InventoryObject ib = new InventoryObject();
+		
+		ib.OpenInvenPage(log, driver)
+		.About(log, wait, driver);
+		
+		
+		/*mymethod.GotoURL(log,driver, urlogin);
 		open_menu();
 		mymethod.waitclickable(wait, driver, about);
 		mymethod.GetTextEqual(log,driver,about, "about");
 		mymethod.ClickXpath(log,driver, about);
-		driver.getCurrentUrl().equalsIgnoreCase("https://saucelabs.com/");
+		driver.getCurrentUrl().equalsIgnoreCase("https://saucelabs.com/");*/
 		
 	}
-	@Test (priority = 2)
+	//@Test (priority = 2)
 	public void all_item() {
 		log = report.createTest("Go to About Menu");
 		mymethod.GotoURL(log,driver, urlogin);
@@ -59,7 +98,7 @@ public class Testcase_Navigation extends BaseTest {
 		sleep_3();
 	}
 	
-	@Test (priority = 3)
+	//@Test (priority = 3)
 	public void Check_cart_number() {
 		log = report.createTest("Checking Cart Number");
 		mymethod.GotoURL(log,driver, urlogin);
@@ -83,7 +122,7 @@ public class Testcase_Navigation extends BaseTest {
 		mymethod.GetTextEqual(log,driver, badgeno, "2");
 	}
 	
-	@Test (priority = 4)
+	//@Test (priority = 4)
 	public void logout() {
 		log = report.createTest("Logout Menu");
 		mymethod.GotoURL(log,driver, urlogin);
