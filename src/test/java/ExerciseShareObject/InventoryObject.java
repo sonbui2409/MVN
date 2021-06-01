@@ -9,6 +9,7 @@ import com.aventstack.extentreports.ExtentTest;
 import ExerciseBaseCommon.BaseActions;
 
 public class InventoryObject extends BaseActions {
+	//Inventory page
 	protected String urlogin = "https://www.saucedemo.com/inventory.html";
 	public String pagetitle = "//span[@class = 'title']";
 	protected String itemlink = "//a[@id ='%s']";
@@ -34,6 +35,13 @@ public class InventoryObject extends BaseActions {
 	protected String allitem = "//a[@id = 'inventory_sidebar_link']";
 	
 	
+	//Inventory child page
+	protected String itemdetail_Title = "//div[contains (@class,'name large_size')]";
+	protected String itemdetail_desc = "//div[contains (@class,'desc large_size')]";
+	protected String itemdetail_price = "//div[@class ='inventory_details_price']";
+	protected String backto = "//button[@id = 'back-to-products']";
+	
+	
 	public InventoryObject CompareTitle (ExtentTest log,SoftAssert softAssert,WebDriver driver, String expect) {
 		sAssertEqual(log, softAssert, driver, pagetitle, expect);
 		return this;
@@ -50,6 +58,10 @@ public class InventoryObject extends BaseActions {
 	}
 	public InventoryObject ClickToItem (ExtentTest log, WebDriver driver, String item) {
 		ClickFormat(log, driver, itemlink, item);
+		return this;
+	}
+	public InventoryObject WaitElement_visible (WebDriverWait wait,WebDriver driver) {
+		waitvisible(wait, driver, itemdetail_Title);
 		return this;
 	}
 

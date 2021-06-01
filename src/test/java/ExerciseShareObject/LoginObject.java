@@ -47,7 +47,7 @@ public class LoginObject extends BaseActions {
 		softAssertAll(softAssert);
 		return this;
 	}
-	public LoginObject Comparefail01 (ExtentTest log,SoftAssert softAssert,WebDriver driver) {
+	public LoginObject Comparefail_1 (ExtentTest log,SoftAssert softAssert,WebDriver driver) {
 		sAssertEqual(log, softAssert, driver, error, failure1);
 		return this;
 	}
