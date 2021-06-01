@@ -46,25 +46,28 @@ public class BaseActions {
 		log.info("Click to " + id);
 	}
 	public void ClickFormat (ExtentTest log, WebDriver driver,String xpath, String item) {
-		driver.findElement(By.xpath(String.format(xpath, item))).click();
-		log.info("Click to " + xpath);
+		String text = String.format(xpath, item);
+		driver.findElement(By.xpath(text)).click();
+		log.info("Click to " + text);
 	}
 	//Get Text
 	public void GetTextFormatEqual (ExtentTest log, WebDriver driver,String xpath, String item, String compare) {
-		driver.findElement(By.xpath(String.format(xpath, item))).getText().equalsIgnoreCase(compare);
-		log.info("Get text of " + xpath + " And Compare to " + compare);
+		String text = String.format(xpath, item);
+		driver.findElement(By.xpath(text)).getText().equalsIgnoreCase(compare);
+		log.info("Get text of " + text + " and Compare to " + compare);
 	}
 	public void GetTextEqual (ExtentTest log,WebDriver driver,String xpath, String compare) {
 		driver.findElement(By.xpath(xpath)).getText().equalsIgnoreCase(compare);
-		log.info("Get text of " + xpath + " And Compare to " + compare);
+		log.info("Get text of " + xpath + " and Compare to " + compare);
 	}
 	public void GetText (ExtentTest log,WebDriver driver,String xpath) {
 		driver.findElement(By.xpath(xpath)).getText();
 		log.info("Get text of " + xpath);
 	}
 	public void GetTextFormatEqual_replace (ExtentTest log, WebDriver driver,String xpath, String item, String compare) {
-		driver.findElement(By.xpath(String.format(xpath, item))).getText().replace("\r" + "\n", "").equalsIgnoreCase(compare);
-		log.info("Get text of " + xpath + " And Compare to " + compare);
+		String text = String.format(xpath, item);
+		driver.findElement(By.xpath(text)).getText().replace("\r" + "\n", "").equalsIgnoreCase(compare);
+		log.info("Get text of " + text + " and Compare to " + compare);
 	}
 	
 	//Assert and softAssert
@@ -80,11 +83,11 @@ public class BaseActions {
 	
 	}
 	public void sAssertEqual (ExtentTest log,SoftAssert softAssert,WebDriver driver,String xpath, String expect) {
-		Assert.assertEquals(driver.findElement(By.xpath(xpath)).getText(), expect);
+		softAssert.assertEquals(driver.findElement(By.xpath(xpath)).getText(), expect);
 		log.info("Verify " + xpath + " equal to " + expect);
 	}
 	public void sAssertEqual_replace(ExtentTest log,SoftAssert softAssert,WebDriver driver,String xpath, String expect) {
-		Assert.assertEquals(driver.findElement(By.xpath(xpath)).getText().replace("\r" + "\n", ""), expect);
+		softAssert.assertEquals(driver.findElement(By.xpath(xpath)).getText().replace("\r" + "\n", ""), expect);
 		//"\r" a space, "\n" a new line
 		log.info("Verify " + xpath + " equal to " + expect);
 	}
@@ -100,5 +103,8 @@ public class BaseActions {
 	}
 	public void waitformatvisible(WebDriverWait wait,WebDriver driver, String xpath, String item) {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(xpath, item))));
+	}
+	public void softAssertAll (SoftAssert softAssert) {
+		softAssert.assertAll();
 	}
 }

@@ -24,6 +24,7 @@ import org.testng.asserts.SoftAssert;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
@@ -34,27 +35,30 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
 	protected static WebDriver driver;
+	
 	//login
 	protected String passwd = "secret_sauce";
 	protected String url = "https://www.saucedemo.com/";
-	protected String urlogin = "https://www.saucedemo.com/inventory.html";
 	protected String login = "//input[@type='submit']";
 	protected String user = "//input[@name = 'user-name']";
 	protected String passbut = "//input[@id = 'password']";
 	protected String error = "//h3[@data-test='error']";
 	protected String errorbut = "//button[@class='error-button']";
-	protected String failure1 = "Epic sadface: Sorry, this user has been locked out.";
+	protected String failure1 = "Epic sadface: Sorry, this user has been locked out..";
 	protected String failure2 = "Epic sadface: You can only access '/inventory.html' when you are logged in.";
 	protected String failure3 = "Epic sadface: Username is required";
 	protected String failure4 = "Epic sadface: Password is required";
 	protected String failure5 = "Epic sadface: Username and password do not match any user in this service";
+	
 	//Inventory child page
 	protected String pagetitle = "//span[@class = 'title']";
 	protected String itemdetail_Title = "//div[contains (@class,'name large_size')]";
 	protected String itemdetail_desc = "//div[contains (@class,'desc large_size')]";
 	protected String itemdetail_price = "//div[@class ='inventory_details_price']";
 	protected String backto = "//button[@id = 'back-to-products']";
+	
 	//Inventory Page
+	protected String urlogin = "https://www.saucedemo.com/inventory.html";
 	protected String itemlink = "//a[@id ='%s']";
 	protected String itemname = "//a[@id ='%s']/div";
 	protected String itemdesc = "//a[@id ='%s']/following-sibling::div";
@@ -71,6 +75,7 @@ public class BaseTest {
 	protected String item4desc = "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.";
 	protected String item5name = "Sauce Labs Fleece Jacket";
 	protected String item5desc = "It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.";
+	
 	//Buy Page
 	protected String badgelink = "//a[@class='shopping_cart_link']";
 	protected String badgeno = "//span[@class='shopping_cart_badge']";
@@ -90,7 +95,7 @@ public class BaseTest {
 	protected String allitem = "//a[@id = 'inventory_sidebar_link']";
 	
 	
-	
+	//Using variable
 	protected BaseActions mymethod = new BaseActions();
 	protected SoftAssert softAssert = new SoftAssert();
 	protected static WebDriverWait wait;
@@ -169,7 +174,6 @@ public class BaseTest {
 	@AfterTest
 	public void driver_quit() {
 		driver.close();
-		softAssert.assertAll();
 		report.flush(); //save report after run
 	
 
@@ -182,15 +186,13 @@ public class BaseTest {
 			//MarkupHelper is used to display the output in different colors
 			log.log(Status.FAIL, MarkupHelper.createLabel(result.getName() + " - Test Case Failed", ExtentColor.RED)); // get name of test case
 			log.log(Status.FAIL, MarkupHelper.createLabel(result.getThrowable() + " - Test Case Failed", ExtentColor.RED)); //get failed reason
-
 			//To capture screenshot path and store the path of the screenshot in the string "screenshotPath"
 			//We do pass the path captured by this method in to the extent reports using "logger.addScreenCapture" method. 
-
 			//	String Scrnshot=TakeScreenshot.captuerScreenshot(driver,"TestCaseFailed");
 			String screenshotPath = TakeScreenshot(result.getName());
 			//To add it in the extent report 
-
-			log.fail("Test Case Failed Snapshot is below " + log.addScreenCaptureFromPath(screenshotPath));
+			//log.fail("Test Case Failed Snapshot is below " + log.addScreenCaptureFromPath(screenshotPath));
+			log.fail(MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
 
 
 		}
@@ -203,7 +205,7 @@ public class BaseTest {
 			log.log(Status.PASS, MarkupHelper.createLabel(result.getName()+" Test Case PASSED", ExtentColor.GREEN));
 		}
 	}
-	public String TakeScreenshot(String screenshotName) throws IOException{
+	public String TakeScreenshot(String screenshotName){
 		
 		TakesScreenshot ts = (TakesScreenshot) driver; //capture screen + save in memory of pc
 		File source = ts.getScreenshotAs(OutputType.FILE); // save the captured screen to a file and save it as temp to HDD
@@ -212,7 +214,12 @@ public class BaseTest {
 		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
 		String destination = System.getProperty("user.dir") + "/My_Report/" + screenshotName + " " + dateName + ".png";
 		File finalDestination = new File(destination);
-		FileUtils.copyFile(source, finalDestination); //copy file from temp HDD to a specific location
+		try {
+			FileUtils.copyFile(source, finalDestination);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} //copy file from temp HDD to a specific location
 		return destination;
 	}
 }

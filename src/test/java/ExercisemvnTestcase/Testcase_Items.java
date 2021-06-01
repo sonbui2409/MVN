@@ -6,7 +6,7 @@ import ExerciseBaseCommon.BaseTest;
 
 public class Testcase_Items extends BaseTest {
 
-	//@Test (priority = 1)
+	@Test (priority = 1)
 	public void products_page () {
 		log = report.createTest("Verify Inventory Page");
 		log_in();
@@ -23,8 +23,9 @@ public class Testcase_Items extends BaseTest {
 		mymethod.waitvisible(wait, driver, pagetitle);
 		mymethod.GetTextEqual(log, driver, pagetitle, "products");
 		logout();
+		mymethod.softAssertAll(softAssert);
 	}
-	//@Test (priority = 2)
+	@Test (priority = 2)
 	public void verify_content_1 () {
 		log = report.createTest("Verify Title Link of each item");
 		log_in();

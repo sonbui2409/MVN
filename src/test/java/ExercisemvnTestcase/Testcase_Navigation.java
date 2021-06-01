@@ -32,6 +32,7 @@ public class Testcase_Navigation extends BaseTest {
 		mymethod.waitclickable(wait, driver, finish);
 		mymethod.ClickXpath(log, driver, finish);
 		mymethod.GetTextEqual(log,driver, completeHead, "THANK YOU FOR YOUR ORDER");
+		mymethod.softAssertAll(softAssert);
 	}
 	@Test (priority = 2)
 	public void About() {
@@ -91,5 +92,6 @@ public class Testcase_Navigation extends BaseTest {
 		mymethod.GetTextEqual(log,driver, logout, "logout");
 		mymethod.ClickXpath(log, driver, logout);
 		mymethod.sAssertDisplay_true(log,softAssert, driver, login);
+		mymethod.softAssertAll(softAssert);
 	}
 }

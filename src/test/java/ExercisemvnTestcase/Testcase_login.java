@@ -6,28 +6,43 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import ExerciseBaseCommon.BaseTest;
+import ExerciseShareObject.InventoryObject;
+import ExerciseShareObject.LoginObject;
 
 
 public class Testcase_login extends BaseTest { //use extends command to get value from a variable of another class
 	
 	
 	
-	//@Test (priority = 1)
+	@Test (priority = 1)
 	public void login_Standard() {
 		//create a report for test case
 		log = report.createTest("Login Standard"); //create a log in each test case it should be input in each test case with test case name in ()
+		LoginObject lb = new LoginObject();
+		InventoryObject ib = new InventoryObject();
 		
-		mymethod.GotoURL(log,driver, url);
+		lb.OpenLoginPage(log, driver, url)
+		.InputUserName(log, driver, "standard_user")
+		.InputPasswd(log, driver)
+		.ClickLogin(log, driver);
+		sleep_3();
+		ib.CompareTitle(log, softAssert, driver, "PRODUCTS")
+		.Logout(log, wait, driver)
+		.TracksAssert(softAssert);
+		
+		/*mymethod.GotoURL(log,driver, url);
 		mymethod.InputdataXpath(log,driver, user,"standard_user");
 		mymethod.InputdataXpath(log,driver,passbut , passwd);
 		mymethod.ClickXpath(log,driver, login);
 		sleep_3();
 		mymethod.sAssertEqual(log,softAssert, driver, pagetitle, "PRODUCTS");
 		logout();
+		mymethod.softAssertAll(softAssert);*/
 	}
 	//@Test (priority = 2)
 	public void login_failure() {
 		log = report.createTest("Login Failure");
+		
 		mymethod.GotoURL(log,driver, url);
 		mymethod.InputdataXpath(log,driver, user,"locked_out_user");
 		mymethod.InputdataXpath(log,driver,passbut , passwd);
@@ -35,6 +50,7 @@ public class Testcase_login extends BaseTest { //use extends command to get valu
 		sleep_3();
 		mymethod.sAssertEqual(log,softAssert, driver, error, failure1);
 		sleep_3();
+		mymethod.softAssertAll(softAssert);
 		
 	}
 	//@Test (priority = 2)
@@ -49,6 +65,7 @@ public class Testcase_login extends BaseTest { //use extends command to get valu
 		sleep_3();	
 		mymethod.sAssertEqual(log,softAssert, driver, itemdetail_Title, "Sauce Labs Fleece Jacket");
 		logout();
+		mymethod.softAssertAll(softAssert);
 	}
 	//@Test (priority = 2)
 	public void login_performance() {
@@ -62,7 +79,7 @@ public class Testcase_login extends BaseTest { //use extends command to get valu
 		//Assert.assertTrue(title.isDisplayed());
 		//Assert.assertTrue(title.isDisplayed());
 	}
-	@Test (priority = 2)
+	//@Test (priority = 2)
 	public void login_error_page() {
 		log = report.createTest("Error message when log-in");
 		mymethod.GotoURL(log, driver, urlogin);
