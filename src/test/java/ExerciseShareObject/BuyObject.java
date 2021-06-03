@@ -9,6 +9,7 @@ import com.aventstack.extentreports.ExtentTest;
 import ExerciseBaseCommon.BaseActions;
 
 public class BuyObject extends BaseActions {
+	protected String pagetitle = "//span[@class = 'title']";
 	protected String badgelink = "//a[@class='shopping_cart_link']";
 	protected String badgeno = "//span[@class='shopping_cart_badge']";
 	protected String buyitem = "//button[contains (@name,'%s')]";
@@ -36,62 +37,46 @@ public class BuyObject extends BaseActions {
 	}
 	
 	
-	//Click
-	public BuyObject AddToCart (ExtentTest log, WebDriver driver, String item) {
-		ClickFormat(log, driver, buyitem, item);
+	//Verify
+	public BuyObject Add_item_ToCart (ExtentTest log, WebDriver driver, String item) {
+		ClickFormat(log,driver, buyitem, item);
 		return this;
 	}
-	public BuyObject Click_Cart (ExtentTest log, WebDriver driver) {
-		ClickXpath(log, driver, badgelink);
+	public BuyObject Verify_YourCart_page (WebDriverWait wait,SoftAssert softAssert,ExtentTest log, WebDriver driver, String item, String price) {
+		waitclickable(wait, driver, badgelink);
+		ClickXpath(log,driver, badgelink);
+		GetTextEqual(softAssert,log,driver, pagetitle, "your cart");
+		GetTextEqual(softAssert,log,driver, buyname1, item);		
+		sAssertEqual_replace(log, softAssert, driver, buyprice1, price);
 		return this;
 	}
-	public BuyObject Click_Checkout (ExtentTest log, WebDriver driver) {
-		ClickXpath(log, driver, checkout);
+	public BuyObject Goto_Checkout_Page (WebDriverWait wait,ExtentTest log, WebDriver driver) {
+		waitclickable(wait, driver, checkout);
+		ClickXpath(log,driver, checkout);
 		return this;
 	}
-	public BuyObject Click_Continue (ExtentTest log, WebDriver driver) {
+	public BuyObject Goto_Checkout_Overview (SoftAssert softAssert,WebDriverWait wait,ExtentTest log, WebDriver driver, String pricetotal) {
+		waitclickable(wait, driver, butcont);
 		ClickXpath(log, driver, butcont);
+		sAssertEqual_replace(log, softAssert, driver, totalprice, pricetotal);
 		return this;
 	}
-	public BuyObject Click_Finish (ExtentTest log, WebDriver driver) {
+	public BuyObject Goto_Checkout_Complete (SoftAssert softAssert,WebDriverWait wait,ExtentTest log, WebDriver driver) {
+		waitclickable(wait, driver, finish);
 		ClickXpath(log, driver, finish);
+		GetTextEqual(softAssert,log,driver, completeHead, "THANK YOU FOR YOUR ORDER");
+		return this;
+	}
+	
+	public BuyObject Click_Cart (WebDriverWait wait,ExtentTest log, WebDriver driver) {
+		waitclickable(wait, driver, badgelink);
+		ClickXpath(log, driver, badgelink);
 		return this;
 	}
 	
 	//Compare
-	public BuyObject Compare_Inventory_1 (ExtentTest log, WebDriver driver, String compare) {
-		GetTextEqual(log, driver, buyname1, compare);
-		return this;
-	}
-	public BuyObject Compare_Price_1 (ExtentTest log,SoftAssert softAssert,WebDriver driver, String expect) {
-		sAssertEqual_replace(log, softAssert, driver, buyprice1, expect);
-		return this;
-	}
-	public BuyObject Compare_Total_Price (ExtentTest log,SoftAssert softAssert,WebDriver driver, String expect) {
-		sAssertEqual_replace(log, softAssert, driver, totalprice, expect);
-		return this;
-	}
-	public BuyObject Compare_Head_title (ExtentTest log, WebDriver driver) {
-		GetTextEqual(log, driver, completeHead, "THANK YOU FOR YOUR ORDER");
-		return this;
-	}
-	
-	
-	//Wait
-	public BuyObject Wait_Cart (WebDriverWait wait,WebDriver driver) {
-		waitclickable(wait, driver, badgelink);
-		return this;
-	}
-	public BuyObject Wait_Checkout (WebDriverWait wait,WebDriver driver) {
-		waitclickable(wait, driver, checkout);
-		return this;
-	}
-	public BuyObject Wait_Continue (WebDriverWait wait,WebDriver driver) {
-		waitclickable(wait, driver, butcont);
-		return this;
-	}
-	public BuyObject Wait_Finish (WebDriverWait wait,WebDriver driver) {
-		waitclickable(wait, driver, finish);
+	public BuyObject Compare_CartNum (SoftAssert softAssert,ExtentTest log, WebDriver driver, String compare) {
+		GetTextEqual(softAssert,log, driver, badgeno, compare);
 		return this;
 	}
 

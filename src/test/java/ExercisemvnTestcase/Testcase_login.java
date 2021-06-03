@@ -1,9 +1,6 @@
 package ExercisemvnTestcase;
 
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import ExerciseBaseCommon.BaseTest;
 import ExerciseShareObject.InventoryObject;
@@ -40,7 +37,7 @@ public class Testcase_login extends BaseTest { //use extends command to get valu
 		.InputPasswd(log, driver)
 		.ClickLogin_but(log, driver);
 		sleep_3();
-		lb.Compare_fail_1(log, softAssert, driver)
+		lb.Verify_fail_1(log, softAssert, driver)
 		.TracksAssert(softAssert);
 		
 		/*mymethod.GotoURL(log,driver, url);
@@ -63,9 +60,7 @@ public class Testcase_login extends BaseTest { //use extends command to get valu
 		.InputPasswd(log, driver)
 		.ClickLogin_but(log, driver);
 		sleep_3();
-		ib.ClickToItem(log, driver, "item_1_img_link")
-		.Wait_Itemdetail_Title(wait, driver)
-		.Compare_ItemDetail_tit(log, softAssert, driver, "Sauce Labs Fleece Jacket")
+		ib.Verify_Link_item_problem(softAssert, log, wait, driver, "Sauce Labs Fleece Jacket")
 		.Logout(log, wait, driver);
 		lb.TracksAssert(softAssert);
 		
@@ -82,17 +77,18 @@ public class Testcase_login extends BaseTest { //use extends command to get valu
 		mymethod.softAssertAll(softAssert);*/
 	}
 	//@Test (priority = 2)
-	public void login_performance() {
+	/*public void login_performance() {
 		driver.get(url);
 		driver.findElement(By.xpath(user)).sendKeys("performance_glitch_user");
 		driver.findElement(By.xpath(passbut)).sendKeys(passwd);
 		driver.findElement(By.xpath(login)).click();
 		WebElement title = driver.findElement(By.xpath("//button[contains (@name,'backpack')]"));
-		Assert.assertFalse(title.getCssValue("font-size").equalsIgnoreCase("14px"));
-		//sleep_20();
-		//Assert.assertTrue(title.isDisplayed());
-		//Assert.assertTrue(title.isDisplayed());
-	}
+		Assert.assertFalse(title.getCssValue("font-size").equalsIgnoreCase("14px"));*/
+		/*sleep_20();
+		Assert.assertTrue(title.isDisplayed());
+		Assert.assertTrue(title.isDisplayed());
+	}*/
+	
 	@Test (priority = 2)
 	public void login_error_page() {
 		log = report.createTest("Error message when log-in");
@@ -100,25 +96,12 @@ public class Testcase_login extends BaseTest { //use extends command to get valu
 		InventoryObject ib = new InventoryObject();
 		
 		ib.OpenInvenPage(log, driver);
-		lb.Wait_Error(wait, driver)
-		.Compare_fail_2(log, driver)
-		.Wait_Error_but(wait, driver)
-		.ClickError_but(log, driver)
-		.Wait_User_but(wait, driver)
-		.InputUserName(log, driver, "abc")
-		.ClickLogin_but(log, driver)
-		.Compare_fail_4(log, driver)
-		.ClearUserName(log, driver)
-		.InputPasswd_error(log, driver, "aaa")
-		.ClickLogin_but(log, driver)
-		.Compare_fail_3(log, driver)
-		.ClearPasswd(log, driver)
-		.InputUserName(log, driver, "abc")
-		.InputPasswd_error(log, driver, "aaa")
-		.ClickLogin_but(log, driver)
-		.Compare_fail_5(log, driver)
-		.ClearUserName(log, driver)
-		.ClearPasswd(log, driver);
+		lb.Verify_fail_2(softAssert,wait, log, driver)
+		.Verify_fail_3(softAssert,log, driver)
+		.Verify_fail_4(softAssert,wait, log, driver)
+		.Verify_fail_5(softAssert,log, driver)
+		.TracksAssert(softAssert);
+		
 		
 		/*mymethod.GotoURL(log, driver, urlogin);
 		mymethod.waitclickable(wait, driver, error);

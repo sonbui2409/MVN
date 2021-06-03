@@ -7,13 +7,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -35,66 +33,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
 	protected static WebDriver driver;
-	
-	//login
-	protected String passwd = "secret_sauce";
-	protected String url = "https://www.saucedemo.com/";
-	protected String login = "//input[@type='submit']";
-	protected String user = "//input[@name = 'user-name']";
-	protected String passbut = "//input[@id = 'password']";
-	protected String error = "//h3[@data-test='error']";
-	protected String errorbut = "//button[@class='error-button']";
-	protected String failure1 = "Epic sadface: Sorry, this user has been locked out..";
-	protected String failure2 = "Epic sadface: You can only access '/inventory.html' when you are logged in.";
-	protected String failure3 = "Epic sadface: Username is required";
-	protected String failure4 = "Epic sadface: Password is required";
-	protected String failure5 = "Epic sadface: Username and password do not match any user in this service";
-	
-	//Inventory child page
-	protected String pagetitle = "//span[@class = 'title']";
-	protected String itemdetail_Title = "//div[contains (@class,'name large_size')]";
-	protected String itemdetail_desc = "//div[contains (@class,'desc large_size')]";
-	protected String itemdetail_price = "//div[@class ='inventory_details_price']";
-	protected String backto = "//button[@id = 'back-to-products']";
-	
-	//Inventory Page
-	protected String urlogin = "https://www.saucedemo.com/inventory.html";
-	protected String itemlink = "//a[@id ='%s']";
-	protected String itemname = "//a[@id ='%s']/div";
-	protected String itemdesc = "//a[@id ='%s']/following-sibling::div";
-	protected String itemprice = "//a[@id='%s']/parent::div/following-sibling::div/div[@class='inventory_item_price']";
-	protected String item0name = "Sauce Labs Bike Light";
-	protected String item0desc = "A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.";
-	protected String item1name = "Sauce Labs Bolt T-Shirt";
-	protected String item1desc = "Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed cotton, heather gray with red bolt.";
-	protected String item2name = "Sauce Labs Onesie";
-	protected String item2desc = "Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel.";
-	protected String item3name = "Test.allTheThings() T-Shirt (Red)";
-	protected String item3desc = "This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton.";
-	protected String item4name = "Sauce Labs Backpack";
-	protected String item4desc = "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.";
-	protected String item5name = "Sauce Labs Fleece Jacket";
-	protected String item5desc = "It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.";
-	
-	//Buy Page
-	protected String badgelink = "//a[@class='shopping_cart_link']";
-	protected String badgeno = "//span[@class='shopping_cart_badge']";
-	protected String buyitem = "//button[contains (@name,'%s')]";
-	protected String buyname1 = "//div[@class='inventory_item_name']";
-	protected String buyprice1 = "//div[@class='inventory_item_price']";
-	protected String checkout = "//button[@id='checkout']";
-	protected String butcont = "//input[@id='continue']";
-	protected String totalprice = "//div[@class='summary_total_label']";
-	protected String finish = "//button[@id='finish']";
-	protected String completeHead = "//h2[@class='complete-header']";
-	
-	//Menu Navigation
-	protected String menu = "//div[@class='bm-burger-button']";
-	protected String logout = "//a[@id='logout_sidebar_link']";
-	protected String about = "//a[@id = 'about_sidebar_link']";
-	protected String allitem = "//a[@id = 'inventory_sidebar_link']";
-	
-	
 	//Using variable
 	protected BaseActions mymethod = new BaseActions();
 	protected SoftAssert softAssert = new SoftAssert();
@@ -138,21 +76,7 @@ public class BaseTest {
 			e.printStackTrace();
 		}
 	}
-	public void logout() {
-		mymethod.ClickXpath(log, driver, menu);
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(logout)));
-		mymethod.ClickXpath(log, driver, logout);
-	}
-	public void log_in() {
-		mymethod.GotoURL(log,driver, url);
-		mymethod.InputdataXpath(log,driver, user,"standard_user");
-		mymethod.InputdataXpath(log,driver,passbut , passwd);
-		mymethod.ClickXpath(log,driver, login);
-	}
-	public void open_menu() {
-		mymethod.ClickXpath(log, driver, menu);
-	}
-	
+
 	
 	@BeforeTest
 	@Parameters({ "browser" })

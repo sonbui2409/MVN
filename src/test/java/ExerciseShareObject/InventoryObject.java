@@ -41,6 +41,7 @@ public class InventoryObject extends BaseActions {
 	protected String itemdetail_price = "//div[@class ='inventory_details_price']";
 	protected String backto = "//button[@id = 'back-to-products']";
 	
+	
 	//Open
 	public InventoryObject OpenInvenPage (ExtentTest log, WebDriver driver) {
 		GotoURL(log, driver, urlogin);
@@ -56,17 +57,13 @@ public class InventoryObject extends BaseActions {
 		sAssertEqual(log, softAssert, driver, pagetitle, expect);
 		return this;
 	}
-	public InventoryObject CompareTitle_equal (ExtentTest log,WebDriver driver, String expect) {
-		GetTextEqual(log, driver, pagetitle, expect);
-		return this;
-	}
 	
-	public InventoryObject Compare_ItemDetail_tit (ExtentTest log,SoftAssert softAssert,WebDriver driver, String expect) {
-		sAssertEqual(log, softAssert, driver, itemdetail_Title, expect);
-		return this;
-	}
 	public InventoryObject Compare_Buy (ExtentTest log,SoftAssert softAssert,WebDriver driver, String expect) {
 		sAssertEqual(log, softAssert, driver, itemdetail_Title, expect);
+		return this;
+	}
+	public InventoryObject Compare_CurrentURL (SoftAssert softAssert,ExtentTest log,WebDriver driver, String currentURL) {
+		CompareCurrentURL(softAssert,log, driver, currentURL);
 		return this;
 	}
 	
@@ -77,26 +74,102 @@ public class InventoryObject extends BaseActions {
 		ClickXpath(log, driver, logout);
 		return this;
 	}
-	//About
-	public InventoryObject About (ExtentTest log, WebDriverWait wait,WebDriver driver) {
-		ClickXpath(log, driver, menu);
-		waitclickable(wait, driver, about);
-		GetTextEqual(log, driver, about, "about");
-		ClickXpath(log, driver, about);
-		CompareCurrentURL(log, driver, "https://saucelabs.com/");
-		return this;
-	}
 	
 	//Click
 	public InventoryObject ClickToItem (ExtentTest log, WebDriver driver, String item) {
 		ClickFormat(log, driver, itemlink, item);
 		return this;
 	}
-	
-	//Wait
-	public InventoryObject Wait_Itemdetail_Title (WebDriverWait wait, WebDriver driver) {
-		waitvisible(wait, driver, itemdetail_Title);
+	public InventoryObject GoToItem_1 (ExtentTest log, WebDriver driver) {
+		ClickFormat(log, driver, itemlink, "item_0_title_link");
 		return this;
 	}
+	
+	//Verify Content
+
+	public InventoryObject Verify_Name_Desc_price_item_1 (SoftAssert softAssert,ExtentTest log,WebDriverWait wait, WebDriver driver, String price) {
+		waitformatvisible(wait, driver, itemname, "item_0_title_link");
+		GetTextFormatEqual(softAssert,log, driver, itemname, "item_0_title_link", item0name);
+		GetTextFormatEqual(softAssert,log, driver, itemdesc, "item_0_title_link", item0desc);
+		GetTextFormatEqual_replace(softAssert,log, driver, itemprice, "item_0_title_link", price);
+		return this;
+	}
+	public InventoryObject Verify_Name_Desc_price_item_2 (SoftAssert softAssert,ExtentTest log,WebDriverWait wait, WebDriver driver, String price) {
+		waitformatvisible(wait, driver, itemname, "item_1_title_link");
+		GetTextFormatEqual(softAssert,log, driver, itemname, "item_1_title_link", item1name);
+		GetTextFormatEqual(softAssert,log, driver, itemdesc, "item_1_title_link", item1desc);
+		GetTextFormatEqual_replace(softAssert,log, driver, itemprice, "item_1_title_link", price);
+		return this;
+	}
+	public InventoryObject Verify_Name_Desc_price_item_3 (SoftAssert softAssert,ExtentTest log,WebDriverWait wait, WebDriver driver, String price) {
+		waitformatvisible(wait, driver, itemname, "item_2_title_link");
+		GetTextFormatEqual(softAssert,log, driver, itemname, "item_2_title_link", item2name);
+		GetTextFormatEqual(softAssert,log, driver, itemdesc, "item_2_title_link", item2desc);
+		GetTextFormatEqual_replace(softAssert,log, driver, itemprice, "item_2_title_link", price);
+		return this;
+	}
+	public InventoryObject Verify_Name_Desc_price_item_4 (SoftAssert softAssert,ExtentTest log,WebDriverWait wait, WebDriver driver, String price) {
+		waitformatvisible(wait, driver, itemname, "item_3_title_link");
+		GetTextFormatEqual(softAssert,log, driver, itemname, "item_3_title_link", item3name);
+		GetTextFormatEqual(softAssert,log, driver, itemdesc, "item_3_title_link", item3desc);
+		GetTextFormatEqual_replace(softAssert,log, driver, itemprice, "item_3_title_link", price);
+		return this;
+	}
+	public InventoryObject Verify_Name_Desc_price_item_5 (SoftAssert softAssert,ExtentTest log,WebDriverWait wait, WebDriver driver, String price) {
+		waitformatvisible(wait, driver, itemname, "item_4_title_link");
+		GetTextFormatEqual(softAssert,log, driver, itemname, "item_4_title_link", item4name);
+		GetTextFormatEqual(softAssert,log, driver, itemdesc, "item_4_title_link", item4desc);
+		GetTextFormatEqual_replace(softAssert,log, driver, itemprice, "item_4_title_link", price);
+		return this;
+	}
+	public InventoryObject Verify_Name_Desc_price_item_6 (SoftAssert softAssert,ExtentTest log,WebDriverWait wait, WebDriver driver, String price) {
+		waitformatvisible(wait, driver, itemname, "item_5_title_link");
+		GetTextFormatEqual(softAssert,log, driver, itemname, "item_5_title_link", item5name);
+		GetTextFormatEqual(softAssert,log, driver, itemdesc, "item_5_title_link", item5desc);
+		GetTextFormatEqual_replace(softAssert,log, driver, itemprice, "item_5_title_link", price);
+		return this;
+	}
+	public InventoryObject Verify_Page_item_1 (SoftAssert softAssert,ExtentTest log,WebDriverWait wait, WebDriver driver) {
+		GetTextEqual(softAssert,log, driver, itemdetail_Title, item0name);
+		GetTextEqual(softAssert,log, driver, itemdetail_desc, item0desc);
+		sAssertEqual_replace(log, softAssert, driver, itemdetail_price, "$9.99");
+		return this;
+	}
+	public InventoryObject Verify_GoBack (SoftAssert softAssert,ExtentTest log,WebDriverWait wait, WebDriver driver) {
+		waitclickable(wait, driver, backto);
+		ClickXpath(log, driver, backto);
+		waitvisible(wait, driver, pagetitle);
+		GetTextEqual(softAssert,log, driver, pagetitle, "products");
+		return this;
+	}
+	public InventoryObject Verify_Link_item (ExtentTest log,WebDriverWait wait, WebDriver driver, String item) {
+		waitformatclickable(wait, driver, itemlink, item);
+		ClickFormat(log, driver, itemlink, item);
+		waitclickable(wait, driver, backto);
+		ClickXpath(log, driver, backto);
+		return this;
+	}
+	public InventoryObject Verify_Link_item_problem (SoftAssert softAssert, ExtentTest log,WebDriverWait wait, WebDriver driver, String expect) {
+		ClickFormat(log, driver, itemlink, "item_1_img_link");
+		waitvisible(wait, driver, itemdetail_Title);
+		sAssertEqual(log, softAssert, driver, itemdetail_Title, expect);	
+		return this;
+	}
+	public InventoryObject Verify_Allitem (SoftAssert softAssert,WebDriverWait wait,ExtentTest log,WebDriver driver, String expect) {
+		waitclickable(wait, driver, allitem);
+		GetTextEqual(softAssert,log, driver, allitem, "All Items");
+		ClickXpath(log, driver, allitem);
+		GetTextEqual(softAssert,log, driver, pagetitle, expect);
+		return this;
+	}
+	public InventoryObject Verify_About (SoftAssert softAssert,WebDriverWait wait,ExtentTest log,WebDriver driver) {
+		waitclickable(wait, driver, about);
+		GetTextEqual(softAssert,log, driver, about, "about");
+		ClickXpath(log, driver, about);
+		return this;
+	}
+	
+	
+	
 
 }

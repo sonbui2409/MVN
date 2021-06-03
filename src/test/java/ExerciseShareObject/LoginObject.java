@@ -50,66 +50,53 @@ public class LoginObject extends BaseActions {
 		return this;
 	}
 	
-	//Clear Data
-	public LoginObject ClearUserName (ExtentTest log, WebDriver driver) {
-		ClearDataxpath(log, driver, user);
-		return this;
-	}
-	public LoginObject ClearPasswd(ExtentTest log, WebDriver driver) {
-		ClearDataxpath(log, driver, passbut);
-		return this;
-	}
-	
 	//Click
 	public LoginObject ClickLogin_but (ExtentTest log, WebDriver driver) {
 		ClickXpath(log, driver, login);
 		return this;
 	}
-	public LoginObject ClickError_but (ExtentTest log, WebDriver driver) {
+	//Verify
+	public LoginObject Verify_fail_1 (ExtentTest log,SoftAssert softAssert,WebDriver driver) {
+		sAssertEqual(log, softAssert, driver, error, failure1);
+		return this;
+	}
+	public LoginObject Verify_fail_2 (SoftAssert softAssert,WebDriverWait wait,ExtentTest log,WebDriver driver) {
+		waitclickable(wait, driver, error);
+		GetTextEqual(softAssert,log, driver, error, failure2);
+		waitclickable(wait, driver, errorbut);
 		ClickXpath(log, driver, errorbut);
 		return this;
 	}
 	
-	//Wait
-	public LoginObject Wait_Error (WebDriverWait wait,WebDriver driver) {
-		waitvisible(wait, driver, error);
+	public LoginObject Verify_fail_3 (SoftAssert softAssert,ExtentTest log,WebDriver driver) {
+		InputdataXpath(log, driver, passbut, "aaa");
+		ClickXpath(log, driver, login);
+		GetTextEqual(softAssert,log, driver, error, failure3);
+		ClearDataxpath(log, driver, passbut);
 		return this;
 	}
-	public LoginObject Wait_Error_but (WebDriverWait wait,WebDriver driver) {
-		waitvisible(wait, driver, errorbut);
-		return this;
-	}
-	public LoginObject Wait_User_but (WebDriverWait wait,WebDriver driver) {
+	public LoginObject Verify_fail_4 (SoftAssert softAssert,WebDriverWait wait,ExtentTest log,WebDriver driver) {
 		waitvisible(wait, driver, user);
+		InputdataXpath(log, driver, user, "abc");
+		ClickXpath(log, driver, login);
+		GetTextEqual(softAssert,log, driver, error, failure4);
+		ClearDataxpath(log, driver, user);
 		return this;
 	}
-	public LoginObject Wait_Pass_but (WebDriverWait wait,WebDriver driver) {
-		waitvisible(wait, driver, passbut);
+	public LoginObject Verify_fail_5 (SoftAssert softAssert,ExtentTest log,WebDriver driver) {
+		InputdataXpath(log, driver, user, "abc");
+		InputdataXpath(log, driver, passbut, "aaa");
+		ClickXpath(log, driver, login);
+		GetTextEqual(softAssert,log, driver, error, failure5);
+		ClearDataxpath(log, driver, user);
+		ClearDataxpath(log, driver,passbut);
+		return this;
+	}
+	public LoginObject Compare_login_but (ExtentTest log,SoftAssert softAssert,WebDriver driver) {
+		sAssertDisplay_true(log, softAssert, driver, login);
 		return this;
 	}
 	
-	
-	//Compare
-	public LoginObject Compare_fail_1 (ExtentTest log,SoftAssert softAssert,WebDriver driver) {
-		sAssertEqual(log, softAssert, driver, error, failure1);
-		return this;
-	}
-	public LoginObject Compare_fail_2 (ExtentTest log,WebDriver driver) {
-		GetTextEqual(log, driver, error, failure2);
-		return this;
-	}
-	public LoginObject Compare_fail_3 (ExtentTest log,WebDriver driver) {
-		GetTextEqual(log, driver, error, failure3);
-		return this;
-	}
-	public LoginObject Compare_fail_4 (ExtentTest log,WebDriver driver) {
-		GetTextEqual(log, driver, error, failure4);
-		return this;
-	}
-	public LoginObject Compare_fail_5 (ExtentTest log,WebDriver driver) {
-		GetTextEqual(log, driver, error, failure5);
-		return this;
-	}
 	
 	
 	//Track SoftAssert

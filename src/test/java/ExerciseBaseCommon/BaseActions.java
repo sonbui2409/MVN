@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 import com.aventstack.extentreports.ExtentTest;
@@ -51,26 +50,26 @@ public class BaseActions {
 		log.info("Click to " + text);
 	}
 	//Get Text
-	protected void GetTextFormatEqual (ExtentTest log, WebDriver driver,String xpath, String item, String compare) {
+	protected void GetTextFormatEqual (SoftAssert softAssert,ExtentTest log, WebDriver driver,String xpath, String item, String compare) {
 		String text = String.format(xpath, item);
-		driver.findElement(By.xpath(text)).getText().equalsIgnoreCase(compare);
+		softAssert.assertTrue(driver.findElement(By.xpath(text)).getText().equalsIgnoreCase(compare));
 		log.info("Get text of " + text + " and Compare to " + compare);
 	}
-	protected void GetTextEqual (ExtentTest log,WebDriver driver,String xpath, String compare) {
-		driver.findElement(By.xpath(xpath)).getText().equalsIgnoreCase(compare);
+	protected void GetTextEqual (SoftAssert softAssert,ExtentTest log,WebDriver driver,String xpath, String compare) {
+		softAssert.assertTrue(driver.findElement(By.xpath(xpath)).getText().equalsIgnoreCase(compare));
 		log.info("Get text of " + xpath + " and Compare to " + compare);
 	}
 	protected void GetText (ExtentTest log,WebDriver driver,String xpath) {
 		driver.findElement(By.xpath(xpath)).getText();
 		log.info("Get text of " + xpath);
 	}
-	protected void GetTextFormatEqual_replace (ExtentTest log, WebDriver driver,String xpath, String item, String compare) {
+	protected void GetTextFormatEqual_replace (SoftAssert softAssert,ExtentTest log, WebDriver driver,String xpath, String item, String compare) {
 		String text = String.format(xpath, item);
-		driver.findElement(By.xpath(text)).getText().replace("\r" + "\n", "").equalsIgnoreCase(compare);
+		softAssert.assertTrue(driver.findElement(By.xpath(text)).getText().replace("\r" + "\n", "").equalsIgnoreCase(compare));
 		log.info("Get text of " + text + " and Compare to " + compare);
 	}
-	protected void CompareCurrentURL (ExtentTest log,WebDriver driver,String compareUrl) {
-		driver.getCurrentUrl().equalsIgnoreCase(compareUrl);
+	protected void CompareCurrentURL (SoftAssert softAssert,ExtentTest log,WebDriver driver,String compareUrl) {
+		softAssert.assertTrue(driver.getCurrentUrl().equalsIgnoreCase(compareUrl));
 		log.info("The current URL is: " + compareUrl);
 	}
 	

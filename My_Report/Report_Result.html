@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary"></span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Jun 2, 2021 01:27:17 AM</span></a>
+<a href="#"><span class="badge badge-primary">Jun 2, 2021 09:09:50 PM</span></a>
 </li>
 </ul>
 </div>
@@ -79,9 +79,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">Process to Buy an Item</p>
+            <p class="name">Verify Title,Description and price of each item</p>
             <p class="text-sm">
-              <span>1:27:17 AM</span> / <span>00:00:08:565</span>
+              <span>9:09:50 PM</span> / <span>00:00:03:814</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -89,10 +89,10 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">Process to Buy an Item</h5>
-<span class='badge badge-success'>06.02.2021 1:27:17 AM</span>
-<span class='badge badge-danger'>06.02.2021 1:27:26 AM</span>
-<span class='badge badge-default'>00:00:08:565</span>
+<h5 class="test-status text-pass">Verify Title,Description and price of each item</h5>
+<span class='badge badge-success'>06.02.2021 9:09:50 PM</span>
+<span class='badge badge-danger'>06.02.2021 9:09:54 PM</span>
+<span class='badge badge-default'>00:00:03:814</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -104,203 +104,177 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>1:27:19 AM</td>
+        <td>9:09:52 PM</td>
         <td>
           Go to URL https://www.saucedemo.com/
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>1:27:19 AM</td>
+        <td>9:09:52 PM</td>
         <td>
           Input standard_userto field //input[@name = 'user-name']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>1:27:19 AM</td>
+        <td>9:09:52 PM</td>
         <td>
           Input secret_sauceto field //input[@id = 'password']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>1:27:19 AM</td>
+        <td>9:09:52 PM</td>
         <td>
           Click to //input[@type='submit']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>1:27:20 AM</td>
+        <td>9:09:52 PM</td>
         <td>
-          Click to //button[contains (@name,'backpack')]
+          Get text of //a[@id ='item_0_title_link']/div and Compare to Sauce Labs Bike Light
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>1:27:20 AM</td>
+        <td>9:09:52 PM</td>
         <td>
-          Click to //a[@class='shopping_cart_link']
+          Get text of //a[@id ='item_0_title_link']/following-sibling::div and Compare to A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>1:27:21 AM</td>
+        <td>9:09:52 PM</td>
         <td>
-          Get text of //span[@class = 'title'] and Compare to your cart
+          Get text of //a[@id='item_0_title_link']/parent::div/following-sibling::div/div[@class='inventory_item_price'] and Compare to $9.99
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>1:27:21 AM</td>
+        <td>9:09:53 PM</td>
         <td>
-          Get text of //div[@class='inventory_item_name'] and Compare to Sauce Labs Backpack
+          Get text of //a[@id ='item_1_title_link']/div and Compare to Sauce Labs Bike Light
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>1:27:21 AM</td>
+        <td>9:09:53 PM</td>
         <td>
-          Verify //div[@class='inventory_item_price'] equal to $29.99
+          Get text of //a[@id ='item_1_title_link']/following-sibling::div and Compare to A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>1:27:21 AM</td>
+        <td>9:09:53 PM</td>
         <td>
-          Click to //button[@id='checkout']
+          Get text of //a[@id='item_1_title_link']/parent::div/following-sibling::div/div[@class='inventory_item_price'] and Compare to $15.99
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>1:27:22 AM</td>
+        <td>9:09:53 PM</td>
         <td>
-          Input Shin to first-name
+          Get text of //a[@id ='item_2_title_link']/div and Compare to Sauce Labs Bike Light
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>1:27:22 AM</td>
+        <td>9:09:53 PM</td>
         <td>
-          Input BLack to last-name
+          Get text of //a[@id ='item_2_title_link']/following-sibling::div and Compare to A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>1:27:23 AM</td>
+        <td>9:09:53 PM</td>
         <td>
-          Input 700000 to postal-code
+          Get text of //a[@id='item_2_title_link']/parent::div/following-sibling::div/div[@class='inventory_item_price'] and Compare to $7.99
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>1:27:24 AM</td>
+        <td>9:09:53 PM</td>
         <td>
-          Click to //input[@id='continue']
+          Get text of //a[@id ='item_3_title_link']/div and Compare to Sauce Labs Bike Light
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>1:27:24 AM</td>
+        <td>9:09:53 PM</td>
         <td>
-          Verify //div[@class='summary_total_label'] equal to Total: $32.39
+          Get text of //a[@id ='item_3_title_link']/following-sibling::div and Compare to A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>1:27:25 AM</td>
+        <td>9:09:53 PM</td>
         <td>
-          Click to //button[@id='finish']
+          Get text of //a[@id='item_3_title_link']/parent::div/following-sibling::div/div[@class='inventory_item_price'] and Compare to $15.99
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>1:27:25 AM</td>
+        <td>9:09:53 PM</td>
         <td>
-          Get text of //h2[@class='complete-header'] and Compare to THANK YOU FOR YOUR ORDER
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>1:27:26 AM</td>
-        <td>
-          <span class='badge white-text green'>buy_an_item Test Case PASSED</span>
-        </td>
-      </tr>
-  </tbody>
-</table>
-</div>
-          </div>
-        </li>
-        <li class="test-item"  status="pass" test-id="2"
-          author=""
-          tag=""
-          device="">
-          <div class="test-detail">
-            <p class="name">Go to About Menu</p>
-            <p class="text-sm">
-              <span>1:27:26 AM</span> / <span>00:00:05:640</span>
-              <span class="badge pass-bg log float-right">Pass</span>
-            </p>
-          </div>
-          <div class="test-contents d-none">
-<div class="detail-head">
-<div class="p-v-10">
-<div class="info">
-<h5 class="test-status text-pass">Go to About Menu</h5>
-<span class='badge badge-success'>06.02.2021 1:27:26 AM</span>
-<span class='badge badge-danger'>06.02.2021 1:27:31 AM</span>
-<span class='badge badge-default'>00:00:05:640</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
-<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
-<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
-</div>
-</div>
-</div><div class="detail-body mt-4">
-<table class="table table-sm">
-  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
-  <tbody>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:27:26 AM</td>
-        <td>
-          Go to URL https://www.saucedemo.com/inventory.html
+          Get text of //a[@id ='item_4_title_link']/div and Compare to Sauce Labs Bike Light
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>1:27:26 AM</td>
+        <td>9:09:53 PM</td>
+        <td>
+          Get text of //a[@id ='item_4_title_link']/following-sibling::div and Compare to A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>9:09:53 PM</td>
+        <td>
+          Get text of //a[@id='item_4_title_link']/parent::div/following-sibling::div/div[@class='inventory_item_price'] and Compare to $29.99
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>9:09:53 PM</td>
+        <td>
+          Get text of //a[@id ='item_5_title_link']/div and Compare to Sauce Labs Bike Light
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>9:09:53 PM</td>
+        <td>
+          Get text of //a[@id ='item_5_title_link']/following-sibling::div and Compare to A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>9:09:53 PM</td>
+        <td>
+          Get text of //a[@id='item_5_title_link']/parent::div/following-sibling::div/div[@class='inventory_item_price'] and Compare to $49.99
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>9:09:53 PM</td>
         <td>
           Click to //div[@class='bm-burger-button']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>1:27:27 AM</td>
+        <td>9:09:54 PM</td>
         <td>
-          Get text of //a[@id = 'about_sidebar_link'] and Compare to about
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:27:31 AM</td>
-        <td>
-          Click to //a[@id = 'about_sidebar_link']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>1:27:31 AM</td>
-        <td>
-          The current URL is: https://saucelabs.com/
+          Click to //a[@id='logout_sidebar_link']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>1:27:31 AM</td>
+        <td>9:09:54 PM</td>
         <td>
-          <span class='badge white-text green'>About Test Case PASSED</span>
+          <span class='badge white-text green'>verify_content_3 Test Case PASSED</span>
         </td>
       </tr>
   </tbody>
@@ -322,19 +296,19 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Jun 2, 2021 01:27:17 AM</h3>
+<h3>Jun 2, 2021 09:09:50 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Jun 2, 2021 01:27:32 AM</h3>
+<h3>Jun 2, 2021 09:09:54 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Tests Passed</p>
-<h3>2</h3>
+<h3>1</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -357,7 +331,7 @@
 </div>
 <div class="card-footer">
 <div><small data-tooltip='100%'>
-<b>2</b> tests passed
+<b>1</b> tests passed
 </small>
 </div>
 <div>
@@ -379,10 +353,10 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='8%'><b>2</b> events passed</small></div>
+<div><small data-tooltip='4%'><b>1</b> events passed</small></div>
 <div>
 <small data-tooltip='0%'><b>0</b> events failed,
-<b data-tooltip='%'>22</b> others
+<b data-tooltip='%'>24</b> others
 </small>
 </div>
 </div>
@@ -398,7 +372,7 @@
 </div></div>
 <script>
 var timeline = {
-"Process to Buy an Item":8.565,"Go to About Menu":5.64
+"Verify Title,Description and price of each item":3.814
 };
 </script>
 <div class="row">
@@ -429,7 +403,7 @@ var timeline = {
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 2,
+passParent: 1,
 failParent: 0,
 warningParent: 0,
 skipParent: 0,
@@ -446,11 +420,11 @@ warningGrandChild: 0,
 skipGrandChild: 0,
 infoGrandChild: 0,
 eventsCount: 5,
-passEvents: 2,
+passEvents: 1,
 failEvents: 0,
 warningEvents: 0,
 skipEvents: 0,
-infoEvents: 22
+infoEvents: 24
 };
 </script>        </div>
       </div>

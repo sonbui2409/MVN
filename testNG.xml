@@ -7,7 +7,7 @@
     <classes>
     	<!-- input name of class that will be executed -->
        <!-- <class name="ExercisemvnTestcase.Testcase_login" /> -->
-       <class name="ExercisemvnTestcase.Testcase_Navigation" />
+       <class name="ExercisemvnTestcase.Testcase_Items" />
     </classes>
   </test>
    <!-- <test name="Demo_Firefox" >
