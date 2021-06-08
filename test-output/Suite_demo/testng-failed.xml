@@ -2,16 +2,17 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite_demo]">
   <test thread-count="5" name="Demo_Chrome(failed)">
+    <parameter name="filename" value="Data.xlsx"/>
     <parameter name="browser" value="Chrome"/>
     <classes>
-      <class name="ExercisemvnTestcase.Testcase_Navigation">
+      <class name="ExercisemvnTestcase.Testcase_login">
         <methods>
+          <include name="login_error_page"/>
           <include name="driver_open"/>
           <include name="getResult"/>
           <include name="driver_quit"/>
-          <include name="buy_an_item"/>
         </methods>
-      </class> <!-- ExercisemvnTestcase.Testcase_Navigation -->
+      </class> <!-- ExercisemvnTestcase.Testcase_login -->
     </classes>
   </test> <!-- Demo_Chrome(failed) -->
 </suite> <!-- Failed suite [Suite_demo] -->
