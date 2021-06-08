@@ -12,9 +12,6 @@ public class Testcase_Navigation extends BaseTest {
 	@Test (priority = 1)
 	public void buy_an_item() {
 		log = report.createTest("Process to Buy an Item");
-		LoginObject lb = new LoginObject();
-		BuyObject bb = new BuyObject();
-		
 		lb.Login(log, driver);
 		sleep_1();
 		bb.Add_item_ToCart(log, driver, "backpack");
@@ -56,10 +53,7 @@ public class Testcase_Navigation extends BaseTest {
 	}
 	@Test (priority = 2)
 	public void About() {
-		log = report.createTest("Go to About Menu");
-		InventoryObject ib = new InventoryObject();
-		LoginObject lb = new LoginObject();
-		
+		log = report.createTest("Go to About Menu");	
 		ib.OpenInvenPage(log, driver)
 		.OpenMenu(log, driver)
 		.Verify_About(softAssert,wait, log, driver)
@@ -79,10 +73,6 @@ public class Testcase_Navigation extends BaseTest {
 	@Test (priority = 2)
 	public void all_item() {
 		log = report.createTest("Go to All Item Menu");
-		InventoryObject ib = new InventoryObject();
-		BuyObject bb = new BuyObject();
-		LoginObject lb = new LoginObject();
-		
 		ib.OpenInvenPage(log, driver);
 		bb.Click_Cart(wait, log, driver);
 		ib.OpenMenu(log, driver)
@@ -103,11 +93,7 @@ public class Testcase_Navigation extends BaseTest {
 	
 	@Test (priority = 3)
 	public void Check_cart_number() {
-		log = report.createTest("Checking Cart Number");
-		InventoryObject ib = new InventoryObject();
-		BuyObject bb = new BuyObject();
-		LoginObject lb = new LoginObject();
-		
+		log = report.createTest("Checking Cart Number");	
 		ib.OpenInvenPage(log, driver);
 		bb.Add_item_ToCart(log, driver, "backpack")
 		.Compare_CartNum(softAssert,log, driver, "1");
@@ -152,10 +138,7 @@ public class Testcase_Navigation extends BaseTest {
 	
 	@Test (priority = 4)
 	public void logout() {
-		log = report.createTest("Logout Menu");
-		LoginObject lb = new LoginObject();
-		InventoryObject ib = new InventoryObject();
-		
+		log = report.createTest("Logout Menu");		
 		ib.OpenInvenPage(log, driver)
 		.Logout(log, wait, driver);
 		lb.Compare_login_but(log, softAssert, driver)

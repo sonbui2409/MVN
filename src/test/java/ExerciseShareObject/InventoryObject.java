@@ -131,8 +131,11 @@ public class InventoryObject extends BaseActions {
 		return this;
 	}
 	public InventoryObject Verify_Page_item_1 (SoftAssert softAssert,ExtentTest log,WebDriverWait wait, WebDriver driver) {
+		waitvisible(wait, driver, readExl("Xpath", 1, 15));
 		GetTextEqual(softAssert,log, driver, readExl("Xpath", 1, 15), readExl("Inventory", 4, 1));
+		waitvisible(wait, driver, readExl("Xpath", 1, 16));
 		GetTextEqual(softAssert,log, driver, readExl("Xpath", 1, 16), readExl("Inventory", 5, 1));
+		waitvisible(wait, driver, readExl("Xpath", 1, 17));
 		sAssertEqual_replace(log, softAssert, driver, readExl("Xpath", 1, 17), readExl("Inventory", 3, 1));
 		return this;
 	}

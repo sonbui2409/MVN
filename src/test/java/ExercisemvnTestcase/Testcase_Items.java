@@ -122,6 +122,7 @@ public class Testcase_Items extends BaseTest {
 		.Verify_Name_Desc_price_item_5(softAssert,log, wait, driver)
 		.Verify_Name_Desc_price_item_6(softAssert,log, wait, driver)
 		.Logout(log, wait, driver);
+		lb.TracksAssert(softAssert);
 		
 		
 		/*log_in();

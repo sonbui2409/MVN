@@ -153,7 +153,7 @@ public class BaseTest {
 			String screenshotPath = TakeScreenshot(result.getName());
 			//To add it in the extent report 
 			//log.fail("Test Case Failed Snapshot is below " + log.addScreenCaptureFromPath(screenshotPath));
-			log.info(MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
+			log.fail(MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
 
 
 		}
