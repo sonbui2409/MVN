@@ -46,19 +46,19 @@ public class LoginObject extends BaseActions {
 		InputdataXpath(log, driver, passbut, passwd);
 		ClickXpath(log, driver, login);*/
 		GotoURL(log, driver, readExl("Login", DataTest.ColUrl, 1));
-		InputdataXpath(log, driver, readExl("Xpath", 1, DataTest.RowXpath_user), readExl("Login", DataTest.ColUser, 1));
-		InputdataXpath(log, driver, readExl("Xpath", 1, DataTest.RowXpath_passwd), readExl("Login", DataTest.ColPass, 1));
-		ClickXpath(log, driver, readExl("Xpath", 1, DataTest.RowXpath_login));
+		InputdataXpath(log, driver, readExl("Xpath", 1, 1), readExl("Login", DataTest.ColUser, 1));
+		InputdataXpath(log, driver, readExl("Xpath", 1, 2), readExl("Login", DataTest.ColPass, 1));
+		ClickXpath(log, driver, readExl("Xpath", 1, 3));
 		return this;
 	} 
 	
 	//Input Data
 	public LoginObject InputUserName (ExtentTest log, WebDriver driver, String data) {
-		InputdataXpath(log, driver, readExl("Xpath", 1, DataTest.RowXpath_user), data);
+		InputdataXpath(log, driver, readExl("Xpath", 1, 1), data);
 		return this;
 	}
 	public LoginObject InputPasswd(ExtentTest log, WebDriver driver) {
-		InputdataXpath(log, driver, readExl("Xpath", 1, DataTest.RowXpath_passwd), readExl("Login", DataTest.ColPass, 1));
+		InputdataXpath(log, driver, readExl("Xpath", 1, 2), readExl("Login", DataTest.ColPass, 1));
 		return this;
 	}
 	/*public LoginObject InputPasswd_error(ExtentTest log, WebDriver driver, String data) {
@@ -68,56 +68,52 @@ public class LoginObject extends BaseActions {
 	
 	//Click
 	public LoginObject ClickLogin_but (ExtentTest log, WebDriver driver) {
-		ClickXpath(log, driver, readExl("Xpath", 1, DataTest.RowXpath_login));
+		ClickXpath(log, driver, readExl("Xpath", 1, 3));
 		return this;
 	}
 	//Verify
 	public LoginObject Verify_fail_1 (ExtentTest log,SoftAssert softAssert,WebDriver driver) {
-		sAssertEqual(log, softAssert, driver, readExl("Xpath", 1, DataTest.RowXpath_error), readExl("Login", DataTest.ColError, 1));
+		sAssertEqual(log, softAssert, driver, readExl("Xpath", 1, 4), readExl("Login", DataTest.ColError, 1));
 		return this;
 	}
 	public LoginObject Verify_fail_2 (SoftAssert softAssert,WebDriverWait wait,ExtentTest log,WebDriver driver) {
-		waitclickable(wait, driver, readExl("Xpath", 1, DataTest.RowXpath_error));
-		GetTextEqual(softAssert,log, driver, readExl("Xpath", 1, DataTest.RowXpath_error), readExl("Login", DataTest.ColError, 2));
-		waitclickable(wait, driver, readExl("Xpath", 1, DataTest.RowXpath_errorbut));
-		ClickXpath(log, driver, readExl("Xpath", 1, DataTest.RowXpath_errorbut));
+		waitclickable(wait, driver, readExl("Xpath", 1, 4));
+		GetTextEqual(softAssert,log, driver, readExl("Xpath", 1, 4), readExl("Login", DataTest.ColError, 2));
+		waitclickable(wait, driver, readExl("Xpath", 1, 5));
+		ClickXpath(log, driver, readExl("Xpath", 1, 5));
 		return this;
 	}
 	
 	public LoginObject Verify_fail_3 (SoftAssert softAssert,ExtentTest log,WebDriver driver) {
-		InputdataXpath(log, driver, readExl("Xpath", 1, DataTest.RowXpath_passwd), "aaa");
-		ClickXpath(log, driver, readExl("Xpath", 1, DataTest.RowXpath_login));
-		GetTextEqual(softAssert,log, driver, readExl("Xpath", 1, DataTest.RowXpath_error), readExl("Login", DataTest.ColError, 3));
-		ClearDataxpath(log, driver, readExl("Xpath", 1, DataTest.RowXpath_passwd));
+		InputdataXpath(log, driver, readExl("Xpath", 1, 2), "aaa");
+		ClickXpath(log, driver, readExl("Xpath", 1, 3));
+		GetTextEqual(softAssert,log, driver, readExl("Xpath", 1, 4), readExl("Login", DataTest.ColError, 3));
 		return this;
 	}
 	public LoginObject Verify_fail_4 (SoftAssert softAssert,WebDriverWait wait,ExtentTest log,WebDriver driver) {
-		waitvisible(wait, driver, readExl("Xpath", 1, DataTest.RowXpath_user));
-		InputdataXpath(log, driver, readExl("Xpath", 1, DataTest.RowXpath_user), "abc");
-		ClickXpath(log, driver, readExl("Xpath", 1, DataTest.RowXpath_login));
-		GetTextEqual(softAssert,log, driver, readExl("Xpath", 1, DataTest.RowXpath_error), readExl("Login", DataTest.ColError, 4));
-		ClearDataxpath(log, driver, readExl("Xpath", 1, DataTest.RowXpath_user));
+		waitvisible(wait, driver, readExl("Xpath", 1, 1));
+		InputdataXpath(log, driver, readExl("Xpath", 1, 1), "abc");
+		ClearDataxpath(log, driver, readExl("Xpath", 1, 2));
+		ClickXpath(log, driver, readExl("Xpath", 1, 3));
+		GetTextEqual(softAssert,log, driver, readExl("Xpath", 1, 4), readExl("Login", DataTest.ColError, 4));
 		return this;
 	}
 	public LoginObject Verify_fail_5 (SoftAssert softAssert,ExtentTest log,WebDriver driver) {
-		InputdataXpath(log, driver, readExl("Xpath", 1, DataTest.RowXpath_user), "abc");
-		InputdataXpath(log, driver, readExl("Xpath", 1, DataTest.RowXpath_passwd), "aaa");
-		ClickXpath(log, driver, readExl("Xpath", 1, DataTest.RowXpath_login));
-		GetTextEqual(softAssert,log, driver, readExl("Xpath", 1, DataTest.RowXpath_error), readExl("Login", DataTest.ColError, 5));
-		ClearDataxpath(log, driver, readExl("Xpath", 1, DataTest.RowXpath_user));
-		ClearDataxpath(log, driver, readExl("Xpath", 1, DataTest.RowXpath_passwd));
+		ClearDataxpath(log, driver, readExl("Xpath", 1, 1));
+		InputdataXpath(log, driver, readExl("Xpath", 1, 1), "abc");
+		ClearDataxpath(log, driver, readExl("Xpath", 1, 2));
+		InputdataXpath(log, driver, readExl("Xpath", 1, 2), "aaa");
+		ClickXpath(log, driver, readExl("Xpath", 1, 3));
+		GetTextEqual(softAssert,log, driver, readExl("Xpath", 1, 4), readExl("Login", DataTest.ColError, 5));
 		return this;
 	}
 	public LoginObject Compare_login_but (ExtentTest log,SoftAssert softAssert,WebDriver driver) {
-		sAssertDisplay_true(log, softAssert, driver, readExl("Xpath", 1, DataTest.RowXpath_login));
+		sAssertDisplay_true(log, softAssert, driver, readExl("Xpath", 1, 3));
 		return this;
 	}
 	
 	//Read excel
-	public LoginObject Readexcel (String sheetname, int icol, int irow) {
-		readExl(sheetname, icol, irow);
-		return this;
-	}
+	
 	
 	
 	//Track SoftAssert

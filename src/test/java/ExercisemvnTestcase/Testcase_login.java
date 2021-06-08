@@ -10,7 +10,7 @@ public class Testcase_login extends BaseTest { //use extends command to get valu
 	
 	
 	
-	//@Test (priority = 1)
+	@Test (priority = 1)
 	public void login_Standard() {
 		//create a report for test case
 		log = report.createTest("Login Standard"); //create a log in each test case it should be input in each test case with test case name in ()
@@ -24,12 +24,11 @@ public class Testcase_login extends BaseTest { //use extends command to get valu
 		sleep_3();
 		ib.CompareTitle(log, softAssert, driver, excel.readExl("Inventory", DataTest.ColPagetitle, 1))
 		.Logout(log, wait, driver);
-		//lb.TracksAssert(softAssert);
-		softAssertAll ();
+		lb.TracksAssert(softAssert);
 		
 		
 	}
-	//@Test (priority = 2)
+	@Test (priority = 2)
 	public void login_failure() {
 		log = report.createTest("Login Failure");
 		//LoginObject lb = new LoginObject();
@@ -38,9 +37,9 @@ public class Testcase_login extends BaseTest { //use extends command to get valu
 		.InputPasswd(log, driver)
 		.ClickLogin_but(log, driver);
 		sleep_3();
-		lb.Verify_fail_1(log, softAssert, driver);
-		//.TracksAssert(softAssert);
-		softAssertAll ();
+		lb.Verify_fail_1(log, softAssert, driver)
+		.TracksAssert(softAssert);
+
 		/*mymethod.GotoURL(log,driver, url);
 		mymethod.InputdataXpath(log,driver, user,"locked_out_user");
 		mymethod.InputdataXpath(log,driver,passbut , passwd);
@@ -51,7 +50,7 @@ public class Testcase_login extends BaseTest { //use extends command to get valu
 		mymethod.softAssertAll(softAssert);*/
 		
 	}
-	//@Test (priority = 2)
+	@Test (priority = 2)
 	public void login_problem() {
 		log = report.createTest("Login Problem");
 		//LoginObject lb = new LoginObject();
@@ -61,10 +60,9 @@ public class Testcase_login extends BaseTest { //use extends command to get valu
 		.InputPasswd(log, driver)
 		.ClickLogin_but(log, driver);
 		sleep_3();
-		ib.Verify_Link_item_problem(softAssert, log, wait, driver, "Sauce Labs Fleece Jacket")
+		ib.Verify_Link_item_problem(softAssert, log, wait, driver)
 		.Logout(log, wait, driver);
-		//lb.TracksAssert(softAssert);
-		softAssertAll ();
+		lb.TracksAssert(softAssert);
 		
 		/*mymethod.GotoURL(log,driver, url);
 		mymethod.InputdataXpath(log,driver, user,"problem_user");
@@ -99,11 +97,13 @@ public class Testcase_login extends BaseTest { //use extends command to get valu
 		
 		ib.OpenInvenPage(log, driver);
 		lb.Verify_fail_2(softAssert,wait, log, driver)
+		.OpenLoginPage(log, driver)
 		.Verify_fail_3(softAssert,log, driver)
-		//.Verify_fail_4(softAssert,wait, log, driver)
-		.Verify_fail_5(softAssert,log, driver);
-		//.TracksAssert(softAssert);
-		softAssertAll ();
+		.OpenLoginPage(log, driver)
+		.Verify_fail_4(softAssert,wait, log, driver)
+		.OpenLoginPage(log, driver)
+		.Verify_fail_5(softAssert,log, driver)
+		.TracksAssert(softAssert);
 		
 		/*mymethod.GotoURL(log, driver, urlogin);
 		mymethod.waitclickable(wait, driver, error);

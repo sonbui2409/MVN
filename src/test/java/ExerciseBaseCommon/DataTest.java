@@ -15,6 +15,7 @@ public class DataTest {
 	public static int RowXpath_login = 3;
 	public static int RowXpath_error = 4;
 	public static int RowXpath_errorbut = 5;
+	public static int RowXpath_menu = 6;
 	
 
 }

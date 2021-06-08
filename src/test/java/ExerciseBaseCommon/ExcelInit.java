@@ -42,7 +42,8 @@ public class ExcelInit {
 				// TODO: handle exception
 				data = "";
 			}
-			
+			inputStream.close();
+			wb.close();
 			
 		} catch (FileNotFoundException e) {				
 			e.printStackTrace();			

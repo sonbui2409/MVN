@@ -29,6 +29,7 @@ import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
+import ExerciseShareObject.BuyObject;
 import ExerciseShareObject.InventoryObject;
 import ExerciseShareObject.LoginObject;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -40,8 +41,11 @@ public class BaseTest {
 	protected BaseActions mymethod = new BaseActions();
 	protected SoftAssert softAssert = new SoftAssert();
 	protected BaseActions excel = new BaseActions();
+	
 	protected LoginObject lb = new LoginObject();
 	protected InventoryObject ib = new InventoryObject();
+	protected BuyObject bb = new BuyObject();
+	
 	protected static WebDriverWait wait;
 	protected static ExtentReports report; //resgister for report, create a new report, save, screenshot
 	ExtentSparkReporter spark; //create a report file
@@ -99,9 +103,6 @@ public class BaseTest {
 			e.printStackTrace();
 		} //copy file from temp HDD to a specific location
 		return destination;
-	}
-	protected void softAssertAll () {
-		softAssert.assertAll();
 	}
 	
 	@BeforeTest

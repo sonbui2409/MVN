@@ -1,21 +1,15 @@
 package ExercisemvnTestcase;
 
 import org.testng.annotations.Test;
-
 import ExerciseBaseCommon.BaseTest;
-import ExerciseShareObject.InventoryObject;
-import ExerciseShareObject.LoginObject;
 
 public class Testcase_Items extends BaseTest {
 
 	@Test (priority = 1)
 	public void products_page () {
-		log = report.createTest("Verify Inventory Page");
-		LoginObject lb = new LoginObject();
-		InventoryObject ib = new InventoryObject();
-		
+		log = report.createTest("Verify Inventory Page");		
 		lb.Login(log, driver);
-		ib.Verify_Name_Desc_price_item_1(softAssert,log, wait, driver, "$9.99")
+		ib.Verify_Name_Desc_price_item_1(softAssert,log, wait, driver)
 		.GoToItem_1(log, driver)
 		.Verify_Page_item_1(softAssert, log, wait, driver);
 		sleep_1();
@@ -43,17 +37,14 @@ public class Testcase_Items extends BaseTest {
 	}
 	@Test (priority = 2)
 	public void verify_content_1 () {
-		log = report.createTest("Verify Title Link of each item");
-		LoginObject lb = new LoginObject();
-		InventoryObject ib = new InventoryObject();
-		
+		log = report.createTest("Verify Title Link of each item");		
 		lb.Login(log, driver);
-		ib.Verify_Link_item(log, wait, driver, "item_0_title_link")
-		.Verify_Link_item(log, wait, driver, "item_1_title_link")
-		.Verify_Link_item(log, wait, driver, "item_2_title_link")
-		.Verify_Link_item(log, wait, driver, "item_3_title_link")
-		.Verify_Link_item(log, wait, driver, "item_4_title_link")
-		.Verify_Link_item(log, wait, driver, "item_5_title_link")
+		ib.Verify_Link_item(log, wait, driver, excel.readExl("Inventory", 1 , 1))
+		.Verify_Link_item(log, wait, driver, excel.readExl("Inventory", 1 , 2))
+		.Verify_Link_item(log, wait, driver, excel.readExl("Inventory", 1 , 3))
+		.Verify_Link_item(log, wait, driver, excel.readExl("Inventory", 1 , 4))
+		.Verify_Link_item(log, wait, driver, excel.readExl("Inventory", 1 , 5))
+		.Verify_Link_item(log, wait, driver, excel.readExl("Inventory", 1 , 6))
 		.Logout(log, wait, driver);
 		
 		
@@ -85,17 +76,14 @@ public class Testcase_Items extends BaseTest {
 	}
 	@Test (priority = 2)
 	public void verify_content_2 () {
-		log = report.createTest("Verify Image Link of each item");
-		LoginObject lb = new LoginObject();
-		InventoryObject ib = new InventoryObject();
-		
+		log = report.createTest("Verify Image Link of each item");		
 		lb.Login(log, driver);
-		ib.Verify_Link_item(log, wait, driver, "item_0_img_link")
-		.Verify_Link_item(log, wait, driver, "item_1_img_link")
-		.Verify_Link_item(log, wait, driver, "item_2_img_link")
-		.Verify_Link_item(log, wait, driver, "item_3_img_link")
-		.Verify_Link_item(log, wait, driver, "item_4_img_link")
-		.Verify_Link_item(log, wait, driver, "item_5_img_link")
+		ib.Verify_Link_item(log, wait, driver, excel.readExl("Inventory", 2 , 1))
+		.Verify_Link_item(log, wait, driver, excel.readExl("Inventory", 2 , 2))
+		.Verify_Link_item(log, wait, driver, excel.readExl("Inventory", 2 , 3))
+		.Verify_Link_item(log, wait, driver, excel.readExl("Inventory", 2 , 4))
+		.Verify_Link_item(log, wait, driver, excel.readExl("Inventory", 2 , 5))
+		.Verify_Link_item(log, wait, driver, excel.readExl("Inventory", 2 , 6))
 		.Logout(log, wait, driver);
 		
 		/*mymethod.waitformatclickable(wait, driver, itemlink, "item_0_img_link");
@@ -125,17 +113,14 @@ public class Testcase_Items extends BaseTest {
 	}
 	@Test (priority = 2)
 	public void verify_content_3 () {
-		log = report.createTest("Verify Title,Description and price of each item");
-		LoginObject lb = new LoginObject();
-		InventoryObject ib = new InventoryObject();
-		
+		log = report.createTest("Verify Title,Description and price of each item");	
 		lb.Login(log, driver);
-		ib.Verify_Name_Desc_price_item_1(softAssert,log, wait, driver, "$9.99")
-		.Verify_Name_Desc_price_item_2(softAssert,log, wait, driver, "$15.99")
-		.Verify_Name_Desc_price_item_3(softAssert,log, wait, driver, "$7.99")
-		.Verify_Name_Desc_price_item_4(softAssert,log, wait, driver, "$15.99")
-		.Verify_Name_Desc_price_item_5(softAssert,log, wait, driver, "$29.99")
-		.Verify_Name_Desc_price_item_6(softAssert,log, wait, driver, "$49.99")
+		ib.Verify_Name_Desc_price_item_1(softAssert,log, wait, driver)
+		.Verify_Name_Desc_price_item_2(softAssert,log, wait, driver)
+		.Verify_Name_Desc_price_item_3(softAssert,log, wait, driver)
+		.Verify_Name_Desc_price_item_4(softAssert,log, wait, driver)
+		.Verify_Name_Desc_price_item_5(softAssert,log, wait, driver)
+		.Verify_Name_Desc_price_item_6(softAssert,log, wait, driver)
 		.Logout(log, wait, driver);
 		
 		
