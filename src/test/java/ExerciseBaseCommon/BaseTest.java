@@ -29,13 +29,19 @@ import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
+import ExerciseShareObject.InventoryObject;
+import ExerciseShareObject.LoginObject;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
 	protected static WebDriver driver;
 	//Using variable
+	public static String fileName;
 	protected BaseActions mymethod = new BaseActions();
 	protected SoftAssert softAssert = new SoftAssert();
+	protected BaseActions excel = new BaseActions();
+	protected LoginObject lb = new LoginObject();
+	protected InventoryObject ib = new InventoryObject();
 	protected static WebDriverWait wait;
 	protected static ExtentReports report; //resgister for report, create a new report, save, screenshot
 	ExtentSparkReporter spark; //create a report file
@@ -77,10 +83,31 @@ public class BaseTest {
 		}
 	}
 
+	public String TakeScreenshot(String screenshotName){
+		
+		TakesScreenshot ts = (TakesScreenshot) driver; //capture screen + save in memory of pc
+		File source = ts.getScreenshotAs(OutputType.FILE); // save the captured screen to a file and save it as temp to HDD
+
+		// after execution, you could see a folder "FailedTestsScreenshots" under src folder
+		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+		String destination = System.getProperty("user.dir") + "/My_Report/" + screenshotName + " " + dateName + ".png";
+		File finalDestination = new File(destination);
+		try {
+			FileUtils.copyFile(source, finalDestination);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} //copy file from temp HDD to a specific location
+		return destination;
+	}
+	protected void softAssertAll () {
+		softAssert.assertAll();
+	}
 	
 	@BeforeTest
-	@Parameters({ "browser" })
-	public void driver_open(String browser) {
+	@Parameters({ "browser", "filename" })
+	public void driver_open(String browser, String filename) {
+		fileName = System.getProperty("user.dir") + File.separator + "Resources" + File.separator + filename;
 		browser = browser.toLowerCase(); 
 		if (browser.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
@@ -138,21 +165,5 @@ public class BaseTest {
 			log.log(Status.PASS, MarkupHelper.createLabel(result.getName()+" Test Case PASSED", ExtentColor.GREEN));
 		}
 	}
-	public String TakeScreenshot(String screenshotName){
-		
-		TakesScreenshot ts = (TakesScreenshot) driver; //capture screen + save in memory of pc
-		File source = ts.getScreenshotAs(OutputType.FILE); // save the captured screen to a file and save it as temp to HDD
-
-		// after execution, you could see a folder "FailedTestsScreenshots" under src folder
-		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-		String destination = System.getProperty("user.dir") + "/My_Report/" + screenshotName + " " + dateName + ".png";
-		File finalDestination = new File(destination);
-		try {
-			FileUtils.copyFile(source, finalDestination);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} //copy file from temp HDD to a specific location
-		return destination;
-	}
+	
 }

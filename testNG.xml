@@ -4,10 +4,11 @@
   <test name="Demo_Chrome" >
     <!-- input parameter to input value of browser if_else -->
     <parameter name="browser"  value="Chrome"/>
+    <parameter name="filename"  value="Data.xlsx"/>
     <classes>
     	<!-- input name of class that will be executed -->
        <!-- <class name="ExercisemvnTestcase.Testcase_login" /> -->
-       <class name="ExercisemvnTestcase.Testcase_Items" />
+       <class name="ExercisemvnTestcase.Testcase_login" />
     </classes>
   </test>
    <!-- <test name="Demo_Firefox" >

@@ -3,43 +3,44 @@ package ExercisemvnTestcase;
 
 import org.testng.annotations.Test;
 import ExerciseBaseCommon.BaseTest;
-import ExerciseShareObject.InventoryObject;
-import ExerciseShareObject.LoginObject;
+import ExerciseBaseCommon.DataTest;
 
 
 public class Testcase_login extends BaseTest { //use extends command to get value from a variable of another class
 	
 	
 	
-	@Test (priority = 1)
+	//@Test (priority = 1)
 	public void login_Standard() {
 		//create a report for test case
 		log = report.createTest("Login Standard"); //create a log in each test case it should be input in each test case with test case name in ()
-		LoginObject lb = new LoginObject();
-		InventoryObject ib = new InventoryObject();
-		
+		//LoginObject lb = new LoginObject();
+		//InventoryObject ib = new InventoryObject();
 		lb.OpenLoginPage(log, driver)
-		.InputUserName(log, driver, "standard_user")
+		//.InputUserName(log, driver, "standard_user")
+		.InputUserName(log, driver, excel.readExl("Login", DataTest.ColUser, 1))
 		.InputPasswd(log, driver)
 		.ClickLogin_but(log, driver);
 		sleep_3();
-		ib.CompareTitle(log, softAssert, driver, "PRODUCTS")
+		ib.CompareTitle(log, softAssert, driver, excel.readExl("Inventory", DataTest.ColPagetitle, 1))
 		.Logout(log, wait, driver);
-		lb.TracksAssert(softAssert);
+		//lb.TracksAssert(softAssert);
+		softAssertAll ();
+		
 		
 	}
-	@Test (priority = 2)
+	//@Test (priority = 2)
 	public void login_failure() {
 		log = report.createTest("Login Failure");
-		LoginObject lb = new LoginObject();
+		//LoginObject lb = new LoginObject();
 		lb.OpenLoginPage(log, driver)
-		.InputUserName(log, driver, "locked_out_user")
+		.InputUserName(log, driver, excel.readExl("Login", DataTest.ColUser, 2))
 		.InputPasswd(log, driver)
 		.ClickLogin_but(log, driver);
 		sleep_3();
-		lb.Verify_fail_1(log, softAssert, driver)
-		.TracksAssert(softAssert);
-		
+		lb.Verify_fail_1(log, softAssert, driver);
+		//.TracksAssert(softAssert);
+		softAssertAll ();
 		/*mymethod.GotoURL(log,driver, url);
 		mymethod.InputdataXpath(log,driver, user,"locked_out_user");
 		mymethod.InputdataXpath(log,driver,passbut , passwd);
@@ -50,20 +51,20 @@ public class Testcase_login extends BaseTest { //use extends command to get valu
 		mymethod.softAssertAll(softAssert);*/
 		
 	}
-	@Test (priority = 2)
+	//@Test (priority = 2)
 	public void login_problem() {
 		log = report.createTest("Login Problem");
-		LoginObject lb = new LoginObject();
-		InventoryObject ib = new InventoryObject();
+		//LoginObject lb = new LoginObject();
+		//InventoryObject ib = new InventoryObject();
 		lb.OpenLoginPage(log, driver)
-		.InputUserName(log, driver, "problem_user")
+		.InputUserName(log, driver, excel.readExl("Login", DataTest.ColUser, 3))
 		.InputPasswd(log, driver)
 		.ClickLogin_but(log, driver);
 		sleep_3();
 		ib.Verify_Link_item_problem(softAssert, log, wait, driver, "Sauce Labs Fleece Jacket")
 		.Logout(log, wait, driver);
-		lb.TracksAssert(softAssert);
-		
+		//lb.TracksAssert(softAssert);
+		softAssertAll ();
 		
 		/*mymethod.GotoURL(log,driver, url);
 		mymethod.InputdataXpath(log,driver, user,"problem_user");
@@ -89,19 +90,20 @@ public class Testcase_login extends BaseTest { //use extends command to get valu
 		Assert.assertTrue(title.isDisplayed());
 	}*/
 	
+	
 	@Test (priority = 2)
 	public void login_error_page() {
 		log = report.createTest("Error message when log-in");
-		LoginObject lb = new LoginObject();
-		InventoryObject ib = new InventoryObject();
+		//LoginObject lb = new LoginObject();
+		//InventoryObject ib = new InventoryObject();
 		
 		ib.OpenInvenPage(log, driver);
 		lb.Verify_fail_2(softAssert,wait, log, driver)
 		.Verify_fail_3(softAssert,log, driver)
-		.Verify_fail_4(softAssert,wait, log, driver)
-		.Verify_fail_5(softAssert,log, driver)
-		.TracksAssert(softAssert);
-		
+		//.Verify_fail_4(softAssert,wait, log, driver)
+		.Verify_fail_5(softAssert,log, driver);
+		//.TracksAssert(softAssert);
+		softAssertAll ();
 		
 		/*mymethod.GotoURL(log, driver, urlogin);
 		mymethod.waitclickable(wait, driver, error);

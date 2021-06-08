@@ -11,6 +11,8 @@ import com.aventstack.extentreports.ExtentTest;
 
 
 public class BaseActions {
+	
+	ExcelInit reader = new ExcelInit();
 
 	protected void GotoURL(ExtentTest log, WebDriver driver, String url) {
 		driver.get(url);
@@ -110,5 +112,11 @@ public class BaseActions {
 	}
 	protected void softAssertAll (SoftAssert softAssert) {
 		softAssert.assertAll();
+	}
+	//Read Excel
+	
+	public String readExl(String sheetname,int icol, int irow) {
+		String data = reader.RDataAtCell(BaseTest.fileName, sheetname, icol, irow);
+		return data;
 	}
 }
