@@ -5,25 +5,11 @@
     <parameter name="filename" value="Data.xlsx"/>
     <parameter name="browser" value="Chrome"/>
     <classes>
-      <class name="ExercisemvnTestcase.Testcase_Items">
-        <methods>
-          <include name="verify_content_2"/>
-          <include name="verify_content_3"/>
-          <include name="products_page"/>
-          <include name="verify_content_1"/>
-          <include name="driver_open"/>
-          <include name="getResult"/>
-          <include name="driver_quit"/>
-        </methods>
-      </class> <!-- ExercisemvnTestcase.Testcase_Items -->
       <class name="ExercisemvnTestcase.Testcase_login">
         <methods>
-          <include name="login_problem"/>
           <include name="login_error_page"/>
-          <include name="login_failure"/>
           <include name="driver_open"/>
           <include name="getResult"/>
-          <include name="login_Standard"/>
           <include name="driver_quit"/>
         </methods>
       </class> <!-- ExercisemvnTestcase.Testcase_login -->

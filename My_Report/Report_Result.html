@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary"></span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Jun 8, 2021 07:32:55 PM</span></a>
+<a href="#"><span class="badge badge-primary">Jun 10, 2021 10:06:41 AM</span></a>
 </li>
 </ul>
 </div>
@@ -79,9 +79,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">Verify Inventory Page</p>
+            <p class="name">Lock Out User</p>
             <p class="text-sm">
-              <span>7:32:55 PM</span> / <span>00:00:05:973</span>
+              <span>10:06:42 AM</span> / <span>00:00:01:008</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -89,10 +89,10 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">Verify Inventory Page</h5>
-<span class='badge badge-success'>06.08.2021 7:32:55 PM</span>
-<span class='badge badge-danger'>06.08.2021 7:33:01 PM</span>
-<span class='badge badge-default'>00:00:05:973</span>
+<h5 class="test-status text-pass">Lock Out User</h5>
+<span class='badge badge-success'>06.10.2021 10:06:42 AM</span>
+<span class='badge badge-danger'>06.10.2021 10:06:43 AM</span>
+<span class='badge badge-default'>00:00:01:008</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -104,114 +104,37 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:32:56 PM</td>
+        <td>10:06:42 AM</td>
         <td>
           Go to URL https://www.saucedemo.com/
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:32:57 PM</td>
+        <td>10:06:42 AM</td>
         <td>
-          Input standard_userto field //input[@name = 'user-name']
+          Input locked_out_userto field //input[@name = 'user-name']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:32:57 PM</td>
+        <td>10:06:43 AM</td>
         <td>
           Input secret_sauceto field //input[@id = 'password']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:32:57 PM</td>
+        <td>10:06:43 AM</td>
         <td>
           Click to //input[@type='submit']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:32:58 PM</td>
+        <td>10:06:43 AM</td>
         <td>
-          Get text of //a[@id ='item_0_title_link']/div and Compare to Sauce Labs Bike Light
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:32:58 PM</td>
-        <td>
-          Get text of //a[@id ='item_0_title_link']/following-sibling::div and Compare to A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:32:58 PM</td>
-        <td>
-          Get text of //a[@id='item_0_title_link']/parent::div/following-sibling::div/div[@class='inventory_item_price'] and Compare to $9.99
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:32:58 PM</td>
-        <td>
-          Click to //a[@id ='item_0_title_link']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:32:59 PM</td>
-        <td>
-          Get text of //div[contains (@class,'name large_size')] and Compare to Sauce Labs Bike Light
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:32:59 PM</td>
-        <td>
-          Get text of //div[contains (@class,'desc large_size')] and Compare to A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:32:59 PM</td>
-        <td>
-          Verify //div[@class ='inventory_details_price'] equal to $9.99
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:00 PM</td>
-        <td>
-          Click to //button[@id = 'back-to-products']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:01 PM</td>
-        <td>
-          Get text of //span[@class = 'title'] and Compare to PRODUCTS
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:01 PM</td>
-        <td>
-          Click to //div[@class='bm-burger-button']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:01 PM</td>
-        <td>
-          Click to //a[@id='logout_sidebar_link']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>7:33:01 PM</td>
-        <td>
-          <span class='badge white-text green'>products_page Test Case PASSED</span>
+          Verify //h3[@data-test='error'] equal to Epic sadface: Sorry, this user has been locked out.
         </td>
       </tr>
   </tbody>
@@ -224,9 +147,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">Verify Title Link of each item</p>
+            <p class="name">Missing Username</p>
             <p class="text-sm">
-              <span>7:33:01 PM</span> / <span>00:00:03:683</span>
+              <span>10:06:43 AM</span> / <span>00:00:00:553</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -234,10 +157,10 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">Verify Title Link of each item</h5>
-<span class='badge badge-success'>06.08.2021 7:33:01 PM</span>
-<span class='badge badge-danger'>06.08.2021 7:33:05 PM</span>
-<span class='badge badge-default'>00:00:03:683</span>
+<h5 class="test-status text-pass">Missing Username</h5>
+<span class='badge badge-success'>06.10.2021 10:06:43 AM</span>
+<span class='badge badge-danger'>06.10.2021 10:06:44 AM</span>
+<span class='badge badge-default'>00:00:00:553</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -249,135 +172,37 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:01 PM</td>
+        <td>10:06:43 AM</td>
         <td>
           Go to URL https://www.saucedemo.com/
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:01 PM</td>
+        <td>10:06:43 AM</td>
         <td>
-          Input standard_userto field //input[@name = 'user-name']
+          Input to field //input[@name = 'user-name']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:01 PM</td>
+        <td>10:06:43 AM</td>
         <td>
-          Input secret_sauceto field //input[@id = 'password']
+          Input abcto field //input[@id = 'password']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:02 PM</td>
+        <td>10:06:44 AM</td>
         <td>
           Click to //input[@type='submit']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:02 PM</td>
+        <td>10:06:44 AM</td>
         <td>
-          Click to //a[@id ='item_0_title_link']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:02 PM</td>
-        <td>
-          Click to //button[@id = 'back-to-products']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:03 PM</td>
-        <td>
-          Click to //a[@id ='item_1_title_link']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:03 PM</td>
-        <td>
-          Click to //button[@id = 'back-to-products']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:03 PM</td>
-        <td>
-          Click to //a[@id ='item_2_title_link']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:03 PM</td>
-        <td>
-          Click to //button[@id = 'back-to-products']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:03 PM</td>
-        <td>
-          Click to //a[@id ='item_3_title_link']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:04 PM</td>
-        <td>
-          Click to //button[@id = 'back-to-products']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:04 PM</td>
-        <td>
-          Click to //a[@id ='item_4_title_link']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:04 PM</td>
-        <td>
-          Click to //button[@id = 'back-to-products']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:04 PM</td>
-        <td>
-          Click to //a[@id ='item_5_title_link']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:04 PM</td>
-        <td>
-          Click to //button[@id = 'back-to-products']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:04 PM</td>
-        <td>
-          Click to //div[@class='bm-burger-button']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:05 PM</td>
-        <td>
-          Click to //a[@id='logout_sidebar_link']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>7:33:05 PM</td>
-        <td>
-          <span class='badge white-text green'>verify_content_1 Test Case PASSED</span>
+          Verify //h3[@data-test='error'] equal to Epic sadface: Username is required
         </td>
       </tr>
   </tbody>
@@ -390,9 +215,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">Verify Image Link of each item</p>
+            <p class="name">Missing Password</p>
             <p class="text-sm">
-              <span>7:33:05 PM</span> / <span>00:00:04:212</span>
+              <span>10:06:44 AM</span> / <span>00:00:00:536</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -400,10 +225,10 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">Verify Image Link of each item</h5>
-<span class='badge badge-success'>06.08.2021 7:33:05 PM</span>
-<span class='badge badge-danger'>06.08.2021 7:33:09 PM</span>
-<span class='badge badge-default'>00:00:04:212</span>
+<h5 class="test-status text-pass">Missing Password</h5>
+<span class='badge badge-success'>06.10.2021 10:06:44 AM</span>
+<span class='badge badge-danger'>06.10.2021 10:06:44 AM</span>
+<span class='badge badge-default'>00:00:00:536</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=3</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -415,135 +240,37 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:05 PM</td>
+        <td>10:06:44 AM</td>
         <td>
           Go to URL https://www.saucedemo.com/
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:05 PM</td>
+        <td>10:06:44 AM</td>
         <td>
-          Input standard_userto field //input[@name = 'user-name']
+          Input aaato field //input[@name = 'user-name']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:05 PM</td>
+        <td>10:06:44 AM</td>
         <td>
-          Input secret_sauceto field //input[@id = 'password']
+          Input to field //input[@id = 'password']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:05 PM</td>
+        <td>10:06:44 AM</td>
         <td>
           Click to //input[@type='submit']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:05 PM</td>
+        <td>10:06:44 AM</td>
         <td>
-          Click to //a[@id ='item_0_img_link']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:06 PM</td>
-        <td>
-          Click to //button[@id = 'back-to-products']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:06 PM</td>
-        <td>
-          Click to //a[@id ='item_1_img_link']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:06 PM</td>
-        <td>
-          Click to //button[@id = 'back-to-products']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:06 PM</td>
-        <td>
-          Click to //a[@id ='item_2_img_link']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:07 PM</td>
-        <td>
-          Click to //button[@id = 'back-to-products']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:07 PM</td>
-        <td>
-          Click to //a[@id ='item_3_img_link']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:07 PM</td>
-        <td>
-          Click to //button[@id = 'back-to-products']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:08 PM</td>
-        <td>
-          Click to //a[@id ='item_4_img_link']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:08 PM</td>
-        <td>
-          Click to //button[@id = 'back-to-products']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:08 PM</td>
-        <td>
-          Click to //a[@id ='item_5_img_link']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:08 PM</td>
-        <td>
-          Click to //button[@id = 'back-to-products']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:08 PM</td>
-        <td>
-          Click to //div[@class='bm-burger-button']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:09 PM</td>
-        <td>
-          Click to //a[@id='logout_sidebar_link']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>7:33:09 PM</td>
-        <td>
-          <span class='badge white-text green'>verify_content_2 Test Case PASSED</span>
+          Verify //h3[@data-test='error'] equal to Epic sadface: Password is required
         </td>
       </tr>
   </tbody>
@@ -556,9 +283,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">Verify Title,Description and price of each item</p>
+            <p class="name">Invalid User Name and Password</p>
             <p class="text-sm">
-              <span>7:33:09 PM</span> / <span>00:00:02:263</span>
+              <span>10:06:44 AM</span> / <span>00:00:00:342</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -566,10 +293,10 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">Verify Title,Description and price of each item</h5>
-<span class='badge badge-success'>06.08.2021 7:33:09 PM</span>
-<span class='badge badge-danger'>06.08.2021 7:33:11 PM</span>
-<span class='badge badge-default'>00:00:02:263</span>
+<h5 class="test-status text-pass">Invalid User Name and Password</h5>
+<span class='badge badge-success'>06.10.2021 10:06:44 AM</span>
+<span class='badge badge-danger'>06.10.2021 10:06:44 AM</span>
+<span class='badge badge-default'>00:00:00:342</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=4</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -581,177 +308,37 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:09 PM</td>
+        <td>10:06:44 AM</td>
         <td>
           Go to URL https://www.saucedemo.com/
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:09 PM</td>
+        <td>10:06:44 AM</td>
         <td>
-          Input standard_userto field //input[@name = 'user-name']
+          Input aaato field //input[@name = 'user-name']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:09 PM</td>
+        <td>10:06:44 AM</td>
         <td>
-          Input secret_sauceto field //input[@id = 'password']
+          Input abcto field //input[@id = 'password']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:09 PM</td>
+        <td>10:06:44 AM</td>
         <td>
           Click to //input[@type='submit']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:10 PM</td>
+        <td>10:06:44 AM</td>
         <td>
-          Get text of //a[@id ='item_0_title_link']/div and Compare to Sauce Labs Bike Light
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:10 PM</td>
-        <td>
-          Get text of //a[@id ='item_0_title_link']/following-sibling::div and Compare to A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:10 PM</td>
-        <td>
-          Get text of //a[@id='item_0_title_link']/parent::div/following-sibling::div/div[@class='inventory_item_price'] and Compare to $9.99
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:10 PM</td>
-        <td>
-          Get text of //a[@id ='item_1_title_link']/div and Compare to Sauce Labs Bolt T-Shirt
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:10 PM</td>
-        <td>
-          Get text of //a[@id ='item_1_title_link']/following-sibling::div and Compare to Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed cotton, heather gray with red bolt.
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:10 PM</td>
-        <td>
-          Get text of //a[@id='item_1_title_link']/parent::div/following-sibling::div/div[@class='inventory_item_price'] and Compare to $15.99
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:10 PM</td>
-        <td>
-          Get text of //a[@id ='item_2_title_link']/div and Compare to Sauce Labs Onesie
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:10 PM</td>
-        <td>
-          Get text of //a[@id ='item_2_title_link']/following-sibling::div and Compare to Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel.
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:10 PM</td>
-        <td>
-          Get text of //a[@id='item_2_title_link']/parent::div/following-sibling::div/div[@class='inventory_item_price'] and Compare to $7.99
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:10 PM</td>
-        <td>
-          Get text of //a[@id ='item_3_title_link']/div and Compare to Test.allTheThings() T-Shirt (Red)
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:10 PM</td>
-        <td>
-          Get text of //a[@id ='item_3_title_link']/following-sibling::div and Compare to This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton.
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:10 PM</td>
-        <td>
-          Get text of //a[@id='item_3_title_link']/parent::div/following-sibling::div/div[@class='inventory_item_price'] and Compare to $15.99
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:10 PM</td>
-        <td>
-          Get text of //a[@id ='item_4_title_link']/div and Compare to Sauce Labs Backpack
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:11 PM</td>
-        <td>
-          Get text of //a[@id ='item_4_title_link']/following-sibling::div and Compare to carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:11 PM</td>
-        <td>
-          Get text of //a[@id='item_4_title_link']/parent::div/following-sibling::div/div[@class='inventory_item_price'] and Compare to $29.99
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:11 PM</td>
-        <td>
-          Get text of //a[@id ='item_5_title_link']/div and Compare to Sauce Labs Fleece Jacket
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:11 PM</td>
-        <td>
-          Get text of //a[@id ='item_5_title_link']/following-sibling::div and Compare to It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:11 PM</td>
-        <td>
-          Get text of //a[@id='item_5_title_link']/parent::div/following-sibling::div/div[@class='inventory_item_price'] and Compare to $49.99
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:11 PM</td>
-        <td>
-          Click to //div[@class='bm-burger-button']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>7:33:11 PM</td>
-        <td>
-          Click to //a[@id='logout_sidebar_link']
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>7:33:11 PM</td>
-        <td>
-          <span class='badge white-text green'>verify_content_3 Test Case PASSED</span>
+          Verify //h3[@data-test='error'] equal to Epic sadface: Username and password do not match any user in this service
         </td>
       </tr>
   </tbody>
@@ -773,13 +360,13 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Jun 8, 2021 07:32:55 PM</h3>
+<h3>Jun 10, 2021 10:06:41 AM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Jun 8, 2021 07:33:11 PM</h3>
+<h3>Jun 10, 2021 10:06:44 AM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -830,10 +417,10 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='5%'><b>4</b> events passed</small></div>
+<div><small data-tooltip='0%'><b>0</b> events passed</small></div>
 <div>
 <small data-tooltip='0%'><b>0</b> events failed,
-<b data-tooltip='%'>75</b> others
+<b data-tooltip='%'>20</b> others
 </small>
 </div>
 </div>
@@ -849,7 +436,7 @@
 </div></div>
 <script>
 var timeline = {
-"Verify Inventory Page":5.973,"Verify Title Link of each item":3.683,"Verify Image Link of each item":4.212,"Verify Title,Description and price of each item":2.263
+"Lock Out User":1.008,"Missing Username":0.553,"Missing Password":0.536,"Invalid User Name and Password":0.342
 };
 </script>
 <div class="row">
@@ -897,11 +484,11 @@ warningGrandChild: 0,
 skipGrandChild: 0,
 infoGrandChild: 0,
 eventsCount: 5,
-passEvents: 4,
+passEvents: 0,
 failEvents: 0,
 warningEvents: 0,
 skipEvents: 0,
-infoEvents: 75
+infoEvents: 20
 };
 </script>        </div>
       </div>

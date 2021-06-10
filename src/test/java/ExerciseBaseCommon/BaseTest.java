@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -19,7 +18,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
-
+import org.testng.Assert;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
@@ -40,12 +39,11 @@ public class BaseTest {
 	public static String fileName;
 	protected BaseActions mymethod = new BaseActions();
 	protected SoftAssert softAssert = new SoftAssert();
+	protected Assert Assert;
 	protected BaseActions excel = new BaseActions();
-	
 	protected LoginObject lb = new LoginObject();
 	protected InventoryObject ib = new InventoryObject();
 	protected BuyObject bb = new BuyObject();
-	
 	protected static WebDriverWait wait;
 	protected static ExtentReports report; //resgister for report, create a new report, save, screenshot
 	ExtentSparkReporter spark; //create a report file
@@ -78,9 +76,9 @@ public class BaseTest {
 			e.printStackTrace();
 		}
 	}
-	public void sleep_20() {
+	public void sleep_n(int i) {
 		try {
-			Thread.sleep(20000);
+			Thread.sleep(i*1000);
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -135,7 +133,7 @@ public class BaseTest {
 	@AfterTest
 	public void driver_quit() {
 		driver.close();
-		report.flush(); //save report after run
+		//report.flush(); //save report after run
 	
 
 	}
@@ -145,12 +143,13 @@ public class BaseTest {
 		if(result.getStatus() == ITestResult.FAILURE) // get status of executed test case
 		{
 			//MarkupHelper is used to display the output in different colors
-			log.log(Status.FAIL, MarkupHelper.createLabel(result.getName() + " - Test Case Failed", ExtentColor.RED)); // get name of test case
+			//log.log(Status.FAIL, MarkupHelper.createLabel(result.getName() + " - Test Case Failed", ExtentColor.RED)); // get name of test case
+			log.log(Status.FAIL, MarkupHelper.createLabel("Test Case Failed", ExtentColor.RED));
 			log.log(Status.FAIL, MarkupHelper.createLabel(result.getThrowable() + " - Test Case Failed", ExtentColor.RED)); //get failed reason
 			//To capture screenshot path and store the path of the screenshot in the string "screenshotPath"
 			//We do pass the path captured by this method in to the extent reports using "logger.addScreenCapture" method. 
 			//	String Scrnshot=TakeScreenshot.captuerScreenshot(driver,"TestCaseFailed");
-			String screenshotPath = TakeScreenshot(result.getName());
+			String screenshotPath = TakeScreenshot("Fail");
 			//To add it in the extent report 
 			//log.fail("Test Case Failed Snapshot is below " + log.addScreenCaptureFromPath(screenshotPath));
 			log.fail(MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
@@ -159,11 +158,12 @@ public class BaseTest {
 		}
 		else if(result.getStatus() == ITestResult.SKIP){
 			//logger.log(Status.SKIP, "Test Case Skipped is "+result.getName());
-			log.log(Status.SKIP, MarkupHelper.createLabel(result.getName() + " - Test Case Skipped", ExtentColor.ORANGE)); 
+			log.log(Status.SKIP, MarkupHelper.createLabel("Skip" + " - Test Case Skipped", ExtentColor.ORANGE)); 
 		} 
 		else if(result.getStatus() == ITestResult.SUCCESS)
 		{
-			log.log(Status.PASS, MarkupHelper.createLabel(result.getName()+" Test Case PASSED", ExtentColor.GREEN));
+			//log.log(Status.PASS, MarkupHelper.createLabel(result.getName()+" Test Case PASSED", ExtentColor.GREEN));
+			log.log(Status.PASS, MarkupHelper.createLabel(" Test Case PASSED", ExtentColor.GREEN));
 		}
 	}
 	

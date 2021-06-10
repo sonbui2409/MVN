@@ -5,14 +5,14 @@
     <parameter name="filename" value="Data.xlsx"/>
     <parameter name="browser" value="Chrome"/>
     <classes>
-      <class name="ExercisemvnTestcase.Testcase_Items">
+      <class name="ExercisemvnTestcase.Testcase_login">
         <methods>
-          <include name="products_page"/>
+          <include name="login_error_page"/>
           <include name="driver_open"/>
           <include name="getResult"/>
           <include name="driver_quit"/>
         </methods>
-      </class> <!-- ExercisemvnTestcase.Testcase_Items -->
+      </class> <!-- ExercisemvnTestcase.Testcase_login -->
     </classes>
   </test> <!-- Demo_Chrome(failed) -->
 </suite> <!-- Failed suite [Suite_demo] -->

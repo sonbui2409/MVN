@@ -8,7 +8,7 @@
     <classes>
     	<!-- input name of class that will be executed -->
        <!-- <class name="ExercisemvnTestcase.Testcase_login" /> -->
-       <class name="ExercisemvnTestcase.Testcase_Items" />
+       <class name="ExercisemvnTestcase.Testcase_login" />
        
     </classes>
   </test>

@@ -1,16 +1,19 @@
 package ExercisemvnTestcase;
 
 
+import java.util.ArrayList;
+
 import org.testng.annotations.Test;
 import ExerciseBaseCommon.BaseTest;
 import ExerciseBaseCommon.DataTest;
+import ExerciseBaseCommon.ExcelInit;
 
 
 public class Testcase_login extends BaseTest { //use extends command to get value from a variable of another class
 	
 	
 	
-	@Test (priority = 1)
+	//@Test (priority = 1)
 	public void login_Standard() {
 		//create a report for test case
 		log = report.createTest("Login Standard"); //create a log in each test case it should be input in each test case with test case name in ()
@@ -21,14 +24,14 @@ public class Testcase_login extends BaseTest { //use extends command to get valu
 		.InputUserName(log, driver, excel.readExl("Login", DataTest.ColUser, 1))
 		.InputPasswd(log, driver)
 		.ClickLogin_but(log, driver);
-		sleep_3();
+		sleep_n(2);
 		ib.CompareTitle(log, softAssert, driver, excel.readExl("Inventory", DataTest.ColPagetitle, 1))
 		.Logout(log, wait, driver);
 		lb.TracksAssert(softAssert);
 		
 		
 	}
-	@Test (priority = 2)
+	//@Test (priority = 2)
 	public void login_failure() {
 		log = report.createTest("Login Failure");
 		//LoginObject lb = new LoginObject();
@@ -36,7 +39,7 @@ public class Testcase_login extends BaseTest { //use extends command to get valu
 		.InputUserName(log, driver, excel.readExl("Login", DataTest.ColUser, 2))
 		.InputPasswd(log, driver)
 		.ClickLogin_but(log, driver);
-		sleep_3();
+		sleep_n(2);
 		lb.Verify_fail_1(log, softAssert, driver)
 		.TracksAssert(softAssert);
 
@@ -50,7 +53,7 @@ public class Testcase_login extends BaseTest { //use extends command to get valu
 		mymethod.softAssertAll(softAssert);*/
 		
 	}
-	@Test (priority = 2)
+	//@Test (priority = 2)
 	public void login_problem() {
 		log = report.createTest("Login Problem");
 		//LoginObject lb = new LoginObject();
@@ -59,7 +62,7 @@ public class Testcase_login extends BaseTest { //use extends command to get valu
 		.InputUserName(log, driver, excel.readExl("Login", DataTest.ColUser, 3))
 		.InputPasswd(log, driver)
 		.ClickLogin_but(log, driver);
-		sleep_3();
+		sleep_n(2);
 		ib.Verify_Link_item_problem(softAssert, log, wait, driver)
 		.Logout(log, wait, driver);
 		lb.TracksAssert(softAssert);
@@ -91,11 +94,32 @@ public class Testcase_login extends BaseTest { //use extends command to get valu
 	
 	@Test (priority = 2)
 	public void login_error_page() {
-		log = report.createTest("Error message when log-in");
-		//LoginObject lb = new LoginObject();
-		//InventoryObject ib = new InventoryObject();
+		ExcelInit reader = new ExcelInit();
 		
-		ib.OpenInvenPage(log, driver);
+		ArrayList<String> lstUser = reader.readExcelFileAtColumn(BaseTest.fileName, "LoginFail", 0);
+		ArrayList<String> lstPasswd = reader.readExcelFileAtColumn(BaseTest.fileName, "LoginFail", 1);
+		ArrayList<String> lstError = reader.readExcelFileAtColumn(BaseTest.fileName, "LoginFail", 2);
+		ArrayList<String> lstTCName = reader.readExcelFileAtColumn(BaseTest.fileName, "LoginFail", 3);
+		
+		for(int i = 1; i < lstUser.size(); i++) {
+			String username = lstUser.get(i);
+			String password = lstPasswd.get(i);
+			String error = lstError.get(i);
+			String tcName = lstTCName.get(i);
+			log = report.createTest(tcName);
+			
+			lb.OpenLoginPage(log, driver)
+			.InputUserName(log, driver, username)
+			.InputPasswd_error(log, driver, password)
+			.ClickLogin_but(log, driver)
+			.Verify_fail(log, driver, error);
+			
+			
+		}
+		//lb.LoginFail_1(report, log, driver, Assert);
+		
+		
+		/*ib.OpenInvenPage(log, driver);
 		lb.Verify_fail_2(softAssert,wait, log, driver)
 		.OpenLoginPage(log, driver)
 		.Verify_fail_3(softAssert,log, driver)
@@ -103,7 +127,7 @@ public class Testcase_login extends BaseTest { //use extends command to get valu
 		.Verify_fail_4(softAssert,wait, log, driver)
 		.OpenLoginPage(log, driver)
 		.Verify_fail_5(softAssert,log, driver)
-		.TracksAssert(softAssert);
+		.TracksAssert(softAssert);*/
 		
 		/*mymethod.GotoURL(log, driver, urlogin);
 		mymethod.waitclickable(wait, driver, error);

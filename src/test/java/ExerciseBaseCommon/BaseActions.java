@@ -1,10 +1,13 @@
 package ExerciseBaseCommon;
 
 
+import java.util.ArrayList;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 import com.aventstack.extentreports.ExtentTest;
@@ -97,6 +100,10 @@ public class BaseActions {
 		//"\r" a space, "\n" a new line
 		log.info("Verify " + xpath + " equal to " + expect);
 	}
+	protected void AssertEqual (ExtentTest log,WebDriver driver,String xpath, String expect) {
+		Assert.assertEquals(driver.findElement(By.xpath(xpath)).getText(), expect);
+		log.info("Verify " + xpath + " equal to " + expect);
+	}
 	//Wait
 	protected void waitclickable(WebDriverWait wait,WebDriver driver, String xpath) {
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
@@ -117,6 +124,10 @@ public class BaseActions {
 	
 	public String readExl(String sheetname,int icol, int irow) {
 		String data = reader.RDataAtCell(BaseTest.fileName, sheetname, icol, irow);
+		return data;
+	}
+	public ArrayList<String> lstData(String sheetname,int icol){
+		ArrayList<String> data = reader.readExcelFileAtColumn(BaseTest.fileName, sheetname, icol);
 		return data;
 	}
 }
