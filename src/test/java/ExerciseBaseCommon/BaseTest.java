@@ -27,23 +27,16 @@ import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-
-import ExerciseShareObject.BuyObject;
-import ExerciseShareObject.InventoryObject;
-import ExerciseShareObject.LoginObject;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
 	protected static WebDriver driver;
 	//Using variable
 	public static String fileName;
-	protected BaseActions mymethod = new BaseActions();
 	protected SoftAssert softAssert = new SoftAssert();
 	protected Assert Assert;
-	protected BaseActions excel = new BaseActions();
-	protected LoginObject lb = new LoginObject();
-	protected InventoryObject ib = new InventoryObject();
-	protected BuyObject bb = new BuyObject();
+	ExcelInit reader;
+	
 	protected static WebDriverWait wait;
 	protected static ExtentReports report; //resgister for report, create a new report, save, screenshot
 	ExtentSparkReporter spark; //create a report file
@@ -84,6 +77,7 @@ public class BaseTest {
 			e.printStackTrace();
 		}
 	}
+	
 
 	public String TakeScreenshot(String screenshotName){
 		
@@ -127,6 +121,10 @@ public class BaseTest {
 		report.setSystemInfo("Browser", browser);
 		report.setSystemInfo("Author", "ShiN BlAck");
 	}
+	public String readExl(String sheetname,int icol, int irow) {
+		String data = reader.RDataAtCell(BaseTest.fileName, sheetname, icol, irow);
+		return data;
+	}
 	
 	
 
@@ -166,5 +164,6 @@ public class BaseTest {
 			log.log(Status.PASS, MarkupHelper.createLabel(" Test Case PASSED", ExtentColor.GREEN));
 		}
 	}
+	
 	
 }
