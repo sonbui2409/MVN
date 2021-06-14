@@ -2,7 +2,6 @@ package ExerciseShareObject;
 
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
 import com.aventstack.extentreports.ExtentTest;
 import ExerciseBaseCommon.BaseActions;
@@ -39,7 +38,7 @@ public class LoginObject extends BaseActions {
 	
 	public LoginObject OpenLoginPage(ExtentTest log) {
 		// GotoURL(log, url);
-		GotoURL(log, readExl("Login", DataTest.ColUrl, 1));
+		GotoURL(log, readExl("Login", DataTest.CUrl, DataTest.Rurl));
 		return this;
 	}
 
@@ -49,51 +48,49 @@ public class LoginObject extends BaseActions {
 		 * "standard_user"); InputdataXpath(log, passbut, passwd);
 		 * ClickXpath(log, login);
 		 */
-		GotoURL(log, readExl("Login", DataTest.ColUrl, 1));
-		InputdataXpath(log, readExl("Xpath", DataTest.ColXpath, 1), readExl("Login", DataTest.ColUser, 1));
-		InputdataXpath(log, readExl("Xpath", DataTest.ColXpath, 2), readExl("Login", DataTest.ColPass, 1));
-		ClickXpath(log, readExl("Xpath", DataTest.ColXpath, 3));
+		GotoURL(log, readExl("Login", DataTest.CUrl, DataTest.Rurl));
+		InputdataXpath(log, readExl("Xpath", DataTest.Cxpt_login,DataTest.Rxpt_user), readExl("Login", DataTest.CUser, DataTest.Ruser));
+		InputdataXpath(log, readExl("Xpath", DataTest.Cxpt_login, DataTest.Rxpt_passwd ), readExl("Login", DataTest.CPass, DataTest.Rpass));
+		ClickXpath(log, readExl("Xpath", DataTest.Cxpt_login, DataTest.Rxpt_login));
 		return new InventoryObject(LocalDriver);
 	}
 
 	// Input Data
 	public LoginObject InputUserName(ExtentTest log, String data) {
-		InputdataXpath(log, readExl("Xpath", DataTest.ColXpath, 1), data);
+		InputdataXpath(log, readExl("Xpath", DataTest.Cxpt_login, DataTest.Rxpt_user), data);
 		return this;
 	}
 
 	public LoginObject InputPasswd(ExtentTest log) {
-		InputdataXpath(log, readExl("Xpath", DataTest.ColXpath, 2), readExl("Login", DataTest.ColPass, 1));
+		InputdataXpath(log, readExl("Xpath", DataTest.Cxpt_login, DataTest.Rxpt_passwd), readExl("Login", DataTest.CPass, DataTest.Rpass));
 		return this;
 	}
 
 	public LoginObject InputPasswd_error(ExtentTest log, String data) {
-		InputdataXpath(log, readExl("Xpath", DataTest.ColXpath, DataTest.RowXpath_passwd), data);
+		InputdataXpath(log, readExl("Xpath", DataTest.Cxpt_login, DataTest.Rxpt_passwd), data);
 		return this;
 	}
 
 	// Click
 	public InventoryObject ClickLogin_but(ExtentTest log) {
-		ClickXpath(log, readExl("Xpath", DataTest.ColXpath, 3));
+		ClickXpath(log, readExl("Xpath", DataTest.Cxpt_login, DataTest.Rxpt_login));
 		return new InventoryObject(LocalDriver);
 	}
 
 	// Verify
 	public LoginObject Verify_fail(ExtentTest log, String expect) {
-		AssertEqual(log, readExl("Xpath", DataTest.ColXpath, 4), expect);
+		AssertEqual(log, readExl("Xpath", DataTest.Cxpt_login, DataTest.Rxpt_error), expect);
 		return this;
 	}
 
 	public LoginObject Verify_fail_1(ExtentTest log) {
-		AssertEqual(log, readExl("Xpath", DataTest.ColXpath, 4),
-				readExl("Login", DataTest.ColError, 1));
+		AssertEqual(log, readExl("Xpath", DataTest.Cxpt_login, DataTest.Rxpt_error),readExl("Login", DataTest.CError, DataTest.Rerrorlock ));
 		return this;
 	}
 
-	public LoginObject Verify_fail_2(WebDriverWait wait, ExtentTest log) {
-		waitclickable(wait, readExl("Xpath", DataTest.ColXpath, 4));
-		GetTextEqual(log, readExl("Xpath", DataTest.ColXpath, 4),
-		readExl("Login", DataTest.ColError, 2));
+	/*public LoginObject Verify_fail_2(WebDriverWait wait, ExtentTest log) {
+		waitclickable(wait, readExl("Xpath", DataTest.CXpath_login, DataTest.RXpath_error));
+		GetTextEqual(log, readExl("Xpath", DataTest.ColXpath, 4),readExl("Login", DataTest.ColError, 2));
 		waitclickable(wait, readExl("Xpath", DataTest.ColXpath, 5));
 		ClickXpath(log, readExl("Xpath", DataTest.ColXpath, 5));
 		return this;
@@ -123,10 +120,10 @@ public class LoginObject extends BaseActions {
 		ClickXpath(log, readExl("Xpath", 1, 3));
 		GetTextEqual(log, readExl("Xpath", 1, 4), readExl("Login", DataTest.ColError, 5));
 		return this;
-	}
+	}*/
 
-	public LoginObject Compare_login_but(ExtentTest log, SoftAssert softAssert) {
-		sAssertDisplay_true(log, softAssert, readExl("Xpath", 1, 3));
+	public LoginObject Compare_login_but(ExtentTest log) {
+		AssertDisplay_true(log,readExl("Xpath", DataTest.Cxpt_login, DataTest.Rxpt_login));
 		return this;
 	}
 

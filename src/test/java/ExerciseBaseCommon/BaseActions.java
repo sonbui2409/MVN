@@ -91,6 +91,11 @@ public class BaseActions {
 		log.info("Verify " + xpath + " is displayed");
 	
 	}
+	protected void AssertDisplay_true (ExtentTest log,String xpath) {
+		Assert.assertTrue(driver.findElement(By.xpath(xpath)).isDisplayed());
+		log.info("Verify " + xpath + " is displayed");
+	
+	}
 	protected void sAssertDisplay_false (ExtentTest log,SoftAssert softAssert,String xpath) {
 		softAssert.assertFalse(driver.findElement(By.xpath(xpath)).isDisplayed());
 		log.info("Verify " + xpath + " is not displayed");

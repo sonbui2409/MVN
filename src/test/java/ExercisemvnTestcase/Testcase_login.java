@@ -1,12 +1,10 @@
 package ExercisemvnTestcase;
 
 import java.util.ArrayList;
-
-import org.junit.BeforeClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import ExerciseBaseCommon.BaseTest;
 import ExerciseBaseCommon.DataTest;
-import ExerciseBaseCommon.ExcelInit;
 import ExerciseShareObject.InventoryObject;
 import ExerciseShareObject.LoginObject;
 
@@ -14,18 +12,16 @@ public class Testcase_login extends BaseTest { // use extends command to get val
 	LoginObject lb;
 	InventoryObject ib;
 	
-	/*@BeforeClass
+	@BeforeClass
 	public void initObject() {
 		lb = new LoginObject(driver);
 		ib = new InventoryObject(driver);
-	}*/
+	}
 	
 	@Test (priority = 1)
 	public void login_Standard() {
 		// create a report for test case
 		log = report.createTest("Login Standard");
-		lb = new LoginObject(driver);
-		ib = new InventoryObject(driver);
 		// create a log in each test case it should be input in each test
 		// case with test case name in ()
 		
@@ -33,11 +29,11 @@ public class Testcase_login extends BaseTest { // use extends command to get val
 		// InventoryObject ib = new InventoryObject();
 		lb.OpenLoginPage(log)
 				// .InputUserName(log, "standard_user")
-				.InputUserName(log, readExl("Login", DataTest.ColUser, 1))
+				.InputUserName(log, readExl("Login", DataTest.CUser, DataTest.Ruser ))
 				.InputPasswd(log);
 		ib = lb.ClickLogin_but(log);
 		sleep_n(2);
-		ib.CompareTitle(log, readExl("Inventory", DataTest.ColPagetitle, 1));
+		ib.CompareTitle(log, readExl("Inventory", DataTest.Ctitle, 1));
 		lb = ib.Logout(log, wait);
 
 	}
@@ -45,10 +41,9 @@ public class Testcase_login extends BaseTest { // use extends command to get val
 	@Test (priority = 2)
 	public void login_failure() {
 		log = report.createTest("Login Failure");
-		lb = new LoginObject(driver);
 		
 		lb.OpenLoginPage(log)
-		.InputUserName(log, readExl("Login", DataTest.ColUser, 2))
+		.InputUserName(log, readExl("Login", DataTest.CUser,DataTest.Ruserfail))
 		.InputPasswd(log)
 		.ClickLogin_but(log);
 		sleep_n(2);
@@ -67,12 +62,11 @@ public class Testcase_login extends BaseTest { // use extends command to get val
 	@Test (priority = 2)
 	public void login_problem() {
 		log = report.createTest("Login Problem");
-		lb = new LoginObject(driver);
-		ib = new InventoryObject(driver);
+		
 		// InventoryObject ib = new InventoryObject();
-		lb.OpenLoginPage(log).InputUserName(log,readExl("Login", DataTest.ColUser, 3))
-				.InputPasswd(log)
-				.ClickLogin_but(log);
+		lb.OpenLoginPage(log).InputUserName(log,readExl("Login", DataTest.CUser, DataTest.Ruserprob))
+				.InputPasswd(log);
+				ib = lb.ClickLogin_but(log);
 		sleep_n(2);
 		ib.Verify_Link_item_problem(log, wait)
 		.Logout(log, wait);
@@ -103,8 +97,7 @@ public class Testcase_login extends BaseTest { // use extends command to get val
 
 	@Test(priority = 2)
 	public void login_error_page() {
-		ExcelInit reader = new ExcelInit();
-		lb = new LoginObject(driver);
+		
 
 		ArrayList<String> lstUser = reader.readExcelFileAtColumn(BaseTest.fileName, "LoginFail", 0);
 		ArrayList<String> lstPasswd = reader.readExcelFileAtColumn(BaseTest.fileName, "LoginFail", 1);
@@ -155,4 +148,5 @@ public class Testcase_login extends BaseTest { // use extends command to get val
 		 * mymethod.ClearDataxpath(log,passbut);
 		 */
 	}
+
 }

@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
@@ -27,15 +28,21 @@ import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+
+import ExerciseShareObject.BuyObject;
+import ExerciseShareObject.InventoryObject;
+import ExerciseShareObject.LoginObject;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
 	protected static WebDriver driver;
 	//Using variable
 	public static String fileName;
+	
 	protected SoftAssert softAssert = new SoftAssert();
 	protected Assert Assert;
-	ExcelInit reader;
+	
+	protected ExcelInit reader = new ExcelInit();
 	
 	protected static WebDriverWait wait;
 	protected static ExtentReports report; //resgister for report, create a new report, save, screenshot
@@ -52,23 +59,6 @@ public class BaseTest {
 	//}
 	
 	
-	public void sleep_1() {
-		try {
-			Thread.sleep(1000);
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-	}
-	
-	public void sleep_3() {
-		try {
-			Thread.sleep(3000);
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-	}
 	public void sleep_n(int i) {
 		try {
 			Thread.sleep(i*1000);
@@ -76,6 +66,11 @@ public class BaseTest {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
+	}
+	
+	public String readExl(String sheetname,int icol, int irow) {
+		String data = reader.RDataAtCell(BaseTest.fileName, sheetname, icol, irow);
+		return data;
 	}
 	
 
@@ -121,17 +116,12 @@ public class BaseTest {
 		report.setSystemInfo("Browser", browser);
 		report.setSystemInfo("Author", "ShiN BlAck");
 	}
-	public String readExl(String sheetname,int icol, int irow) {
-		String data = reader.RDataAtCell(BaseTest.fileName, sheetname, icol, irow);
-		return data;
-	}
-	
 	
 
 	@AfterTest
 	public void driver_quit() {
 		driver.close();
-		//report.flush(); //save report after run
+		report.flush(); //save report after run
 	
 
 	}

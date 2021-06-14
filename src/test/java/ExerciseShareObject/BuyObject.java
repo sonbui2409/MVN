@@ -56,7 +56,7 @@ public class BuyObject extends BaseActions {
 		AssertEqual_replace(log,   buyprice1, price);
 		return this;
 	}
-	public BuyObject Goto_Checkout_Page (WebDriverWait wait,ExtentTest log, WebDriver driver) {
+	public BuyObject Goto_Checkout_Page (WebDriverWait wait,ExtentTest log) {
 		waitclickable(wait,  checkout);
 		ClickXpath(log, checkout);
 		return this;
@@ -67,14 +67,14 @@ public class BuyObject extends BaseActions {
 		AssertEqual_replace(log,   totalprice, pricetotal);
 		return this;
 	}
-	public BuyObject Goto_Checkout_Complete (WebDriverWait wait,ExtentTest log, WebDriver driver) {
+	public BuyObject Goto_Checkout_Complete (WebDriverWait wait,ExtentTest log) {
 		waitclickable(wait,  finish);
 		ClickXpath(log,  finish);
 		GetTextEqual(log, completeHead, "THANK YOU FOR YOUR ORDER");
 		return this;
 	}
 	
-	public BuyObject Click_Cart (WebDriverWait wait,ExtentTest log, WebDriver driver) {
+	public BuyObject Click_Cart (WebDriverWait wait,ExtentTest log) {
 		waitclickable(wait,  badgelink);
 		ClickXpath(log,  badgelink);
 		return this;

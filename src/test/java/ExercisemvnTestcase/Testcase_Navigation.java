@@ -1,33 +1,42 @@
 package ExercisemvnTestcase;
 
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import ExerciseBaseCommon.BaseTest;
 import ExerciseShareObject.BuyObject;
 import ExerciseShareObject.InventoryObject;
 import ExerciseShareObject.LoginObject;
 
 public class Testcase_Navigation extends BaseTest {
+	LoginObject lb;
+	InventoryObject ib;
+	BuyObject bb;
+	
+	@BeforeClass
+	public void initObject() {
+		lb = new LoginObject(driver);
+		ib = new InventoryObject(driver);
+		bb = new BuyObject(driver);
+	}
 	
 	@Test (priority = 1)
 	public void buy_an_item() {
 		log = report.createTest("Process to Buy an Item");
-		lb.Login(log, driver);
-		sleep_1();
-		bb.Add_item_ToCart(log, driver, "backpack");
-		sleep_1();
-		bb.Verify_YourCart_page(wait,softAssert, log, driver, "Sauce Labs Backpack", "$29.99")
-		.Goto_Checkout_Page(wait, log, driver);
-		sleep_1();
-		bb.Input_Firstname(log, driver, "Shin")
-		.Input_Lastname(log, driver, "BLack")
-		.Input_Postalcode(log, driver, "700000");
-		sleep_1();
-		bb.Goto_Checkout_Overview(softAssert, wait, log, driver, "Total: $32.39");
-		sleep_1();
-		bb.Goto_Checkout_Complete(softAssert, wait, log, driver);
-		sleep_1();
-		lb.TracksAssert(softAssert);
+		lb.Login(log);
+		sleep_n(1);
+		bb.Add_item_ToCart(log, "backpack");
+		sleep_n(1);
+		bb.Verify_YourCart_page(wait, log, "Sauce Labs Backpack", "$29.99")
+		.Goto_Checkout_Page(wait, log);
+		sleep_n(1);
+		bb.Input_Firstname(log, "Shin")
+		.Input_Lastname(log, "BLack")
+		.Input_Postalcode(log, "700000");
+		sleep_n(1);
+		bb.Goto_Checkout_Overview(wait, log,"Total: $32.39");
+		sleep_n(1);
+		bb.Goto_Checkout_Complete(wait, log);
+		sleep_n(1);
 		
 		
 		/*log_in();
@@ -54,12 +63,11 @@ public class Testcase_Navigation extends BaseTest {
 	@Test (priority = 2)
 	public void About() {
 		log = report.createTest("Go to About Menu");	
-		ib.OpenInvenPage(log, driver)
-		.OpenMenu(log, driver)
-		.Verify_About(softAssert,wait, log, driver)
-		.Compare_CurrentURL(softAssert,log, driver, "https://saucelabs.com/");
-		lb.TracksAssert(softAssert);
-		sleep_1();
+		ib.OpenInvenPage(log)
+		.OpenMenu(log)
+		.Verify_About(wait, log)
+		.Compare_CurrentURL(log, "https://saucelabs.com/");
+		sleep_n(1);
 		
 		
 		/*mymethod.GotoURL(log,driver, urlogin);
@@ -73,12 +81,11 @@ public class Testcase_Navigation extends BaseTest {
 	@Test (priority = 2)
 	public void all_item() {
 		log = report.createTest("Go to All Item Menu");
-		ib.OpenInvenPage(log, driver);
-		bb.Click_Cart(wait, log, driver);
-		ib.OpenMenu(log, driver)
-		.Verify_Allitem(softAssert,wait, log, driver, "products");
-		lb.TracksAssert(softAssert);
-		sleep_1();
+		ib.OpenInvenPage(log);
+		bb.Click_Cart(wait, log);
+		ib.OpenMenu(log)
+		.Verify_Allitem(wait, log, "products");
+		sleep_n(1);
 		
 		/*mymethod.GotoURL(log,driver, urlogin);
 		mymethod.waitclickable(wait, driver, badgelink);
@@ -94,26 +101,25 @@ public class Testcase_Navigation extends BaseTest {
 	@Test (priority = 3)
 	public void Check_cart_number() {
 		log = report.createTest("Checking Cart Number");	
-		ib.OpenInvenPage(log, driver);
-		bb.Add_item_ToCart(log, driver, "backpack")
-		.Compare_CartNum(softAssert,log, driver, "1");
-		sleep_1();
-		bb.Add_item_ToCart(log, driver, "bolt-t-shirt")
-		.Compare_CartNum(softAssert,log, driver, "2");
-		sleep_1();
-		bb.Add_item_ToCart(log, driver, "test.allthethings()")
-		.Compare_CartNum(softAssert,log, driver, "3");
-		sleep_1();
-		bb.Add_item_ToCart(log, driver, "fleece-jacket")
-		.Compare_CartNum(softAssert,log, driver, "4");
-		sleep_1();
-		bb.Add_item_ToCart(log, driver, "test.allthethings()")
-		.Compare_CartNum(softAssert,log, driver, "3");
-		sleep_1();
-		bb.Add_item_ToCart(log, driver, "backpack")
-		.Compare_CartNum(softAssert,log, driver, "2");
-		lb.TracksAssert(softAssert);
-		sleep_1();
+		ib.OpenInvenPage(log);
+		bb.Add_item_ToCart(log, "backpack")
+		.Compare_CartNum(log, "1");
+		sleep_n(1);
+		bb.Add_item_ToCart(log, "bolt-t-shirt")
+		.Compare_CartNum(log, "2");
+		sleep_n(1);
+		bb.Add_item_ToCart(log, "test.allthethings()")
+		.Compare_CartNum(log, "3");
+		sleep_n(1);
+		bb.Add_item_ToCart(log, "fleece-jacket")
+		.Compare_CartNum(log, "4");
+		sleep_n(1);
+		bb.Add_item_ToCart(log,"test.allthethings()")
+		.Compare_CartNum(log, "3");
+		sleep_n(1);
+		bb.Add_item_ToCart(log,"backpack")
+		.Compare_CartNum(log, "2");
+		sleep_n(1);
 		
 		/*mymethod.GotoURL(log,driver, urlogin);
 		mymethod.ClickFormat(log,driver, buyitem, "backpack");
@@ -139,10 +145,9 @@ public class Testcase_Navigation extends BaseTest {
 	@Test (priority = 4)
 	public void logout() {
 		log = report.createTest("Logout Menu");		
-		ib.OpenInvenPage(log, driver)
-		.Logout(log, wait, driver);
-		lb.Compare_login_but(log, softAssert, driver)
-		.TracksAssert(softAssert);
+		ib.OpenInvenPage(log)
+		.Logout(log, wait);
+		lb.Compare_login_but(log);
 		
 		/*mymethod.GotoURL(log,driver, urlogin);
 		open_menu();

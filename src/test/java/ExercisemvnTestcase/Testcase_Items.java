@@ -1,21 +1,34 @@
 package ExercisemvnTestcase;
 
+import java.util.ArrayList;
+
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import ExerciseBaseCommon.BaseTest;
+import ExerciseBaseCommon.DataTest;
+import ExerciseShareObject.InventoryObject;
+import ExerciseShareObject.LoginObject;
 
 public class Testcase_Items extends BaseTest {
-
+	LoginObject lb;
+	InventoryObject ib;
+	
+	@BeforeClass
+	public void initObject() {
+		lb = new LoginObject(driver);
+		ib = new InventoryObject(driver);
+	}
+	
 	@Test (priority = 1)
 	public void products_page () {
 		log = report.createTest("Verify Inventory Page");		
-		lb.Login(log, driver);
-		ib.Verify_Name_Desc_price_item_1(softAssert,log, wait, driver)
-		.GoToItem_1(log, driver)
-		.Verify_Page_item_1(softAssert, log, wait, driver);
-		sleep_1();
-		ib.Verify_GoBack(softAssert,log, wait, driver)
-		.Logout(log, wait, driver);
-		lb.TracksAssert(softAssert);
+		ib = lb.Login(log);
+		ib.Verify_Name_Desc_price_item_1(log, wait)
+		.ClickToItem(log, wait,readExl("Inventory", DataTest.CitemLink, DataTest.RitemLink1))
+		.Verify_Page_item_1(log, wait);
+		sleep_n(1);
+		ib.Verify_GoBack(log, wait,readExl("Inventory", DataTest.Ctitle, DataTest.Rproduct));
+		lb = ib.Logout(log, wait);
 		
 		
 		
@@ -38,15 +51,27 @@ public class Testcase_Items extends BaseTest {
 	@Test (priority = 2)
 	public void verify_content_1 () {
 		log = report.createTest("Verify Title Link of each item");		
-		lb.Login(log, driver);
-		ib.Verify_Link_item(log, wait, driver, excel.readExl("Inventory", 1 , 1))
-		.Verify_Link_item(log, wait, driver, excel.readExl("Inventory", 1 , 2))
-		.Verify_Link_item(log, wait, driver, excel.readExl("Inventory", 1 , 3))
-		.Verify_Link_item(log, wait, driver, excel.readExl("Inventory", 1 , 4))
-		.Verify_Link_item(log, wait, driver, excel.readExl("Inventory", 1 , 5))
-		.Verify_Link_item(log, wait, driver, excel.readExl("Inventory", 1 , 6))
-		.Logout(log, wait, driver);
 		
+		ib = lb.Login(log);
+		/*ib.Verify_Link_item(log, wait, readExl("Inventory", 1 , 1))
+		.Verify_Link_item(log, wait, readExl("Inventory", 1 , 2))
+		.Verify_Link_item(log, wait, readExl("Inventory", 1 , 3))
+		.Verify_Link_item(log, wait, readExl("Inventory", 1 , 4))
+		.Verify_Link_item(log, wait, readExl("Inventory", 1 , 5))
+		.Verify_Link_item(log, wait, readExl("Inventory", 1 , 6));*/
+		
+		ArrayList<String> lstLink = reader.readExcelFileAtColumn(BaseTest.fileName, "Inventory",DataTest.CitemLink );
+
+		for (int i = 1; i < lstLink.size(); i++) {
+			String itemlink = lstLink.get(i);
+			if (!itemlink.isEmpty()) {
+			ib.ClickToItem(log, wait, itemlink);
+			sleep_n(1);
+			ib.Click_GoBack(log, wait);
+
+			}
+		}
+		lb = ib.Logout(log, wait);
 		
 		/*mymethod.waitformatclickable(wait, driver, itemlink, "item_0_title_link");
 		mymethod.ClickFormat(log, driver, itemlink, "item_0_title_link");
@@ -77,14 +102,29 @@ public class Testcase_Items extends BaseTest {
 	@Test (priority = 2)
 	public void verify_content_2 () {
 		log = report.createTest("Verify Image Link of each item");		
-		lb.Login(log, driver);
-		ib.Verify_Link_item(log, wait, driver, excel.readExl("Inventory", 2 , 1))
-		.Verify_Link_item(log, wait, driver, excel.readExl("Inventory", 2 , 2))
-		.Verify_Link_item(log, wait, driver, excel.readExl("Inventory", 2 , 3))
-		.Verify_Link_item(log, wait, driver, excel.readExl("Inventory", 2 , 4))
-		.Verify_Link_item(log, wait, driver, excel.readExl("Inventory", 2 , 5))
-		.Verify_Link_item(log, wait, driver, excel.readExl("Inventory", 2 , 6))
-		.Logout(log, wait, driver);
+		ib = lb.Login(log);
+		
+		ArrayList<String> lstImage = reader.readExcelFileAtColumn(BaseTest.fileName, "Inventory",DataTest.CitemImage );
+
+		for (int i = 1; i < lstImage.size(); i++) {
+			String imagelink = lstImage.get(i);
+			if (!imagelink.isEmpty()) {
+			ib.ClickToItem(log, wait, imagelink);
+			sleep_n(1);
+			ib.Click_GoBack(log, wait);
+
+			}
+		}
+		lb = ib.Logout(log, wait);
+		
+		
+		/*ib.Verify_Link_item(log, wait,readExl("Inventory", 2 , 1))
+		.Verify_Link_item(log, wait,readExl("Inventory", 2 , 2))
+		.Verify_Link_item(log, wait,readExl("Inventory", 2 , 3))
+		.Verify_Link_item(log, wait,readExl("Inventory", 2 , 4))
+		.Verify_Link_item(log, wait,readExl("Inventory", 2 , 5))
+		.Verify_Link_item(log, wait, readExl("Inventory", 2 , 6));*/
+		
 		
 		/*mymethod.waitformatclickable(wait, driver, itemlink, "item_0_img_link");
 		mymethod.ClickFormat(log, driver, itemlink, "item_0_img_link");
@@ -114,15 +154,36 @@ public class Testcase_Items extends BaseTest {
 	@Test (priority = 2)
 	public void verify_content_3 () {
 		log = report.createTest("Verify Title,Description and price of each item");	
-		lb.Login(log, driver);
-		ib.Verify_Name_Desc_price_item_1(softAssert,log, wait, driver)
-		.Verify_Name_Desc_price_item_2(softAssert,log, wait, driver)
-		.Verify_Name_Desc_price_item_3(softAssert,log, wait, driver)
-		.Verify_Name_Desc_price_item_4(softAssert,log, wait, driver)
-		.Verify_Name_Desc_price_item_5(softAssert,log, wait, driver)
-		.Verify_Name_Desc_price_item_6(softAssert,log, wait, driver)
-		.Logout(log, wait, driver);
-		lb.TracksAssert(softAssert);
+		ib = lb.Login(log);
+		
+		ArrayList<String> lstLink = reader.readExcelFileAtColumn(BaseTest.fileName, "Inventory",DataTest.CitemLink );
+		ArrayList<String> lstName = reader.readExcelFileAtColumn(BaseTest.fileName, "Inventory",DataTest.CitemName );
+		ArrayList<String> lstDesc = reader.readExcelFileAtColumn(BaseTest.fileName, "Inventory",DataTest.CitemDesc );
+		ArrayList<String> lstPrice = reader.readExcelFileAtColumn(BaseTest.fileName, "Inventory",DataTest.CitemPrice );
+
+		for (int i = 1; i < lstLink.size(); i++) {
+			String link = lstLink.get(i);
+			String name = lstName.get(i);
+			String desc = lstDesc.get(i);
+			String price = lstPrice.get(i);
+			
+			if (!link.isEmpty()) {
+			ib.Verify_Item_Name(log, wait, link, name)
+			.Verify_Item_Desc(log, wait, link, desc)
+			.Verify_Item_Price(log, wait, link, price);	
+
+			}
+		}
+		lb = ib.Logout(log, wait);
+		
+		
+		/*ib.Verify_Name_Desc_price_item_1(log, wait)
+		.Verify_Name_Desc_price_item_2(log, wait)
+		.Verify_Name_Desc_price_item_3(log, wait)
+		.Verify_Name_Desc_price_item_4(log, wait)
+		.Verify_Name_Desc_price_item_5(log, wait)
+		.Verify_Name_Desc_price_item_6(log, wait);*/
+		
 		
 		
 		/*log_in();
