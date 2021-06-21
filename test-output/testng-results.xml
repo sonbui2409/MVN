@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="2" total="10" passed="8">
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite_demo" duration-ms="40138" started-at="2021-06-14T22:54:19 ICT" finished-at="2021-06-14T22:54:59 ICT">
+  <suite name="Suite_demo" duration-ms="10635" started-at="2021-06-21T14:07:49 ICT" finished-at="2021-06-21T14:07:59 ICT">
     <groups>
     </groups>
-    <test name="Demo_Chrome" duration-ms="40138" started-at="2021-06-14T22:54:19 ICT" finished-at="2021-06-14T22:54:59 ICT">
+    <test name="Demo_Chrome" duration-ms="10635" started-at="2021-06-21T14:07:49 ICT" finished-at="2021-06-21T14:07:59 ICT">
       <class name="ExercisemvnTestcase.Testcase_login">
-        <test-method status="PASS" signature="driver_open(java.lang.String, java.lang.String)[pri:0, instance:ExercisemvnTestcase.Testcase_login@76b0bfab]" name="driver_open" is-config="true" duration-ms="2998" started-at="2021-06-14T22:54:19 ICT" finished-at="2021-06-14T22:54:22 ICT">
+        <test-method status="PASS" signature="driver_open(java.lang.String, java.lang.String)[pri:0, instance:ExercisemvnTestcase.Testcase_login@33c7e1bb]" name="driver_open" is-config="true" duration-ms="2815" started-at="2021-06-21T14:07:49 ICT" finished-at="2021-06-21T14:07:51 ICT">
           <params>
             <param index="0">
               <value>
@@ -23,141 +23,41 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- driver_open -->
-        <test-method status="PASS" signature="initObject()[pri:0, instance:ExercisemvnTestcase.Testcase_login@76b0bfab]" name="initObject" is-config="true" duration-ms="4" started-at="2021-06-14T22:54:22 ICT" finished-at="2021-06-14T22:54:22 ICT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initObject -->
-        <test-method status="PASS" signature="login_Standard()[pri:1, instance:ExercisemvnTestcase.Testcase_login@76b0bfab]" name="login_Standard" duration-ms="5046" started-at="2021-06-14T22:54:22 ICT" finished-at="2021-06-14T22:54:27 ICT">
+        <test-method status="PASS" signature="login_Standard()[pri:1, instance:ExercisemvnTestcase.Testcase_login@33c7e1bb]" name="login_Standard" duration-ms="4658" started-at="2021-06-21T14:07:51 ICT" finished-at="2021-06-21T14:07:56 ICT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login_Standard -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:ExercisemvnTestcase.Testcase_login@76b0bfab]" name="getResult" is-config="true" duration-ms="3" started-at="2021-06-14T22:54:27 ICT" finished-at="2021-06-14T22:54:27 ICT">
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:ExercisemvnTestcase.Testcase_login@33c7e1bb]" name="getResult" is-config="true" duration-ms="4" started-at="2021-06-21T14:07:56 ICT" finished-at="2021-06-21T14:07:56 ICT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=login_Standard status=SUCCESS method=Testcase_login.login_Standard()[pri:1, instance:ExercisemvnTestcase.Testcase_login@76b0bfab] output={null}]]]>
+                <![CDATA[[TestResult name=login_Standard status=SUCCESS method=Testcase_login.login_Standard()[pri:1, instance:ExercisemvnTestcase.Testcase_login@33c7e1bb] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="login_error_page()[pri:2, instance:ExercisemvnTestcase.Testcase_login@76b0bfab]" name="login_error_page" duration-ms="2154" started-at="2021-06-14T22:54:27 ICT" finished-at="2021-06-14T22:54:29 ICT">
+        <test-method status="PASS" signature="login_error_page()[pri:2, instance:ExercisemvnTestcase.Testcase_login@33c7e1bb]" name="login_error_page" duration-ms="2552" started-at="2021-06-21T14:07:56 ICT" finished-at="2021-06-21T14:07:59 ICT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login_error_page -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:ExercisemvnTestcase.Testcase_login@76b0bfab]" name="getResult" is-config="true" duration-ms="0" started-at="2021-06-14T22:54:29 ICT" finished-at="2021-06-14T22:54:29 ICT">
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:ExercisemvnTestcase.Testcase_login@33c7e1bb]" name="getResult" is-config="true" duration-ms="0" started-at="2021-06-21T14:07:59 ICT" finished-at="2021-06-21T14:07:59 ICT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=login_error_page status=SUCCESS method=Testcase_login.login_error_page()[pri:2, instance:ExercisemvnTestcase.Testcase_login@76b0bfab] output={null}]]]>
+                <![CDATA[[TestResult name=login_error_page status=SUCCESS method=Testcase_login.login_error_page()[pri:2, instance:ExercisemvnTestcase.Testcase_login@33c7e1bb] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="login_failure()[pri:2, instance:ExercisemvnTestcase.Testcase_login@76b0bfab]" name="login_failure" duration-ms="2505" started-at="2021-06-14T22:54:29 ICT" finished-at="2021-06-14T22:54:32 ICT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login_failure -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:ExercisemvnTestcase.Testcase_login@76b0bfab]" name="getResult" is-config="true" duration-ms="1" started-at="2021-06-14T22:54:32 ICT" finished-at="2021-06-14T22:54:32 ICT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=login_failure status=SUCCESS method=Testcase_login.login_failure()[pri:2, instance:ExercisemvnTestcase.Testcase_login@76b0bfab] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="login_problem()[pri:2, instance:ExercisemvnTestcase.Testcase_login@76b0bfab]" name="login_problem" duration-ms="3479" started-at="2021-06-14T22:54:32 ICT" finished-at="2021-06-14T22:54:35 ICT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login_problem -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:ExercisemvnTestcase.Testcase_login@76b0bfab]" name="getResult" is-config="true" duration-ms="1" started-at="2021-06-14T22:54:35 ICT" finished-at="2021-06-14T22:54:35 ICT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=login_problem status=SUCCESS method=Testcase_login.login_problem()[pri:2, instance:ExercisemvnTestcase.Testcase_login@76b0bfab] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="driver_quit()[pri:0, instance:ExercisemvnTestcase.Testcase_login@76b0bfab]" name="driver_quit" is-config="true" duration-ms="569" started-at="2021-06-14T22:54:58 ICT" finished-at="2021-06-14T22:54:59 ICT">
+        <test-method status="PASS" signature="driver_quit()[pri:0, instance:ExercisemvnTestcase.Testcase_login@33c7e1bb]" name="driver_quit" is-config="true" duration-ms="571" started-at="2021-06-21T14:07:59 ICT" finished-at="2021-06-21T14:07:59 ICT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- driver_quit -->
       </class> <!-- ExercisemvnTestcase.Testcase_login -->
-      <class name="ExercisemvnTestcase.Testcase_Items">
-        <test-method status="PASS" signature="products_page()[pri:1, instance:ExercisemvnTestcase.Testcase_Items@17d677df]" name="products_page" duration-ms="3318" started-at="2021-06-14T22:54:35 ICT" finished-at="2021-06-14T22:54:38 ICT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- products_page -->
-        <test-method status="PASS" signature="initObject()[pri:0, instance:ExercisemvnTestcase.Testcase_Items@17d677df]" name="initObject" is-config="true" duration-ms="0" started-at="2021-06-14T22:54:35 ICT" finished-at="2021-06-14T22:54:35 ICT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initObject -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:ExercisemvnTestcase.Testcase_Items@17d677df]" name="getResult" is-config="true" duration-ms="0" started-at="2021-06-14T22:54:38 ICT" finished-at="2021-06-14T22:54:38 ICT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=products_page status=SUCCESS method=Testcase_Items.products_page()[pri:1, instance:ExercisemvnTestcase.Testcase_Items@17d677df] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="verify_content_1()[pri:2, instance:ExercisemvnTestcase.Testcase_Items@17d677df]" name="verify_content_1" duration-ms="8817" started-at="2021-06-14T22:54:38 ICT" finished-at="2021-06-14T22:54:47 ICT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verify_content_1 -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:ExercisemvnTestcase.Testcase_Items@17d677df]" name="getResult" is-config="true" duration-ms="1" started-at="2021-06-14T22:54:47 ICT" finished-at="2021-06-14T22:54:47 ICT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=verify_content_1 status=SUCCESS method=Testcase_Items.verify_content_1()[pri:2, instance:ExercisemvnTestcase.Testcase_Items@17d677df] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="verify_content_2()[pri:2, instance:ExercisemvnTestcase.Testcase_Items@17d677df]" name="verify_content_2" duration-ms="8724" started-at="2021-06-14T22:54:47 ICT" finished-at="2021-06-14T22:54:56 ICT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verify_content_2 -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:ExercisemvnTestcase.Testcase_Items@17d677df]" name="getResult" is-config="true" duration-ms="0" started-at="2021-06-14T22:54:56 ICT" finished-at="2021-06-14T22:54:56 ICT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=verify_content_2 status=SUCCESS method=Testcase_Items.verify_content_2()[pri:2, instance:ExercisemvnTestcase.Testcase_Items@17d677df] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="verify_content_3()[pri:2, instance:ExercisemvnTestcase.Testcase_Items@17d677df]" name="verify_content_3" duration-ms="2468" started-at="2021-06-14T22:54:56 ICT" finished-at="2021-06-14T22:54:58 ICT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verify_content_3 -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:ExercisemvnTestcase.Testcase_Items@17d677df]" name="getResult" is-config="true" duration-ms="0" started-at="2021-06-14T22:54:58 ICT" finished-at="2021-06-14T22:54:58 ICT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=verify_content_3 status=SUCCESS method=Testcase_Items.verify_content_3()[pri:2, instance:ExercisemvnTestcase.Testcase_Items@17d677df] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-      </class> <!-- ExercisemvnTestcase.Testcase_Items -->
     </test> <!-- Demo_Chrome -->
   </suite> <!-- Suite_demo -->
 </testng-results>

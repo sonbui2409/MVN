@@ -20,69 +20,74 @@ public class BuyObject extends BaseActions {
 	protected String totalprice = "//div[@class='summary_total_label']";
 	protected String finish = "//button[@id='finish']";
 	protected String completeHead = "//h2[@class='complete-header']";
+	WebDriver LocalDriver;
+	public static ExtentTest LocalLog;
 	
 	
 	//Input
-	public BuyObject(WebDriver remoteDriver) {
-		super (remoteDriver); //call constructor of Father class (baseActions)
+	public BuyObject(WebDriver remoteDriver, ExtentTest remoteLog) {
+		super (remoteDriver, remoteLog); //call constructor of Father class (baseActions)
+		LocalDriver = remoteDriver;
+		LocalLog = remoteLog;
+		
 	}
 	
 	
 	
-	public BuyObject Input_Firstname (ExtentTest log,  String data) {
-		InputdataId(log,  "first-name", data);
+	public BuyObject Input_Firstname (String data) {
+		InputdataId("first-name", data);
 		return this;
 	}
-	public BuyObject Input_Lastname (ExtentTest log,  String data) {
-		InputdataId(log,  "last-name", data);
+	public BuyObject Input_Lastname (String data) {
+		InputdataId("last-name", data);
 		return this;
 	}
-	public BuyObject Input_Postalcode (ExtentTest log,  String data) {
-		InputdataId(log,  "postal-code", data);
+	public BuyObject Input_Postalcode (String data) {
+		InputdataId("postal-code", data);
 		return this;
 	}
 	
 	
 	//Verify
-	public BuyObject Add_item_ToCart (ExtentTest log,  String item) {
-		ClickFormat(log, buyitem, item);
+	public BuyObject Add_item_ToCart (String item) {
+		ClickFormat(buyitem, item);
 		return this;
 	}
-	public BuyObject Verify_YourCart_page (WebDriverWait wait,ExtentTest log,  String item, String price) {
+	public BuyObject Verify_YourCart_page (WebDriverWait wait,String item, String price) {
 		waitclickable(wait,  badgelink);
-		ClickXpath(log, badgelink);
-		GetTextEqual(log, pagetitle, "your cart");
-		GetTextEqual(log, buyname1, item);		
-		AssertEqual_replace(log,   buyprice1, price);
+		ClickXpath(badgelink);
+		GetTextEqual(pagetitle, "your cart");
+		GetTextEqual(buyname1, item);		
+		AssertEqual_replace(buyprice1, price);
 		return this;
 	}
-	public BuyObject Goto_Checkout_Page (WebDriverWait wait,ExtentTest log) {
+	public BuyObject Goto_Checkout_Page (WebDriverWait wait) {
 		waitclickable(wait,  checkout);
-		ClickXpath(log, checkout);
+		ClickXpath(checkout);
 		return this;
 	}
-	public BuyObject Goto_Checkout_Overview (WebDriverWait wait,ExtentTest log,  String pricetotal) {
+	public BuyObject Goto_Checkout_Overview (WebDriverWait wait,String pricetotal) {
 		waitclickable(wait,  butcont);
-		ClickXpath(log,  butcont);
-		AssertEqual_replace(log,   totalprice, pricetotal);
+		ClickXpath(butcont);
+		AssertEqual_replace(totalprice, pricetotal);
 		return this;
 	}
-	public BuyObject Goto_Checkout_Complete (WebDriverWait wait,ExtentTest log) {
+	public BuyObject Goto_Checkout_Complete (WebDriverWait wait) {
 		waitclickable(wait,  finish);
-		ClickXpath(log,  finish);
-		GetTextEqual(log, completeHead, "THANK YOU FOR YOUR ORDER");
+		ClickXpath(finish);
+		GetTextEqual(completeHead, "THANK YOU FOR YOUR ORDER");
 		return this;
 	}
 	
-	public BuyObject Click_Cart (WebDriverWait wait,ExtentTest log) {
+	public BuyObject Click_Cart (WebDriverWait wait) {
 		waitclickable(wait,  badgelink);
-		ClickXpath(log,  badgelink);
+		ClickXpath(badgelink);
 		return this;
 	}
 	
 	//Compare
-	public BuyObject Compare_CartNum (ExtentTest log,  String compare) {
-		GetTextEqual(log,  badgeno, compare);
+	public BuyObject Compare_CartNum (String compare) {
+		GetTextEqual(badgeno, compare);
 		return this;
 	}
 

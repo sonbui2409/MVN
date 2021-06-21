@@ -15,7 +15,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
@@ -28,14 +27,11 @@ import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-
-import ExerciseShareObject.BuyObject;
-import ExerciseShareObject.InventoryObject;
-import ExerciseShareObject.LoginObject;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
 	protected static WebDriver driver;
+	protected ExtentTest log; //log steps, test case
 	//Using variable
 	public static String fileName;
 	
@@ -47,7 +43,7 @@ public class BaseTest {
 	protected static WebDriverWait wait;
 	protected static ExtentReports report; //resgister for report, create a new report, save, screenshot
 	ExtentSparkReporter spark; //create a report file
-	protected static ExtentTest log; //log steps, test case
+	
 	
 	
 	

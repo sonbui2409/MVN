@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -17,108 +18,150 @@ public class BaseActions {
 	
 	ExcelInit reader;
 	WebDriver driver;
+	ExtentTest log;
 	
-	public BaseActions(WebDriver remoteDriver) {
+	public BaseActions(WebDriver remoteDriver,ExtentTest remoteLog ) {
 		driver =  remoteDriver; //create driver variable in the class so do not need to define it again
+		log = remoteLog;
 		reader = new ExcelInit();
 	}
 
-	protected void GotoURL(ExtentTest log,  String url) {
+	private String get_EleDescription(WebElement ele) {
+		String des ="";
+		des = ele.getAttribute("id");
+		if(isNullOrEmpty(des)) {
+			des= ele.getAttribute("name");
+			if(isNullOrEmpty(des)) {
+				des = ele.getText();
+				if(isNullOrEmpty(des)) {
+					des = ele.getAttribute("class");
+				}
+			}
+		}
+		return des;
+	}
+	
+	private boolean isNullOrEmpty(String str) {
+        if(str != null && !str.isEmpty())
+            return false;
+        return true;
+    }
+
+	protected void GotoURL(String url) {
 		driver.get(url);
 		//System.out.println("Go to URL " + url);
 		log.info("Go to URL " + url );		
 	}
 	//Input Data
-	protected void InputdataXpath (ExtentTest log, String xpath, String data) {
-		driver.findElement(By.xpath(xpath)).sendKeys(data);
-		log.info("Input " + data + "to field " + xpath);
+	protected void InputdataXpath (String xpath, String data) {
+		WebElement field = driver.findElement(By.xpath(xpath));
+		field.sendKeys(data);
+		get_EleDescription(field);
+		log.info("Input " + data + " to field " + get_EleDescription(field));
 	}
 	
-	protected void InputdataId (ExtentTest log, String id, String data) {
-		driver.findElement(By.id(id)).sendKeys(data);
+	protected void InputdataId (String id, String data) {
+		WebElement field = driver.findElement(By.id(id));
+		field.sendKeys(data);
 		log.info("Input " + data + " to " + id);
 	}
-	protected void InputdataClass (ExtentTest log, String classname, String data) {
-		driver.findElement(By.className(classname)).sendKeys(data);
+	protected void InputdataClass (String classname, String data) {
+		WebElement field = driver.findElement(By.className(classname));
+		field.sendKeys(data);
 		log.info("Input " + data + " to " + classname);
 	}
-	protected void ClearDataxpath(ExtentTest log, String xpath) {
-		driver.findElement(By.xpath(xpath)).clear();
+	protected void ClearDataxpath(String xpath) {
+		WebElement field = driver.findElement(By.xpath(xpath));
+		field.clear();
 		log.info("Clear Data of " + xpath + " Field");
 	}
 	//Click
-	protected void ClickXpath(ExtentTest log, String xpath) {
-		driver.findElement(By.xpath(xpath)).click();
-		log.info("Click to " + xpath);
+	protected void ClickXpath(String xpath) {
+		WebElement field = driver.findElement(By.xpath(xpath));
+		field.click();
+		log.info("Click to ");
 	}
-	protected void ClickId(ExtentTest log, String id) {
-		driver.findElement(By.id(id)).click();
-		log.info("Click to " + id);
+	protected void ClickId(String id) {
+		WebElement field = driver.findElement(By.id(id));
+		field.click();
+		log.info("Click to " + get_EleDescription(field));
 	}
-	protected void ClickFormat (ExtentTest log, String xpath, String item) {
+	protected void ClickFormat (String xpath, String item) {
 		String text = String.format(xpath, item);
-		driver.findElement(By.xpath(text)).click();
-		log.info("Click to " + text);
+		WebElement field = driver.findElement(By.xpath(text));
+		field.click();
+		log.info("Click to " + get_EleDescription(field));
 	}
 	//Get Text
-	protected void GetTextFormatEqual (ExtentTest log, String xpath, String item, String compare) {
+	protected void GetTextFormatEqual (String xpath, String item, String compare) {
 		String text = String.format(xpath, item);
-		Assert.assertTrue(driver.findElement(By.xpath(text)).getText().equalsIgnoreCase(compare));
-		log.info("Get text of " + text + " and Compare to " + compare);
+		WebElement field = driver.findElement(By.xpath(text));
+		Assert.assertTrue(field.getText().equalsIgnoreCase(compare));
+		log.info("Get text of " + get_EleDescription(field) + " and Compare to " + compare);
 	}
-	protected void GetTextEqual (ExtentTest log,String xpath, String compare) {
-		Assert.assertTrue(driver.findElement(By.xpath(xpath)).getText().equalsIgnoreCase(compare));
-		log.info("Get text of " + xpath + " and Compare to " + compare);
+	protected void GetTextEqual (String xpath, String compare) {
+		WebElement field = driver.findElement(By.xpath(xpath));
+		Assert.assertTrue(field.getText().equalsIgnoreCase(compare));
+		log.info("Get text of " + get_EleDescription(field) + " and Compare to " + compare);
 	}
-	protected void GetText (ExtentTest log,String xpath) {
-		driver.findElement(By.xpath(xpath)).getText();
-		log.info("Get text of " + xpath);
+	protected void GetText (String xpath) {
+		WebElement field = driver.findElement(By.xpath(xpath));
+		field.getText();
+		log.info("Get text of " + get_EleDescription(field));
 	}
-	protected void GetTextFormatEqual_replace (ExtentTest log, String xpath, String item, String compare) {
+	protected void GetTextFormatEqual_replace (String xpath, String item, String compare) {
 		String text = String.format(xpath, item);
-		Assert.assertTrue(driver.findElement(By.xpath(text)).getText().replace("\r" + "\n", "").equalsIgnoreCase(compare));
-		log.info("Get text of " + text + " and Compare to " + compare);
+		WebElement field = driver.findElement(By.xpath(text));
+		Assert.assertTrue(field.getText().replace("\r" + "\n", "").equalsIgnoreCase(compare));
+		log.info("Get text of " + get_EleDescription(field) + " and Compare to " + compare);
 	}
-	protected void CompareCurrentURL (ExtentTest log,String compareUrl) {
+	protected void CompareCurrentURL (String compareUrl) {
 		Assert.assertTrue(driver.getCurrentUrl().equalsIgnoreCase(compareUrl));
 		log.info("The current URL is: " + compareUrl);
 	}
 	
 	
 	//Assert and softAssert
-	protected void sAssertDisplay_true (ExtentTest log,SoftAssert softAssert,String xpath) {
+	protected void sAssertDisplay_true (SoftAssert softAssert,String xpath) {
+		WebElement field = driver.findElement(By.xpath(xpath));
 		softAssert.assertTrue(driver.findElement(By.xpath(xpath)).isDisplayed());
-		log.info("Verify " + xpath + " is displayed");
+		log.info("Verify " + get_EleDescription(field) + " is displayed");
 	
 	}
-	protected void AssertDisplay_true (ExtentTest log,String xpath) {
-		Assert.assertTrue(driver.findElement(By.xpath(xpath)).isDisplayed());
-		log.info("Verify " + xpath + " is displayed");
+	protected void AssertDisplay_true (String xpath) {
+		WebElement field = driver.findElement(By.xpath(xpath));
+		Assert.assertTrue(field.isDisplayed());
+		log.info("Verify " + get_EleDescription(field) + " is displayed");
 	
 	}
-	protected void sAssertDisplay_false (ExtentTest log,SoftAssert softAssert,String xpath) {
-		softAssert.assertFalse(driver.findElement(By.xpath(xpath)).isDisplayed());
-		log.info("Verify " + xpath + " is not displayed");
+	protected void sAssertDisplay_false (SoftAssert softAssert,String xpath) {
+		WebElement field = driver.findElement(By.xpath(xpath));
+		softAssert.assertFalse(field.isDisplayed());
+		log.info("Verify " + get_EleDescription(field) + " is not displayed");
 		
 	
 	}
-	protected void sAssertEqual (ExtentTest log,SoftAssert softAssert,String xpath, String expect) {
-		softAssert.assertEquals(driver.findElement(By.xpath(xpath)).getText(), expect);
-		log.info("Verify " + xpath + " equal to " + expect);
+	protected void sAssertEqual (SoftAssert softAssert,String xpath, String expect) {
+		WebElement field = driver.findElement(By.xpath(xpath));
+		softAssert.assertEquals(field.getText(), expect);
+		log.info("Verify " + get_EleDescription(field) + " equal to " + expect);
 	}
-	protected void sAssertEqual_replace(ExtentTest log,SoftAssert softAssert,String xpath, String expect) {
-		softAssert.assertEquals(driver.findElement(By.xpath(xpath)).getText().replace("\r" + "\n", ""), expect);
+	protected void sAssertEqual_replace(SoftAssert softAssert,String xpath, String expect) {
+		WebElement field = driver.findElement(By.xpath(xpath));
+		softAssert.assertEquals(field.getText().replace("\r" + "\n", ""), expect);
 		//"\r" a space, "\n" a new line
-		log.info("Verify " + xpath + " equal to " + expect);
+		log.info("Verify " + get_EleDescription(field) + " equal to " + expect);
 	}
-	protected void AssertEqual (ExtentTest log,String xpath, String expect) {
-		Assert.assertEquals(driver.findElement(By.xpath(xpath)).getText(), expect);
-		log.info("Verify " + xpath + " equal to " + expect);
+	protected void AssertEqual (String xpath, String expect) {
+		WebElement field = driver.findElement(By.xpath(xpath));
+		Assert.assertEquals(field.getText(), expect);
+		log.info("Verify " + get_EleDescription(field) + " equal to " + expect);
 	}
-	protected void AssertEqual_replace(ExtentTest log,String xpath, String expect) {
-		Assert.assertEquals(driver.findElement(By.xpath(xpath)).getText().replace("\r" + "\n", ""), expect);
+	protected void AssertEqual_replace(String xpath, String expect) {
+		WebElement field = driver.findElement(By.xpath(xpath));
+		Assert.assertEquals(field.getText().replace("\r" + "\n", ""), expect);
 		//"\r" a space, "\n" a new line
-		log.info("Verify " + xpath + " equal to " + expect);
+		log.info("Verify " + get_EleDescription(field) + " equal to " + expect);
 	}
 	//Wait
 	protected void waitclickable(WebDriverWait wait, String xpath) {

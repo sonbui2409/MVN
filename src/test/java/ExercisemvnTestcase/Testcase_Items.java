@@ -15,8 +15,8 @@ public class Testcase_Items extends BaseTest {
 	
 	@BeforeClass
 	public void initObject() {
-		lb = new LoginObject(driver);
-		ib = new InventoryObject(driver);
+		lb = new LoginObject(driver, log);
+		ib = new InventoryObject(driver, log);
 	}
 	
 	@Test (priority = 1)

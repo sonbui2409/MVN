@@ -12,12 +12,12 @@ public class Testcase_Navigation extends BaseTest {
 	InventoryObject ib;
 	BuyObject bb;
 	
-	@BeforeClass
+	/*//@BeforeClass
 	public void initObject() {
 		lb = new LoginObject(driver);
 		ib = new InventoryObject(driver);
 		bb = new BuyObject(driver);
-	}
+	}*/
 	
 	@Test (priority = 1)
 	public void buy_an_item() {

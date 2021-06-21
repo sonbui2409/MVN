@@ -29,62 +29,71 @@ public class LoginObject extends BaseActions {
 	// method or action into element on page
 
 	WebDriver LocalDriver; //create a Localdriver which will be = driver to define LocalDriver in Return Class
+	protected static ExtentTest LocalLog;
 	
-	public LoginObject(WebDriver remoteDriver) {
-		super (remoteDriver); //call constructor of Father class (baseActions)
+	public LoginObject(WebDriver remoteDriver,ExtentTest remoteLog) {
+		super (remoteDriver, remoteLog); //call constructor of Father class (baseActions)
 		LocalDriver = remoteDriver;
+		LocalLog = remoteLog;
+
 	}
 	
-	
-	public LoginObject OpenLoginPage(ExtentTest log) {
+
+	public LoginObject OpenLoginPage() {
 		// GotoURL(log, url);
-		GotoURL(log, readExl("Login", DataTest.CUrl, DataTest.Rurl));
+		GotoURL(readExl("Login", DataTest.CUrl, DataTest.Rurl));
 		return this;
 	}
 
-	public InventoryObject Login(ExtentTest log) {
+	public InventoryObject Login() {
 		/*
 		 * GotoURL(log, url); InputdataXpath(log, user,
 		 * "standard_user"); InputdataXpath(log, passbut, passwd);
 		 * ClickXpath(log, login);
 		 */
-		GotoURL(log, readExl("Login", DataTest.CUrl, DataTest.Rurl));
-		InputdataXpath(log, readExl("Xpath", DataTest.Cxpt_login,DataTest.Rxpt_user), readExl("Login", DataTest.CUser, DataTest.Ruser));
-		InputdataXpath(log, readExl("Xpath", DataTest.Cxpt_login, DataTest.Rxpt_passwd ), readExl("Login", DataTest.CPass, DataTest.Rpass));
-		ClickXpath(log, readExl("Xpath", DataTest.Cxpt_login, DataTest.Rxpt_login));
-		return new InventoryObject(LocalDriver);
+		OpenLoginPage();
+		InputUserName(readExl("Login", DataTest.CUser, DataTest.Ruser));
+		InputPasswd();
+		ClickLogin_but();
+		
+		
+		/*GotoURL(readExl("Login", DataTest.CUrl, DataTest.Rurl));
+		InputdataXpath(readExl("Xpath", DataTest.Cxpt_login,DataTest.Rxpt_user), readExl("Login", DataTest.CUser, DataTest.Ruser));
+		InputdataXpath(readExl("Xpath", DataTest.Cxpt_login, DataTest.Rxpt_passwd ), readExl("Login", DataTest.CPass, DataTest.Rpass));
+		ClickXpath(readExl("Xpath", DataTest.Cxpt_login, DataTest.Rxpt_login));*/
+		return ManageObject.ManageInven(LocalDriver, LocalLog);
 	}
 
 	// Input Data
-	public LoginObject InputUserName(ExtentTest log, String data) {
-		InputdataXpath(log, readExl("Xpath", DataTest.Cxpt_login, DataTest.Rxpt_user), data);
+	public LoginObject InputUserName(String data) {
+		InputdataXpath(readExl("Xpath", DataTest.Cxpt_login, DataTest.Rxpt_user), data);
 		return this;
 	}
 
-	public LoginObject InputPasswd(ExtentTest log) {
-		InputdataXpath(log, readExl("Xpath", DataTest.Cxpt_login, DataTest.Rxpt_passwd), readExl("Login", DataTest.CPass, DataTest.Rpass));
+	public LoginObject InputPasswd() {
+		InputdataXpath(readExl("Xpath", DataTest.Cxpt_login, DataTest.Rxpt_passwd), readExl("Login", DataTest.CPass, DataTest.Rpass));
 		return this;
 	}
 
-	public LoginObject InputPasswd_error(ExtentTest log, String data) {
-		InputdataXpath(log, readExl("Xpath", DataTest.Cxpt_login, DataTest.Rxpt_passwd), data);
+	public LoginObject InputPasswd_error(String data) {
+		InputdataXpath(readExl("Xpath", DataTest.Cxpt_login, DataTest.Rxpt_passwd), data);
 		return this;
 	}
 
 	// Click
-	public InventoryObject ClickLogin_but(ExtentTest log) {
-		ClickXpath(log, readExl("Xpath", DataTest.Cxpt_login, DataTest.Rxpt_login));
-		return new InventoryObject(LocalDriver);
+	public InventoryObject ClickLogin_but() {
+		ClickXpath(readExl("Xpath", DataTest.Cxpt_login, DataTest.Rxpt_login));
+		return ManageObject.ManageInven(LocalDriver, LocalLog);
 	}
 
 	// Verify
-	public LoginObject Verify_fail(ExtentTest log, String expect) {
-		AssertEqual(log, readExl("Xpath", DataTest.Cxpt_login, DataTest.Rxpt_error), expect);
+	public LoginObject Verify_fail(String expect) {
+		AssertEqual(readExl("Xpath", DataTest.Cxpt_login, DataTest.Rxpt_error), expect);
 		return this;
 	}
 
-	public LoginObject Verify_fail_1(ExtentTest log) {
-		AssertEqual(log, readExl("Xpath", DataTest.Cxpt_login, DataTest.Rxpt_error),readExl("Login", DataTest.CError, DataTest.Rerrorlock ));
+	public LoginObject Verify_fail_1() {
+		AssertEqual(readExl("Xpath", DataTest.Cxpt_login, DataTest.Rxpt_error),readExl("Login", DataTest.CError, DataTest.Rerrorlock ));
 		return this;
 	}
 
@@ -122,8 +131,8 @@ public class LoginObject extends BaseActions {
 		return this;
 	}*/
 
-	public LoginObject Compare_login_but(ExtentTest log) {
-		AssertDisplay_true(log,readExl("Xpath", DataTest.Cxpt_login, DataTest.Rxpt_login));
+	public LoginObject Compare_login_but() {
+		AssertDisplay_true(readExl("Xpath", DataTest.Cxpt_login, DataTest.Rxpt_login));
 		return this;
 	}
 
