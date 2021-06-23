@@ -7,6 +7,7 @@ import com.aventstack.extentreports.ExtentTest;
 
 import ExerciseBaseCommon.BaseActions;
 import ExerciseBaseCommon.DataTest;
+import ExerciseBaseCommon.ManageObject;
 
 public class InventoryObject extends BaseActions {
 	WebDriver LocalDriver;
@@ -19,7 +20,13 @@ public class InventoryObject extends BaseActions {
 		LocalLog = remoteLog;
 		
 	}
-	
+	public ExtentTest getLoglocal() {
+		return LocalLog;
+	}
+	public void updateLocalLog(ExtentTest log) {
+		updateLog(log);
+		LocalLog = log;
+	}
 	
 	
 	public InventoryObject OpenInvenPage () {
@@ -33,14 +40,10 @@ public class InventoryObject extends BaseActions {
 	
 	//Compare
 	public InventoryObject CompareTitle (String expect) {
-		AssertEqual(readExl("Xpath", 1, 10), expect);
+		AssertEqual(readExl("Xpath", DataTest.Cxpt_Inventory, DataTest.Rxpt_pagetitle), expect);
 		return this;
 	}
 	
-	public InventoryObject Compare_Buy (String expect) {
-		AssertEqual(readExl("Xpath", 1, 15), expect);
-		return this;
-	}
 	public InventoryObject Compare_CurrentURL (String currentURL) {
 		CompareCurrentURL(currentURL);
 		return this;
@@ -48,9 +51,9 @@ public class InventoryObject extends BaseActions {
 	
 	//Log_out
 	public LoginObject Logout(WebDriverWait wait) {
-		ClickXpath(readExl("Xpath", 1, 6));
-		waitclickable(wait, readExl("Xpath", 1, 7));
-		ClickXpath(readExl("Xpath", 1, 7));
+		ClickXpath(readExl("Xpath", DataTest.Cxpt_Inventory, DataTest.Rxpt_menu));
+		waitclickable(wait, readExl("Xpath", DataTest.Cxpt_Inventory, DataTest.Rxpt_logout));
+		ClickXpath(readExl("Xpath", DataTest.Cxpt_Inventory, DataTest.Rxpt_logout));
 		return ManageObject.ManageLogin(LocalDriver, LocalLog);
 	}
 	
@@ -65,6 +68,21 @@ public class InventoryObject extends BaseActions {
 		ClickXpath(readExl("Xpath", DataTest.Cxpt_Buy, DataTest.Rxpt_back));
 		return this;
 	}
+	public InventoryObject Add_item_ToCart (String item) {
+		ClickFormat(readExl("Xpath", DataTest.Cxpt_Buy, DataTest.Rxpt_buy ), item);
+		return this;
+	}
+	public BuyObject Go_to_YourCart_page (WebDriverWait wait) {
+		waitclickable(wait,  readExl("Xpath", DataTest.Cxpt_Buy, DataTest.Rxpt_Badgelink ));
+		ClickXpath(readExl("Xpath", DataTest.Cxpt_Buy, DataTest.Rxpt_Badgelink ));
+		return ManageObject.ManageBuy(LocalDriver, LocalLog);
+	}
+	public InventoryObject Click_Cart (WebDriverWait wait) {
+		waitclickable(wait,readExl("Xpath", DataTest.Cxpt_Buy, DataTest.Rxpt_Badgelink));
+		ClickXpath(readExl("Xpath", DataTest.Cxpt_Buy, DataTest.Rxpt_Badgelink));
+		return this;
+	}
+	
 	/*public InventoryObject GoToItem_1 (ExtentTest log) {
 		ClickFormat(log, readExl("Xpath", 1, 11), readExl("Inventory", 1, 1));
 		return this;
@@ -90,13 +108,13 @@ public class InventoryObject extends BaseActions {
 
 	public InventoryObject Verify_Name_Desc_price_item_1 (WebDriverWait wait) {
 		waitformatvisible(wait, readExl("Xpath", DataTest.Cxpt_Inventory, DataTest.Rxpt_Iname), 
-				readExl("Inventory", DataTest.CitemLink, DataTest.RitemLink1));
-		GetTextFormatEqual(readExl("Xpath", DataTest.Cxpt_Inventory, DataTest.Rxpt_Iname), readExl("Inventory", DataTest.CitemLink, DataTest.RitemLink1), 
-				readExl("Inventory", DataTest.CitemName,DataTest.RitemName1 ));
-		GetTextFormatEqual(readExl("Xpath", DataTest.Cxpt_Inventory, DataTest.Rxpt_Idesc), readExl("Inventory", DataTest.CitemLink, DataTest.RitemLink1), 
-				readExl("Inventory", DataTest.CitemDesc, DataTest.RitemDesc1));
-		GetTextFormatEqual_replace(readExl("Xpath", DataTest.Cxpt_Inventory, DataTest.Rxpt_Iprice), readExl("Inventory", DataTest.CitemLink, DataTest.RitemLink1), 
-				readExl("Inventory", DataTest.CitemPrice, DataTest.RitemPrice1));
+				readExl("Inventory", DataTest.CitemLink, DataTest.Ritem1));
+		GetTextFormatEqual(readExl("Xpath", DataTest.Cxpt_Inventory, DataTest.Rxpt_Iname), readExl("Inventory", DataTest.CitemLink, DataTest.Ritem1), 
+				readExl("Inventory", DataTest.CitemName,DataTest.Ritem1 ));
+		GetTextFormatEqual(readExl("Xpath", DataTest.Cxpt_Inventory, DataTest.Rxpt_Idesc), readExl("Inventory", DataTest.CitemLink, DataTest.Ritem1), 
+				readExl("Inventory", DataTest.CitemDesc, DataTest.Ritem1));
+		GetTextFormatEqual_replace(readExl("Xpath", DataTest.Cxpt_Inventory, DataTest.Rxpt_Iprice), readExl("Inventory", DataTest.CitemLink, DataTest.Ritem1), 
+				readExl("Inventory", DataTest.CitemPrice, DataTest.Ritem1));
 		return this;
 	}
 /*	public InventoryObject Verify_Name_Desc_price_item_2 (ExtentTest log,WebDriverWait wait) {
@@ -138,15 +156,15 @@ public class InventoryObject extends BaseActions {
 	public InventoryObject Verify_Page_item_1 (WebDriverWait wait) {
 		waitvisible(wait, readExl("Xpath", DataTest.Cxpt_Inventory, DataTest.Rxpt_Dtitle));
 		GetTextEqual(readExl("Xpath", DataTest.Cxpt_Inventory, DataTest.Rxpt_Dtitle), 
-				readExl("Inventory", DataTest.CitemName, DataTest.RitemName1));
+				readExl("Inventory", DataTest.CitemName, DataTest.Ritem1));
 		
 		waitvisible(wait, readExl("Xpath", DataTest.Cxpt_Inventory, DataTest.Rxpt_Ddesc));
 		GetTextEqual(readExl("Xpath", DataTest.Cxpt_Inventory, DataTest.Rxpt_Ddesc), 
-				readExl("Inventory", DataTest.CitemDesc, DataTest.RitemDesc1));
+				readExl("Inventory", DataTest.CitemDesc, DataTest.Ritem1));
 		
 		waitvisible(wait, readExl("Xpath", DataTest.Cxpt_Inventory, DataTest.Rxpt_Dprice));
 		AssertEqual_replace(readExl("Xpath", DataTest.Cxpt_Inventory, DataTest.Rxpt_Dprice), 
-				readExl("Inventory", DataTest.CitemPrice, DataTest.RitemPrice1));
+				readExl("Inventory", DataTest.CitemPrice, DataTest.Ritem1));
 		
 		return this;
 	}
@@ -165,24 +183,28 @@ public class InventoryObject extends BaseActions {
 	}*/
 	public InventoryObject Verify_Link_item_problem (WebDriverWait wait) {
 		ClickFormat(readExl("Xpath", DataTest.Cxpt_Inventory, DataTest.Rxpt_Ilink), 
-				readExl("Inventory", DataTest.CitemImage,DataTest.RitemImage2));
+				readExl("Inventory", DataTest.CitemImage,DataTest.Ritem2));
 		waitvisible(wait, readExl("Xpath", DataTest.Cxpt_Inventory, DataTest.Rxpt_Dtitle));
 		AssertEqual(readExl("Xpath", DataTest.Cxpt_Inventory, DataTest.Rxpt_Dtitle), 
-				readExl("Inventory", DataTest.CitemName, DataTest.RitemName2));	
+				readExl("Inventory", DataTest.CitemName, DataTest.Ritem2));	
 		return this;
 	}
 	public InventoryObject Verify_Allitem (WebDriverWait wait, String expect) {
-		waitclickable(wait, readExl("Xpath", 1, 9));
-		GetTextEqual(readExl("Xpath", 1, 9), readExl("Inventory", 0, 2));
-		ClickXpath(readExl("Xpath", 1, 9));
-		GetTextEqual(readExl("Xpath", 1, 10), expect);
+		waitclickable(wait, readExl("Xpath",DataTest.Cxpt_Inventory, DataTest.Rxpt_allitem));
+		GetTextEqual(readExl("Xpath",DataTest.Cxpt_Inventory, DataTest.Rxpt_allitem), readExl("Inventory",DataTest.Ctitle, DataTest.Rallitem));
+		ClickXpath(readExl("Xpath",DataTest.Cxpt_Inventory, DataTest.Rxpt_allitem));
+		GetTextEqual(readExl("Xpath", DataTest.Cxpt_Inventory,DataTest.Rxpt_pagetitle), expect);
 		return this;
 	}
 	public InventoryObject Verify_About (WebDriverWait wait) {
-		waitclickable(wait, readExl("Xpath", 1, 8));
-		GetTextEqual(readExl("Xpath", 1, 8), readExl("Inventory", 0, 3));
-		ClickXpath(readExl("Xpath", 1, 8));
+		waitclickable(wait, readExl("Xpath",DataTest.Cxpt_Inventory, DataTest.Rxpt_about));
+		GetTextEqual(readExl("Xpath",DataTest.Cxpt_Inventory, DataTest.Rxpt_about), readExl("Inventory", DataTest.Ctitle, DataTest.Rabout));
+		ClickXpath(readExl("Xpath",DataTest.Cxpt_Inventory, DataTest.Rxpt_about));
 		return this;
-	}	
+	}
+	public InventoryObject Compare_CartNum (String compare) {
+		GetTextEqual(readExl("Xpath", DataTest.Cxpt_Buy, DataTest.Rxpt_Badgenum) ,compare);
+		return this;
+	}
 
 }

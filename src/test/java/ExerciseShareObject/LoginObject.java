@@ -6,6 +6,7 @@ import org.testng.asserts.SoftAssert;
 import com.aventstack.extentreports.ExtentTest;
 import ExerciseBaseCommon.BaseActions;
 import ExerciseBaseCommon.DataTest;
+import ExerciseBaseCommon.ManageObject;
 
 public class LoginObject extends BaseActions {
 	// Include xpath
@@ -31,6 +32,10 @@ public class LoginObject extends BaseActions {
 	WebDriver LocalDriver; //create a Localdriver which will be = driver to define LocalDriver in Return Class
 	protected static ExtentTest LocalLog;
 	
+	public ExtentTest getLoglocal() {
+		return LocalLog;
+	}
+	
 	public LoginObject(WebDriver remoteDriver,ExtentTest remoteLog) {
 		super (remoteDriver, remoteLog); //call constructor of Father class (baseActions)
 		LocalDriver = remoteDriver;
@@ -38,6 +43,10 @@ public class LoginObject extends BaseActions {
 
 	}
 	
+	public void updateLocalLog(ExtentTest log) {
+		updateLog(log);
+		LocalLog = log;
+	}
 
 	public LoginObject OpenLoginPage() {
 		// GotoURL(log, url);

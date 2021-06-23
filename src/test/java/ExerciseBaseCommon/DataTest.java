@@ -1,11 +1,12 @@
 package ExerciseBaseCommon;
 
 public class DataTest {
-	//Login
+	//Login Column
 	public static int CUser = 0;
 	public static int CPass = 1;
 	public static int CError = 2;
 	public static int CUrl = 3;
+	//Login Row
 	public static int Ruser = 1;
 	public static int Ruserfail = 2;
 	public static int Ruserprob = 3;
@@ -14,34 +15,54 @@ public class DataTest {
 	public static int RInventory = 2;
 	public static int Rerrorlock = 1;
 	public static int Rerrorpage = 2;
+	//---------------------------------------------------------//
 	
-	
-	//Inventory
+	//Inventory Column
 	public static int Ctitle = 0;
 	public static int CitemLink = 1;
 	public static int CitemImage = 2;
 	public static int CitemPrice = 3;
 	public static int CitemName = 4;
 	public static int CitemDesc = 5;
-	//Item#1
-	public static int RitemLink1 = 1;
-	public static int RitemName1 = 1;
-	public static int RitemDesc1 = 1;
-	public static int RitemPrice1 = 1;
-	//Item#2
-	public static int RitemImage2 = 2;
-	public static int RitemName2 = 2;
-	//Item#3
-	public static int RitemName3 = 3;
-	
+	public static int Citembuy = 6;
+	//Inventory Row
+	//Item#
+	public static int Ritem1 = 1;
+	public static int Ritem2 = 2;
+	public static int Ritem3 = 3;
+	public static int Ritem4 = 4;
+	public static int Ritem5 = 5;
+	public static int Ritem6 = 6;
+
+	//Title
 	public static int Rproduct = 1;
+	public static int Rallitem = 2;
+	public static int Rabout = 3;
 	
+	//-----------------------------------------------------------------------//
 	
+	//Other Column
+	public static int CInput = 1;
+	public static int CTotalPrice = 3;
+	public static int COther = 5;
+	//Other Row
+	public static int Rfirstname = 1;
+	public static int Rlastname = 2;
+	public static int Rzipcode = 3;
+	public static int RTotalprice5 = 5;
+	public static int RUrlAbout = 1;
+	public static int ROrderhead = 2;
+	public static int RYourcarthead = 3;
 	
-	//Xpath
+	//-------------------------------------------------//
+	
+	//Xpath Column
 	public static int Cxpt_login = 1;
 	public static int Cxpt_Inventory = 3;
 	public static int Cxpt_Buy = 5;
+	
+	//Xpath Row
+	
 	//Login
 	public static int Rxpt_user = 1;
 	public static int Rxpt_passwd = 2;

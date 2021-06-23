@@ -1,10 +1,12 @@
-package ExerciseShareObject;
+package ExerciseBaseCommon;
 
 import org.openqa.selenium.WebDriver;
 
 import com.aventstack.extentreports.ExtentTest;
 
-import ExerciseBaseCommon.BaseActions;
+import ExerciseShareObject.BuyObject;
+import ExerciseShareObject.InventoryObject;
+import ExerciseShareObject.LoginObject;
 
 public class ManageObject {
 	
@@ -17,8 +19,8 @@ public class ManageObject {
 		if(loginObj == null) {
 			loginObj = new LoginObject(LocalDriver, LocalLog);
 		}
-		if(LoginObject.LocalLog != LocalLog ) {
-			 LoginObject.LocalLog = LocalLog;
+		else if(loginObj.getLoglocal() != LocalLog ) {
+			loginObj.updateLocalLog(LocalLog);
 		}
 		
 		return loginObj;
@@ -29,8 +31,8 @@ public class ManageObject {
 		if(InvenObj == null) {
 			InvenObj = new InventoryObject(LocalDriver,LocalLog);
 		}
-		if(InventoryObject.LocalLog != LocalLog ) {
-			InventoryObject.LocalLog = LocalLog;
+		else if(InvenObj.getLoglocal() != LocalLog ) {
+			InvenObj.updateLocalLog(LocalLog);
 		}
 		return InvenObj;
 	}
@@ -39,8 +41,8 @@ public class ManageObject {
 		if(BuyObj == null) {
 			BuyObj = new BuyObject(driver,LocalLog);
 		}
-		if(BuyObject.LocalLog != LocalLog) {
-			BuyObject.LocalLog = LocalLog;
+		else if(BuyObj.getLoglocal() != LocalLog ) {
+			BuyObj.updateLocalLog(LocalLog);
 		}
 		return BuyObj;
 	}

@@ -2,24 +2,12 @@ package ExerciseShareObject;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.asserts.SoftAssert;
-
 import com.aventstack.extentreports.ExtentTest;
-
 import ExerciseBaseCommon.BaseActions;
+import ExerciseBaseCommon.DataTest;
 
 public class BuyObject extends BaseActions {
-	protected String pagetitle = "//span[@class = 'title']";
-	protected String badgelink = "//a[@class='shopping_cart_link']";
-	protected String badgeno = "//span[@class='shopping_cart_badge']";
-	protected String buyitem = "//button[contains (@name,'%s')]";
-	protected String buyname1 = "//div[@class='inventory_item_name']";
-	protected String buyprice1 = "//div[@class='inventory_item_price']";
-	protected String checkout = "//button[@id='checkout']";
-	protected String butcont = "//input[@id='continue']";
-	protected String totalprice = "//div[@class='summary_total_label']";
-	protected String finish = "//button[@id='finish']";
-	protected String completeHead = "//h2[@class='complete-header']";
+	
 	WebDriver LocalDriver;
 	public static ExtentTest LocalLog;
 	
@@ -31,8 +19,14 @@ public class BuyObject extends BaseActions {
 		LocalLog = remoteLog;
 		
 	}
-	
-	
+	public ExtentTest getLoglocal() {
+		return LocalLog;
+	}
+	public void updateLocalLog(ExtentTest log) {
+		updateLog(log);
+		LocalLog = log;
+	}
+	//Input
 	
 	public BuyObject Input_Firstname (String data) {
 		InputdataId("first-name", data);
@@ -49,46 +43,31 @@ public class BuyObject extends BaseActions {
 	
 	
 	//Verify
-	public BuyObject Add_item_ToCart (String item) {
-		ClickFormat(buyitem, item);
-		return this;
-	}
 	public BuyObject Verify_YourCart_page (WebDriverWait wait,String item, String price) {
-		waitclickable(wait,  badgelink);
-		ClickXpath(badgelink);
-		GetTextEqual(pagetitle, "your cart");
-		GetTextEqual(buyname1, item);		
-		AssertEqual_replace(buyprice1, price);
+		GetTextEqual(readExl("Xpath", DataTest.Cxpt_Inventory, DataTest.Rxpt_pagetitle ), 
+				readExl("Other", DataTest.COther, DataTest.RYourcarthead));
+		GetTextEqual(readExl("Xpath", DataTest.Cxpt_Buy, DataTest.Rxpt_buyname1 ), item);		
+		AssertEqual_replace(readExl("Xpath", DataTest.Cxpt_Buy, DataTest.Rxpt_buyprice ), price);
 		return this;
 	}
 	public BuyObject Goto_Checkout_Page (WebDriverWait wait) {
-		waitclickable(wait,  checkout);
-		ClickXpath(checkout);
+		waitclickable(wait, readExl("Xpath", DataTest.Cxpt_Buy, DataTest.Rxpt_checkout));
+		ClickXpath(readExl("Xpath", DataTest.Cxpt_Buy, DataTest.Rxpt_checkout));
 		return this;
 	}
 	public BuyObject Goto_Checkout_Overview (WebDriverWait wait,String pricetotal) {
-		waitclickable(wait,  butcont);
-		ClickXpath(butcont);
-		AssertEqual_replace(totalprice, pricetotal);
+		waitclickable(wait,readExl("Xpath", DataTest.Cxpt_Buy, DataTest.Rxpt_continue));
+		ClickXpath(readExl("Xpath", DataTest.Cxpt_Buy, DataTest.Rxpt_continue));
+		AssertEqual_replace(readExl("Xpath", DataTest.Cxpt_Buy, DataTest.Rxpt_totalprice) ,pricetotal);
 		return this;
 	}
 	public BuyObject Goto_Checkout_Complete (WebDriverWait wait) {
-		waitclickable(wait,  finish);
-		ClickXpath(finish);
-		GetTextEqual(completeHead, "THANK YOU FOR YOUR ORDER");
+		waitclickable(wait,readExl("Xpath", DataTest.Cxpt_Buy, DataTest.Rxpt_finish));
+		ClickXpath(readExl("Xpath", DataTest.Cxpt_Buy, DataTest.Rxpt_finish));
+		GetTextEqual(readExl("Xpath", DataTest.Cxpt_Buy, DataTest.Rxpt_complete) ,
+				readExl("Other", DataTest.COther, DataTest.ROrderhead ));
 		return this;
 	}
 	
-	public BuyObject Click_Cart (WebDriverWait wait) {
-		waitclickable(wait,  badgelink);
-		ClickXpath(badgelink);
-		return this;
-	}
-	
-	//Compare
-	public BuyObject Compare_CartNum (String compare) {
-		GetTextEqual(badgeno, compare);
-		return this;
-	}
 
 }

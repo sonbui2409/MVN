@@ -1,14 +1,13 @@
 package ExercisemvnTestcase;
 
 import java.util.ArrayList;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import ExerciseBaseCommon.BaseTest;
 import ExerciseBaseCommon.DataTest;
+import ExerciseBaseCommon.ManageObject;
 import ExerciseShareObject.BuyObject;
 import ExerciseShareObject.InventoryObject;
 import ExerciseShareObject.LoginObject;
-import ExerciseShareObject.ManageObject;
 
 
 public class Testcase_login extends BaseTest { // use extends command to get value from a variable of another class
@@ -39,12 +38,12 @@ public class Testcase_login extends BaseTest { // use extends command to get val
 				.InputPasswd();
 		ib = lb.ClickLogin_but();
 		sleep_n(2);
-		ib.CompareTitle(readExl("Inventory", DataTest.Ctitle, 1));
+		ib.CompareTitle(readExl("Inventory", DataTest.Ctitle, DataTest.Rproduct));
 		lb = ib.Logout(wait);
 
 	}
 
-	//@Test (priority = 2)
+	@Test (priority = 2)
 	public void login_failure() {
 		log = report.createTest("Login Failure");
 		lb = ManageObject.ManageLogin(driver, log);
@@ -65,7 +64,7 @@ public class Testcase_login extends BaseTest { // use extends command to get val
 
 	}
 
-	//@Test (priority = 2)
+	@Test (priority = 2)
 	public void login_problem() {
 		log = report.createTest("Login Problem");
 		
@@ -118,7 +117,9 @@ public class Testcase_login extends BaseTest { // use extends command to get val
 			String tcName = lstTCName.get(i);
 			if (!tcName.isEmpty()) {
 				log = report.createTest(tcName);
+				
 				lb = ManageObject.ManageLogin(driver, log);
+				
 				lb.OpenLoginPage().InputUserName(username)
 						.InputPasswd_error(password)
 						.ClickLogin_but();

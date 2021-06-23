@@ -7,9 +7,9 @@
 		<parameter name="filename" value="Data.xlsx" />
 		<classes>
 			<!-- input name of class that will be executed -->
-			<class name="ExercisemvnTestcase.Testcase_login" />
-			<!-- <class name="ExercisemvnTestcase.Testcase_Items" /> -->
-			<!-- <class name="ExercisemvnTestcase.Testcase_Navigation" /> -->
+			<!-- <class name="ExercisemvnTestcase.Testcase_login" />
+			<class name="ExercisemvnTestcase.Testcase_Items" /> -->
+			<class name="ExercisemvnTestcase.Testcase_Navigation" />
 
 		</classes>
 	</test>

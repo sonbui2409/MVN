@@ -25,6 +25,10 @@ public class BaseActions {
 		log = remoteLog;
 		reader = new ExcelInit();
 	}
+	
+	public void updateLog(ExtentTest LocalLog) {
+		log = LocalLog;
+	}
 
 	private String get_EleDescription(WebElement ele) {
 		String des ="";
@@ -63,34 +67,35 @@ public class BaseActions {
 	protected void InputdataId (String id, String data) {
 		WebElement field = driver.findElement(By.id(id));
 		field.sendKeys(data);
-		log.info("Input " + data + " to " + id);
+		log.info("Input " + data + " to " + get_EleDescription(field));
 	}
 	protected void InputdataClass (String classname, String data) {
 		WebElement field = driver.findElement(By.className(classname));
 		field.sendKeys(data);
-		log.info("Input " + data + " to " + classname);
+		log.info("Input " + data + " to " + get_EleDescription(field));
 	}
 	protected void ClearDataxpath(String xpath) {
 		WebElement field = driver.findElement(By.xpath(xpath));
 		field.clear();
-		log.info("Clear Data of " + xpath + " Field");
+		log.info("Clear Data of " + get_EleDescription(field) + " Field");
 	}
 	//Click
 	protected void ClickXpath(String xpath) {
 		WebElement field = driver.findElement(By.xpath(xpath));
+		log.info("Click to " + get_EleDescription(field));
 		field.click();
-		log.info("Click to ");
 	}
 	protected void ClickId(String id) {
 		WebElement field = driver.findElement(By.id(id));
-		field.click();
 		log.info("Click to " + get_EleDescription(field));
+		field.click();
+		
 	}
 	protected void ClickFormat (String xpath, String item) {
 		String text = String.format(xpath, item);
 		WebElement field = driver.findElement(By.xpath(text));
-		field.click();
 		log.info("Click to " + get_EleDescription(field));
+		field.click();	
 	}
 	//Get Text
 	protected void GetTextFormatEqual (String xpath, String item, String compare) {

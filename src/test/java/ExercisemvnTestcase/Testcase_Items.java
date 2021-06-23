@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import ExerciseBaseCommon.BaseTest;
 import ExerciseBaseCommon.DataTest;
+import ExerciseBaseCommon.ManageObject;
 import ExerciseShareObject.InventoryObject;
 import ExerciseShareObject.LoginObject;
 
@@ -13,7 +14,7 @@ public class Testcase_Items extends BaseTest {
 	LoginObject lb;
 	InventoryObject ib;
 	
-	@BeforeClass
+	//@BeforeClass
 	public void initObject() {
 		lb = new LoginObject(driver, log);
 		ib = new InventoryObject(driver, log);
@@ -22,13 +23,15 @@ public class Testcase_Items extends BaseTest {
 	@Test (priority = 1)
 	public void products_page () {
 		log = report.createTest("Verify Inventory Page");		
-		ib = lb.Login(log);
-		ib.Verify_Name_Desc_price_item_1(log, wait)
-		.ClickToItem(log, wait,readExl("Inventory", DataTest.CitemLink, DataTest.RitemLink1))
-		.Verify_Page_item_1(log, wait);
+		lb = ManageObject.ManageLogin(driver, log);
+		
+		ib = lb.Login();
+		ib.Verify_Name_Desc_price_item_1(wait)
+		.ClickToItem(wait,readExl("Inventory", DataTest.CitemLink, DataTest.Ritem1))
+		.Verify_Page_item_1(wait);
 		sleep_n(1);
-		ib.Verify_GoBack(log, wait,readExl("Inventory", DataTest.Ctitle, DataTest.Rproduct));
-		lb = ib.Logout(log, wait);
+		ib.Verify_GoBack(wait,readExl("Inventory", DataTest.Ctitle, DataTest.Rproduct));
+		lb = ib.Logout(wait);
 		
 		
 		
@@ -51,8 +54,9 @@ public class Testcase_Items extends BaseTest {
 	@Test (priority = 2)
 	public void verify_content_1 () {
 		log = report.createTest("Verify Title Link of each item");		
+		lb = ManageObject.ManageLogin(driver, log);
 		
-		ib = lb.Login(log);
+		ib = lb.Login();
 		/*ib.Verify_Link_item(log, wait, readExl("Inventory", 1 , 1))
 		.Verify_Link_item(log, wait, readExl("Inventory", 1 , 2))
 		.Verify_Link_item(log, wait, readExl("Inventory", 1 , 3))
@@ -65,13 +69,13 @@ public class Testcase_Items extends BaseTest {
 		for (int i = 1; i < lstLink.size(); i++) {
 			String itemlink = lstLink.get(i);
 			if (!itemlink.isEmpty()) {
-			ib.ClickToItem(log, wait, itemlink);
+			ib.ClickToItem(wait, itemlink);
 			sleep_n(1);
-			ib.Click_GoBack(log, wait);
+			ib.Click_GoBack(wait);
 
 			}
 		}
-		lb = ib.Logout(log, wait);
+		lb = ib.Logout(wait);
 		
 		/*mymethod.waitformatclickable(wait, driver, itemlink, "item_0_title_link");
 		mymethod.ClickFormat(log, driver, itemlink, "item_0_title_link");
@@ -102,20 +106,22 @@ public class Testcase_Items extends BaseTest {
 	@Test (priority = 2)
 	public void verify_content_2 () {
 		log = report.createTest("Verify Image Link of each item");		
-		ib = lb.Login(log);
+		lb = ManageObject.ManageLogin(driver, log);
+		
+		ib = lb.Login();
 		
 		ArrayList<String> lstImage = reader.readExcelFileAtColumn(BaseTest.fileName, "Inventory",DataTest.CitemImage );
 
 		for (int i = 1; i < lstImage.size(); i++) {
 			String imagelink = lstImage.get(i);
 			if (!imagelink.isEmpty()) {
-			ib.ClickToItem(log, wait, imagelink);
+			ib.ClickToItem(wait, imagelink);
 			sleep_n(1);
-			ib.Click_GoBack(log, wait);
+			ib.Click_GoBack(wait);
 
 			}
 		}
-		lb = ib.Logout(log, wait);
+		lb = ib.Logout(wait);
 		
 		
 		/*ib.Verify_Link_item(log, wait,readExl("Inventory", 2 , 1))
@@ -154,7 +160,9 @@ public class Testcase_Items extends BaseTest {
 	@Test (priority = 2)
 	public void verify_content_3 () {
 		log = report.createTest("Verify Title,Description and price of each item");	
-		ib = lb.Login(log);
+		lb = ManageObject.ManageLogin(driver, log);
+		
+		ib = lb.Login();
 		
 		ArrayList<String> lstLink = reader.readExcelFileAtColumn(BaseTest.fileName, "Inventory",DataTest.CitemLink );
 		ArrayList<String> lstName = reader.readExcelFileAtColumn(BaseTest.fileName, "Inventory",DataTest.CitemName );
@@ -168,13 +176,13 @@ public class Testcase_Items extends BaseTest {
 			String price = lstPrice.get(i);
 			
 			if (!link.isEmpty()) {
-			ib.Verify_Item_Name(log, wait, link, name)
-			.Verify_Item_Desc(log, wait, link, desc)
-			.Verify_Item_Price(log, wait, link, price);	
+			ib.Verify_Item_Name(wait, link, name)
+			.Verify_Item_Desc(wait, link, desc)
+			.Verify_Item_Price(wait, link, price);	
 
 			}
 		}
-		lb = ib.Logout(log, wait);
+		lb = ib.Logout(wait);
 		
 		
 		/*ib.Verify_Name_Desc_price_item_1(log, wait)
