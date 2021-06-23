@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite_demo" duration-ms="10635" started-at="2021-06-21T14:07:49 ICT" finished-at="2021-06-21T14:07:59 ICT">
+  <suite name="Suite_demo" duration-ms="30742" started-at="2021-06-23T20:04:20 ICT" finished-at="2021-06-23T20:04:51 ICT">
     <groups>
     </groups>
-    <test name="Demo_Chrome" duration-ms="10635" started-at="2021-06-21T14:07:49 ICT" finished-at="2021-06-21T14:07:59 ICT">
-      <class name="ExercisemvnTestcase.Testcase_login">
-        <test-method status="PASS" signature="driver_open(java.lang.String, java.lang.String)[pri:0, instance:ExercisemvnTestcase.Testcase_login@33c7e1bb]" name="driver_open" is-config="true" duration-ms="2815" started-at="2021-06-21T14:07:49 ICT" finished-at="2021-06-21T14:07:51 ICT">
+    <test name="Demo_Chrome" duration-ms="30742" started-at="2021-06-23T20:04:20 ICT" finished-at="2021-06-23T20:04:51 ICT">
+      <class name="ExercisemvnTestcase.Testcase_Navigation">
+        <test-method status="PASS" signature="driver_open(java.lang.String, java.lang.String)[pri:0, instance:ExercisemvnTestcase.Testcase_Navigation@52feb982]" name="driver_open" is-config="true" duration-ms="2704" started-at="2021-06-23T20:04:20 ICT" finished-at="2021-06-23T20:04:23 ICT">
           <params>
             <param index="0">
               <value>
@@ -23,41 +23,86 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- driver_open -->
-        <test-method status="PASS" signature="login_Standard()[pri:1, instance:ExercisemvnTestcase.Testcase_login@33c7e1bb]" name="login_Standard" duration-ms="4658" started-at="2021-06-21T14:07:51 ICT" finished-at="2021-06-21T14:07:56 ICT">
+        <test-method status="PASS" signature="buy_an_item()[pri:1, instance:ExercisemvnTestcase.Testcase_Navigation@52feb982]" name="buy_an_item" duration-ms="10084" started-at="2021-06-23T20:04:23 ICT" finished-at="2021-06-23T20:04:33 ICT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- login_Standard -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:ExercisemvnTestcase.Testcase_login@33c7e1bb]" name="getResult" is-config="true" duration-ms="4" started-at="2021-06-21T14:07:56 ICT" finished-at="2021-06-21T14:07:56 ICT">
+        </test-method> <!-- buy_an_item -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:ExercisemvnTestcase.Testcase_Navigation@52feb982]" name="getResult" is-config="true" duration-ms="3" started-at="2021-06-23T20:04:33 ICT" finished-at="2021-06-23T20:04:33 ICT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=login_Standard status=SUCCESS method=Testcase_login.login_Standard()[pri:1, instance:ExercisemvnTestcase.Testcase_login@33c7e1bb] output={null}]]]>
+                <![CDATA[[TestResult name=buy_an_item status=SUCCESS method=Testcase_Navigation.buy_an_item()[pri:1, instance:ExercisemvnTestcase.Testcase_Navigation@52feb982] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="login_error_page()[pri:2, instance:ExercisemvnTestcase.Testcase_login@33c7e1bb]" name="login_error_page" duration-ms="2552" started-at="2021-06-21T14:07:56 ICT" finished-at="2021-06-21T14:07:59 ICT">
+        <test-method status="PASS" signature="About()[pri:2, instance:ExercisemvnTestcase.Testcase_Navigation@52feb982]" name="About" duration-ms="6468" started-at="2021-06-23T20:04:33 ICT" finished-at="2021-06-23T20:04:39 ICT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- login_error_page -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:ExercisemvnTestcase.Testcase_login@33c7e1bb]" name="getResult" is-config="true" duration-ms="0" started-at="2021-06-21T14:07:59 ICT" finished-at="2021-06-21T14:07:59 ICT">
+        </test-method> <!-- About -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:ExercisemvnTestcase.Testcase_Navigation@52feb982]" name="getResult" is-config="true" duration-ms="0" started-at="2021-06-23T20:04:39 ICT" finished-at="2021-06-23T20:04:39 ICT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=login_error_page status=SUCCESS method=Testcase_login.login_error_page()[pri:2, instance:ExercisemvnTestcase.Testcase_login@33c7e1bb] output={null}]]]>
+                <![CDATA[[TestResult name=About status=SUCCESS method=Testcase_Navigation.About()[pri:2, instance:ExercisemvnTestcase.Testcase_Navigation@52feb982] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="driver_quit()[pri:0, instance:ExercisemvnTestcase.Testcase_login@33c7e1bb]" name="driver_quit" is-config="true" duration-ms="571" started-at="2021-06-21T14:07:59 ICT" finished-at="2021-06-21T14:07:59 ICT">
+        <test-method status="PASS" signature="all_item()[pri:2, instance:ExercisemvnTestcase.Testcase_Navigation@52feb982]" name="all_item" duration-ms="2675" started-at="2021-06-23T20:04:39 ICT" finished-at="2021-06-23T20:04:42 ICT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- all_item -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:ExercisemvnTestcase.Testcase_Navigation@52feb982]" name="getResult" is-config="true" duration-ms="0" started-at="2021-06-23T20:04:42 ICT" finished-at="2021-06-23T20:04:42 ICT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=all_item status=SUCCESS method=Testcase_Navigation.all_item()[pri:2, instance:ExercisemvnTestcase.Testcase_Navigation@52feb982] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="Check_cart_number()[pri:3, instance:ExercisemvnTestcase.Testcase_Navigation@52feb982]" name="Check_cart_number" duration-ms="7274" started-at="2021-06-23T20:04:42 ICT" finished-at="2021-06-23T20:04:49 ICT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Check_cart_number -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:ExercisemvnTestcase.Testcase_Navigation@52feb982]" name="getResult" is-config="true" duration-ms="1" started-at="2021-06-23T20:04:49 ICT" finished-at="2021-06-23T20:04:49 ICT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Check_cart_number status=SUCCESS method=Testcase_Navigation.Check_cart_number()[pri:3, instance:ExercisemvnTestcase.Testcase_Navigation@52feb982] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="logout()[pri:4, instance:ExercisemvnTestcase.Testcase_Navigation@52feb982]" name="logout" duration-ms="1040" started-at="2021-06-23T20:04:49 ICT" finished-at="2021-06-23T20:04:50 ICT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logout -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:ExercisemvnTestcase.Testcase_Navigation@52feb982]" name="getResult" is-config="true" duration-ms="0" started-at="2021-06-23T20:04:50 ICT" finished-at="2021-06-23T20:04:50 ICT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=logout status=SUCCESS method=Testcase_Navigation.logout()[pri:4, instance:ExercisemvnTestcase.Testcase_Navigation@52feb982] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="driver_quit()[pri:0, instance:ExercisemvnTestcase.Testcase_Navigation@52feb982]" name="driver_quit" is-config="true" duration-ms="454" started-at="2021-06-23T20:04:50 ICT" finished-at="2021-06-23T20:04:51 ICT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- driver_quit -->
-      </class> <!-- ExercisemvnTestcase.Testcase_login -->
+      </class> <!-- ExercisemvnTestcase.Testcase_Navigation -->
     </test> <!-- Demo_Chrome -->
   </suite> <!-- Suite_demo -->
 </testng-results>

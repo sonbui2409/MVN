@@ -36,8 +36,8 @@ public class Testcase_Navigation extends BaseTest {
 		sleep_n(1);
 		bb.Input_Firstname(readExl("Other", DataTest.CInput, DataTest.Rfirstname))
 		.Input_Lastname(readExl("Other", DataTest.CInput, DataTest.Rlastname))
-		//.Input_Postalcode(readExl("Other", DataTest.CInput, DataTest.Rzipcode));
-		.Input_Postalcode("700000");
+		.Input_Postalcode(readExl("Other", DataTest.CInput, DataTest.Rzipcode));
+		//.Input_Postalcode("700000");
 		sleep_n(1);
 		bb.Goto_Checkout_Overview(wait,readExl("Other", DataTest.CTotalPrice, DataTest.RTotalprice5));
 		sleep_n(1);
