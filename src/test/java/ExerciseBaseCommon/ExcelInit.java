@@ -40,7 +40,7 @@ public class ExcelInit {
 			}*/
 		String data = "";
 		Workbook wb = newWorkbook(filename);
-		String fileExtensionName = filename.substring(filename.indexOf("."));
+		String fileExtensionName = filename.substring(filename.lastIndexOf("."));
 		Sheet sh = wb.getSheet(sheetname); // get sheet name that need to read
 			if (sh!=null) {
 				
@@ -87,7 +87,7 @@ public class ExcelInit {
 			FileInputStream inputStream;
 			inputStream = new FileInputStream(file);
 
-			String fileExtensionName = filename.substring(filename.indexOf("."));
+			String fileExtensionName = filename.substring(filename.lastIndexOf("."));
 			if (fileExtensionName.equalsIgnoreCase(".xlsx")) {
 				wb = new XSSFWorkbook(inputStream);
 			} else if (fileExtensionName.equalsIgnoreCase(".xls")) {
@@ -112,7 +112,7 @@ public class ExcelInit {
 			File file = new File(filePath + "//" + fileName);
 			FileInputStream inputStream;
 			inputStream = new FileInputStream(file);
-			String fileExtensionName = fileName.substring(fileName.indexOf("."));
+			String fileExtensionName = fileName.substring(fileName.lastIndexOf("."));
 			if (fileExtensionName.equalsIgnoreCase(".xlsx")) {
 				wb = new XSSFWorkbook(inputStream);
 			} else if (fileExtensionName.equalsIgnoreCase(".xls")) {
